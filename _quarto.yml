@@ -1,0 +1,28 @@
+project:
+  type: manuscript
+  output-dir: _output
+  preview:
+    port: 4001
+  render:
+    - notebooks/*
+
+manuscript:
+  article: index.qmd
+  meca-bundle: "bundle-malyukov-bass.zip"
+
+format:
+  html:
+    comments:
+      hypothesis: true
+  docx: default
+  # jats: default
+
+  # (other formats)
+  pdf:
+    documentcalss: report
+
+execute:
+  freeze: auto
+
+
+

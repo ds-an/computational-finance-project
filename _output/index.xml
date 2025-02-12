@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving
+and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
+
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="other">
+
+<front>
+
+
+<article-meta>
+
+
+<title-group>
+<article-title>Research Report on the Clorox Company</article-title>
+</title-group>
+
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<name>
+<surname>Malyukov</surname>
+<given-names>Andrey</given-names>
+</name>
+<string-name>Andrey Malyukov</string-name>
+
+<email>ds-an@tuta.io</email>
+<role vocab="https://credit.niso.org" vocab-term="writing – original
+draft" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-original-draft/">writing</role>
+<xref ref-type="aff" rid="aff-1">a</xref>
+<xref ref-type="corresp" rid="cor-1">&#x002A;</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Bass</surname>
+<given-names>Roza</given-names>
+</name>
+<string-name>Roza Bass</string-name>
+
+<role vocab="https://credit.niso.org" vocab-term="writing – original
+draft" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-original-draft/">writing</role>
+<xref ref-type="aff" rid="aff-1">a</xref>
+</contrib>
+</contrib-group>
+<aff id="aff-1">
+<institution-wrap>
+<institution>Sami Shamoon College of Engineering</institution>
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<author-notes>
+<corresp id="cor-1">ds-an@tuta.io</corresp>
+</author-notes>
+
+
+
+
+
+
+
+
+
+<history></history>
+
+
+<abstract>
+<p>In September 2021, a significant jump in seismic activity on the
+island of La Palma (Canary Islands, Spain) signaled the start of a
+volcanic crisis that still continues at the time of writing. Earthquake
+data is continually collected and published by the Instituto Geográphico
+Nacional (IGN). …</p>
+</abstract>
+<kwd-group kwd-group-type="author">
+<kwd>Financial Report</kwd>
+<kwd>Feduciary</kwd>
+</kwd-group>
+
+
+
+
+</article-meta>
+
+</front>
+
+<body>
+<sec id="introduction">
+  <title>Introduction</title>
+</sec>
+<sec id="section">
+  <title></title>
+  <p>That’s a nice intro.</p>
+  <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-intro-cell-2-output-1.png" />
+  <sec id="sector-analysis">
+    <title>Sector Analysis</title>
+  </sec>
+</sec>
+<sec id="section-1">
+  <title></title>
+  <sec id="personality-of-the-company">
+    <title>Personality of the Company</title>
+  </sec>
+</sec>
+<sec id="section-2">
+  <title></title>
+  <sec id="fundamental-analysis">
+    <title>Fundamental Analysis</title>
+  </sec>
+</sec>
+<sec id="section-3">
+  <title></title>
+  <sec id="technical-analysis">
+    <title>Technical Analysis</title>
+  </sec>
+</sec>
+<sec id="section-4">
+  <title></title>
+  <sec id="company-performance-2019-2024">
+    <title>Company Performance 2019-2024</title>
+  </sec>
+</sec>
+<sec id="section-5">
+  <title></title>
+  <sec id="forecasting">
+    <title>Forecasting</title>
+  </sec>
+</sec>
+<sec id="section-6">
+  <title></title>
+  <list list-type="bullet">
+    <list-item>
+      <p>What risks does it list on 10-k? Summarize.</p>
+    </list-item>
+  </list>
+  <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-forecasting-cell-2-output-2.png" />
+  <sec id="summary">
+    <title>Summary</title>
+  </sec>
+</sec>
+<sec id="section-7">
+  <title></title>
+</sec>
+</body>
+
+<back>
+</back>
+
+<sub-article article-type="notebook" id="nb-3-nb-1">
+<front-stub>
+</front-stub>
+
+<body>
+<p>That’s a nice intro.</p>
+<sec specific-use="notebook-content">
+<code language="r script">plot(rnorm(100))
+</code>
+<graphic mimetype="image" mime-subtype="png" xlink:href="intro_files/figure-jats/unnamed-chunk-1-1.png" />
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-6-nb-2">
+<front-stub>
+</front-stub>
+
+<body>
+
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-9-nb-3">
+<front-stub>
+</front-stub>
+
+<body>
+
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-12-nb-4">
+<front-stub>
+</front-stub>
+
+<body>
+
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-15-nb-5">
+<front-stub>
+</front-stub>
+
+<body>
+
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-18-nb-6">
+<front-stub>
+</front-stub>
+
+<body>
+
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-21-nb-7">
+<front-stub>
+</front-stub>
+
+<body>
+<list list-type="bullet">
+  <list-item>
+    <p>What risks does it list on 10-k? Summarize.</p>
+  </list-item>
+</list>
+<sec specific-use="notebook-content">
+<code language="r script">library(palmerpenguins)
+
+#' ## Exploring the data
+#' See @fig-bill-sizes for an exploration of bill sizes by species.
+
+library(ggplot2)
+ggplot(data = penguins,
+       aes(x = bill_length_mm,
+           y = bill_depth_mm,
+           group = species)) +
+  geom_point(aes(color = species,
+                 shape = species),
+             size = 3,
+             alpha = 0.8) +
+  labs(title = &quot;Penguin bill dimensions&quot;,
+       subtitle = &quot;Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER&quot;,
+       x = &quot;Bill length (mm)&quot;,
+       y = &quot;Bill depth (mm)&quot;,
+       color = &quot;Penguin species&quot;,
+       shape = &quot;Penguin species&quot;)
+</code>
+<boxed-text>
+  <preformat>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</preformat>
+</boxed-text>
+<graphic mimetype="image" mime-subtype="png" xlink:href="forecasting_files/figure-jats/unnamed-chunk-1-1.png" />
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-24-nb-8">
+<front-stub>
+</front-stub>
+
+<body>
+
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+
+</article>

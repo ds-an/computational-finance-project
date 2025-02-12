@@ -156,6 +156,9 @@
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-bac1c56864119d97d87e9872e9e076ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
      <script async="" src="https://hypothes.is/embed.js"></script>
 <script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -181,25 +184,13 @@
 </div>
 <main class="content quarto-banner-title-block" id="quarto-document-content">    <p>That’s a nice intro.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1]  1.33854577  0.29064838  1.28776587  0.74974046  0.37919013 -0.63993521
-  [7] -0.38192159  0.33090835  0.27339577  0.67147215  0.04839934 -0.24379374
- [13]  0.42674798  0.58608984  0.52819575  0.75067403 -0.39936607 -0.46765384
- [19]  0.15616843  0.41406896 -1.68376337 -0.20052053 -0.71148816  1.20739750
- [25] -0.20554622 -0.47714311 -1.43627782 -0.61063748  0.40327322 -0.39653382
- [31]  0.93292171  0.26520572 -0.48315857 -1.25417909 -0.07876085 -0.45452162
- [37]  0.43743498 -0.23566933 -0.15680763 -0.87143007  0.80209457  0.66714194
- [43]  0.72512719  0.51563431  0.04203883  1.22836591  0.02550054 -0.89347960
- [49] -0.51358528  0.25271604 -0.14830456  1.86001678  0.77415928 -0.80832729
- [55]  1.34379760 -0.12507889  1.09590744 -0.42467994 -2.40837200  0.11259728
- [61]  0.83832747 -2.51579684 -0.11404777  1.99307322  0.09670546  0.75652921
- [67]  0.85801181  0.39441694  2.34745811 -0.90387790 -0.83906625 -0.39427962
- [73] -0.90423893 -0.02891147  0.34043704 -0.75910278 -1.54072247  1.11922663
- [79]  0.05006120 -0.08150923 -0.80409129  0.99050689  0.02708344  1.41509039
- [85]  1.24587342 -0.94206975  0.24063774 -0.89608210  0.35003153  1.46209377
- [91]  0.38627411  0.28826964  0.82384010  1.56834925 -0.85637039 -0.72000604
- [97] -2.07792374 -1.62555663 -0.04638563 -0.33352085</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><a href="intro_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="intro_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
 </div>
 </div></div>
      </main>
@@ -619,6 +610,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>  </div> <!-- /content --> 
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script> 
   
 </body></html>

@@ -25,8 +25,8 @@ key-points:
   - Earthquake events on La Palma are consistent with the presence of both mantle and crustal reservoirs.
 ---
 
-## Section
-This is a simple placeholder for the manuscript's main document [@knuth84].
+<!-- ## Section -->
+<!-- This is a simple placeholder for the manuscript's main document [@knuth84]. -->
 
 ## Introduction
 {{< embed notebooks/intro.qmd >}}

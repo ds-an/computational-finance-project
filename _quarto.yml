@@ -30,12 +30,17 @@ format:
   html:
     comments:
       hypothesis: true
-  docx: default
+  docx:
+    output-file: report-malyukov-bass
+    output-ext: docx
   jats: default
 
   # (other formats)
   pdf:
-    documentcalss: report
+    output-file: report-malyukov-bass
+    output-ext: pdf
+    toc: true
+    bibliography: references.bib
 
 execute:
   freeze: auto

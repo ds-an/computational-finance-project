@@ -1,0 +1,17 @@
+{
+  "hash": "4301a6bde2838dbd8b2ce3f77c23d1db",
+  "result": {
+    "engine": "knitr",
+    "markdown": "* What risks does it list on 10-k? Summarize.\n\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code .hidden}\nlibrary(palmerpenguins)\n\n#' ## Exploring the data\n#' See @fig-bill-sizes for an exploration of bill sizes by species.\n\n#| label: fig-bill-sizes\n#| fig-cap: Bill Sizes by Species\n#| warning: false\nlibrary(ggplot2)\nggplot(data = penguins,\n       aes(x = bill_length_mm,\n           y = bill_depth_mm,\n           group = species)) +\n  geom_point(aes(color = species,\n                 shape = species),\n             size = 3,\n             alpha = 0.8) +\n  labs(title = \"Penguin bill dimensions\",\n       subtitle = \"Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER\",\n       x = \"Bill length (mm)\",\n       y = \"Bill depth (mm)\",\n       color = \"Penguin species\",\n       shape = \"Penguin species\")\n```\n\n::: {.cell-output .cell-output-stderr .hidden}\n\n```\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n```\n\n\n:::\n\n::: {.cell-output-display}\n![](forecasting_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "forecasting_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

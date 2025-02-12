@@ -1,5 +1,5 @@
 That's a nice intro.
 
 ```{r} 
-rnorm(100)
+plot(rnorm(100))
 ```

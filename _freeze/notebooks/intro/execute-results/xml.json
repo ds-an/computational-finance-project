@@ -1,0 +1,17 @@
+{
+  "hash": "ec18f875fafa0a02b7ea67b9aa13e7c2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "That's a nice intro.\n\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code .hidden}\nplot(rnorm(100))\n```\n\n::: {.cell-output-display}\n![](intro_files/figure-jats/unnamed-chunk-1-1.png)\n:::\n:::\n",
+    "supporting": [
+      "intro_files/figure-jats"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

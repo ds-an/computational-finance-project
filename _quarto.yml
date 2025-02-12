@@ -3,19 +3,35 @@ project:
   output-dir: _output
   preview:
     port: 4001
-  render:
-    - notebooks/*
+  # render:
+  #   - notebooks/*
 
 manuscript:
   article: index.qmd
   meca-bundle: "bundle-malyukov-bass.zip"
-
+  notebooks:
+    - notebook: notebooks/intro.qmd
+      title: Introduction 
+    - notebook: notebooks/sector.qmd
+      title: Sector Analysis
+    - notebook: notebooks/personality.qmd
+      title: Personality of the Company
+    - notebook: notebooks/fundamentals.qmd
+      title: Fundamental Analysis
+    - notebook: notebooks/technical.qmd
+      title: Technical Analysis
+    - notebook: notebooks/2019-2024.qmd
+      title: Company Performance 2019-2024
+    - notebook: notebooks/forecasting.qmd
+      title: Forecasting
+    - notebook: notebooks/summary.qmd
+      title: Summary
 format:
   html:
     comments:
       hypothesis: true
   docx: default
-  # jats: default
+  jats: default
 
   # (other formats)
   pdf:

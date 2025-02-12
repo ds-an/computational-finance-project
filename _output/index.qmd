@@ -28,26 +28,6 @@ key-points:
 ## Section
 This is a simple placeholder for the manuscript's main document [@knuth84].
 
-## Introduction
-{{< embed notebooks/intro.qmd >}}
-
-## Sector Analysis
-{{< embed notebooks/sector.qmd >}}
-
-## Personality of the Company
-{{< embed notebooks/personality.qmd >}}
-
-## Fundamental Analysis
-{{< embed notebooks/fundamentals.qmd >}}
-
-## Technical Analysis
-{{< embed notebooks/technical.qmd >}}
-
-## Company Performance 2019-2024
-{{< embed notebooks/2019-2024.qmd >}}
-
-## Forecasting
-{{< embed notebooks/forecasting.qmd >}}
-
-## Summary
-{{< embed notebooks/summary.qmd >}}
+```{r} 
+rnorm(100)
+```

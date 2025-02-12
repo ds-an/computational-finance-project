@@ -1,0 +1,17 @@
+{
+  "hash": "cdc775a4a1c2a5752c7aa54c0300220f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Research Report on the Clorox Company\n# title-block-banner: true\nauthors:\n  - name: Andrey Malyukov\n    affiliation: Sami Shamoon College of Engineering\n    roles: writing\n    corresponding: true\n    email: ds-an@tuta.io\n  - name: Roza Bass\n    affiliation: Sami Shamoon College of Engineering\n    roles: writing\n    corresponding: false\nbibliography: references.bib\nkeywords:\n  - Financial Report\n  - Feduciary\nnumber-section: true\nabstract: |\n  In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...\nplain-language-summary: |\n  Earthquake data for the island of La Palma from the September 2021 eruption is found ...\nkey-points:\n  - A web scraping script was developed to pull data from the Instituto Geogràphico Nacional into a machine-readable form for analysis\n  - Earthquake events on La Palma are consistent with the presence of both mantle and crustal reservoirs.\n---\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Section\nThis is a simple placeholder for the manuscript's main document [@knuth84].\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code .hidden}\nrnorm(100)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n  [1]  0.551978209  0.690537490  0.187959799 -0.780584526 -1.093574140\n  [6] -1.312995138  0.674477629  0.088075641 -0.311121958  0.092068371\n [11]  0.144703164  0.103378312 -1.149013953 -0.745284677 -1.727033352\n [16] -0.282587892  0.663198309 -1.651148862  0.128939613  0.306214277\n [21] -0.792107388  0.906088210  2.047332420  0.447146919 -0.326382490\n [26]  0.241670466 -0.467509623  1.869768911  0.172379482 -0.661496839\n [31] -0.256172816 -0.531289390  0.522255124  1.128651292 -0.222218496\n [36]  0.972127004  0.666655911 -0.968198272  1.412247175 -0.462483027\n [41]  0.419014231  0.139607047 -0.095912309 -1.169956209 -1.064590468\n [46]  0.155693522  1.040268910 -0.113329618  1.461173044 -0.384831442\n [51] -0.329491055  0.951732104 -0.005167339  0.874536763  0.335928633\n [56]  0.598316012  1.269859529 -0.727573537  0.688837560 -0.465181106\n [61] -0.390420593 -0.291332283  0.664617550 -2.697304918 -0.083679582\n [66]  1.960691754 -0.195200715  1.827773135 -0.125640373 -1.674025346\n [71] -1.241666706 -0.996374661  0.454418463 -0.032320300 -0.307895825\n [76]  1.061223391 -0.805670711  0.401352100  0.187880685 -0.431669114\n [81]  1.410696210  0.555833599 -1.098194838  1.703648368  0.399915238\n [86] -1.381332077  1.364623189  0.347258485  1.461568712 -0.986598890\n [91] -1.366745771 -0.568881173 -1.025799138  1.115679936 -1.570484246\n [96]  0.798040114 -0.241265167  1.157794181 -0.460576682  0.772686053\n```\n\n\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

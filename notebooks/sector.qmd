@@ -1,0 +1,99 @@
+### Financial Analysis of The Clorox Company (CLX) in the Consumer Staples Sector
+
+#### **1. GICS Sector Classification**
+Clorox operates in the **Consumer Defensive sector**, specifically within the Household and Personal Products sub-sector. This sector is characterized by stable demand, recession resilience.
+
+---
+
+#### **2. Position Relative to Competitors**
+Clorox competes with major players such as **Procter & Gamble (PG)**, **Colgate-Palmolive (CL)**, **Church & Dwight (CHD)**, and **Kimberly-Clark (KMB)**. Key comparisons include:
+
+| **Metric**           | **Clorox (CLX)**      | **Colgate-Palmolive (CL)** | **Procter & Gamble (PG)** | **Industry Avg**       |
+|----------------------|-----------------------|----------------------------|---------------------------|------------------------|
+| **Revenue (FY24)**   | $7.09B   | $20.10B        | $84.04B       | Varies by sub-industry |
+| **Net Margin**       | 6.38%    | 14.38%         | ~18% (est.)               | ~10-15%               |
+| **P/E Ratio**        | 40.62    | 24.39          | 26.66         | 20-25                 |
+| **Dividend Yield**   | 3.3%     | 2.3%           | 2.4%                      | 2.5-3.5%              |
+
+- **Strengths**: Strong brands (e.g., Clorox bleach, Glad bags), ESG focus (recyclable packaging by 2025) .
+- **Weaknesses**: Lower profitability vs. peers, cyberattack recovery costs .
+- **Market Share**: ~1.99% in cleaning products, lagging behind P&G and Colgate .
+
+---
+
+#### **3. Economic Indicator Comparison**
+Clorox’s performance relative to the **S&P 500** and **Dow Jones Industrial Average (DJIA)** highlights its defensive nature:
+- **Beta**: 0.42 (less volatile than the market) .
+- **1-Year Stock Performance**: -3.3% (CLX) vs. +7.9% (S&P 500) and +15.05% (DJIA) .
+- **Dividend Growth**: 35 consecutive years of increases, outperforming many S&P 500 staples .
+
+---
+
+#### **4. Strategic and Financial Challenges**
+- **Cyberattack Impact**: Caused a 20% Q1 FY24 sales decline, though recovery efforts restored ~90% market share by Q3 .
+- **Margin Recovery**: Gross margin expanded to 46.5% in Q4 FY24, driven by cost savings .
+- **Divestitures**: Sold non-core businesses (Argentina, VMS) to focus on high-growth segments .
+
+---
+
+#### **5. R Code for Visualization**
+Below is R code to compare Clorox’s stock performance with competitors and indices (not really, but look into how to get that working):
+
+```{r cumulative-returns}
+
+library(PerformanceAnalytics)
+
+library(quantmod)
+
+# Acquire historical stock data
+
+getSymbols("CLX", from = "2015-01-01", to = "2025-01-01")
+
+stock_prices <- Cl(CLX)
+
+# Calculate periodic returns
+
+returns <- ROC(stock_prices, type = "discrete")
+
+returns <- na.omit(returns) # Remove NA values from the dataset
+
+# Analyze the performance
+
+chart.CumReturns(returns, main = "Cumulative Returns of CLX")
+```
+
+```{r}
+library(quantmod)
+library(kableExtra)
+coef_table <- data.frame(
+  Variables = c("var 1", "var 2", "var 3"),
+  Coefficients = c(1.6, 0.2, -2.0),
+  Conf.Lower = c(1.3, -0.4, -2.5),
+  Conf.Higher = c(1.9, 0.6, -1.4)
+) 
+
+sol = data.frame(
+  Variable = coef_table$Variables,
+  Visualization = ""
+) %>%
+  kbl(booktabs = T) %>%
+  kable_classic(full_width = FALSE) %>%
+  column_spec(2, image = spec_pointrange(
+    x = coef_table$Coefficients, 
+    xmin = coef_table$Conf.Lower, 
+    xmax = coef_table$Conf.Higher, 
+    vline = 0)
+    )
+
+```
+
+---
+
+#### **6. Key Insights**
+- Clorox’s valuation (P/E 40.6) reflects optimism about its recovery and IGNITE strategy but is expensive compared to peers .
+- Consumer Staples sector growth (CAGR 3.7% for cleaning products) supports long-term stability, but competition from eco-friendly brands (e.g., Seventh Generation) poses risks .
+- Clorox’s underperformance vs. indices highlights sector-specific challenges (inflation, supply chain) .
+
+---
+
+For real-time data, update the R code with current ticker prices and adjust the date range. The analysis underscores Clorox’s resilience in a defensive sector but signals caution due to margin pressures and competitive headwinds.

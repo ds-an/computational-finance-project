@@ -1,27 +1,105 @@
 * What risks does it list on 10-k? Summarize.
 
 ```{r} 
-library(palmerpenguins)
-
-#' ## Exploring the data
-#' See @fig-bill-sizes for an exploration of bill sizes by species.
-
-#| label: fig-bill-sizes
-#| fig-cap: Bill Sizes by Species
-#| warning: false
+# Load libraries
+library(tidyquant)
+library(forecast)
 library(ggplot2)
-ggplot(data = penguins,
-       aes(x = bill_length_mm,
-           y = bill_depth_mm,
-           group = species)) +
-  geom_point(aes(color = species,
-                 shape = species),
-             size = 3,
-             alpha = 0.8) +
-  labs(title = "Penguin bill dimensions",
-       subtitle = "Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
-       x = "Bill length (mm)",
-       y = "Bill depth (mm)",
-       color = "Penguin species",
-       shape = "Penguin species")
+library(lubridate)
+library(dplyr)
+
+# Get daily stock prices
+clx_stock <- tq_get("CLX", 
+                   get = "stock.prices", 
+                   from = "2019-01-01", 
+                   to = Sys.Date())
+
+# Get quarterly revenue (from Yahoo Finance)
+# clx_revenue <- tq_get("CLX", 
+#                      get = "financials", 
+#                      type = "income", 
+#                      period = "quarterly") %>%
+#   filter(category == "Total Revenue") %>%
+#   select(date, revenue = value)
+
+# Stock price time series (daily)
+clx_price_ts <- ts(clx_stock$adjusted, 
+                  frequency = 365, 
+                  start = c(year(min(clx_stock$date)), 
+                            yday(min(clx_stock$date))))
+
+# Revenue time series (quarterly)
+# clx_revenue_ts <- ts(clx_revenue$revenue, 
+#                     frequency = 4, 
+#                     start = c(2019, 1))
+
+# Fit ARIMA model
+arima_model <- auto.arima(clx_price_ts)
+
+# Forecast 1.5 years (547 days)
+arima_forecast <- forecast(arima_model, h = 547)
+
+# Plot results
+autoplot(arima_forecast) +
+  labs(title = "CLX Stock Price Forecast (ARIMA)",
+       y = "Price (USD)",
+       x = "Date") +
+  theme_minimal()
+
+# # Fit ETS model
+# ets_model <- ets(clx_revenue_ts)
+#
+# # Forecast 6 quarters (1.5 years)
+# ets_forecast <- forecast(ets_model, h = 6)
+#
+# # Plot results
+# autoplot(ets_forecast) +
+#   labs(title = "CLX Quarterly Revenue Forecast (ETS)",
+#        y = "Revenue (Billions USD)",
+#        x = "Year") +
+#   theme_minimal()
+#
+# # Stock price forecast data frame
+# stock_forecast_df <- data.frame(
+#   date = seq.Date(from = max(clx_stock$date), 
+#                   by = "day", 
+#                   length.out = 547),
+#   forecast = arima_forecast$mean,
+#   lower = arima_forecast$lower[, 2],
+#   upper = arima_forecast$upper[, 2]
+# )
+#
+# # Revenue forecast data frame
+# revenue_forecast_df <- data.frame(
+#   date = seq.Date(from = max(clx_revenue$date), 
+#                   by = "quarter", 
+#                   length.out = 6),
+#   forecast = ets_forecast$mean,
+#   lower = ets_forecast$lower[, 2],
+#   upper = ets_forecast$upper[, 2]
+# )
+#
+# # Plot stock price forecast
+# ggplot() +
+#   geom_line(data = clx_stock, aes(x = date, y = adjusted), color = "black") +
+#   geom_line(data = stock_forecast_df, aes(x = date, y = forecast), color = "blue") +
+#   geom_ribbon(data = stock_forecast_df, 
+#               aes(x = date, ymin = lower, ymax = upper), 
+#               fill = "blue", alpha = 0.2) +
+#   labs(title = "CLX Stock Price Forecast (ARIMA)",
+#        y = "Price (USD)",
+#        x = "Date") +
+#   theme_minimal()
+#
+# # Plot revenue forecast
+# ggplot() +
+#   geom_line(data = clx_revenue, aes(x = date, y = revenue), color = "black") +
+#   geom_line(data = revenue_forecast_df, aes(x = date, y = forecast), color = "red") +
+#   geom_ribbon(data = revenue_forecast_df, 
+#               aes(x = date, ymin = lower, ymax = upper), 
+#               fill = "red", alpha = 0.2) +
+#   labs(title = "CLX Quarterly Revenue Forecast (ETS)",
+#        y = "Revenue (Billions USD)",
+#        x = "Date") +
+#   theme_minimal()
 ```

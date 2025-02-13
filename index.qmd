@@ -1,5 +1,5 @@
 ---
-title: Research Report on the Clorox Company
+title: Research Report on the Clorox Company (CLX)
 # title-block-banner: true
 authors:
   - name: Andrey Malyukov
@@ -28,10 +28,23 @@ key-points:
 <!-- ## Section -->
 <!-- This is a simple placeholder for the manuscript's main document [@knuth84]. -->
 
+## TODO
+
+Use "PerformanceAnalytics" package for Sharpe ratio and risk analysis.
+
+Cite your stuff: [@regensteinVisualizationSectorTrends2020].
+
 ## Introduction
 {{< embed notebooks/intro.qmd >}}
 
 ## Sector Analysis
+
+Performance of all sectors relative to each other.
+
+https://alphaarchitect.com/2020/01/visualization-sector-trends-with-r-code/
+
+Maybe that's a bit much.
+
 {{< embed notebooks/sector.qmd >}}
 
 ## Personality of the Company

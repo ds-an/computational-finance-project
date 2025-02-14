@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -98,6 +64,35 @@ div.csl-indent {
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta name="citation_title" content="Research Report on the Clorox Company (CLX)">
 <meta name="citation_abstract" content="In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...
@@ -120,6 +115,7 @@ div.csl-indent {
 <meta name="citation_reference" content="citation_title=CLX - Clorox Co Stock Price Forecast 2025, 2026, 2030 to 2050;,citation_abstract=Explore CLX - Clorox Co Stock Price Forecast: Accurate short-term and long-term price predictions up to 2050;,citation_language=en-US;,citation_publisher=https://stockscan.io/stocks/CLX/forecast;">
 <meta name="citation_reference" content="citation_title=Comparing Iconic Indices: The S&amp;amp;amp;P 500 and DJIA;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_language=en-US;,citation_journal_title=The S;">
 <meta name="citation_reference" content="citation_title=Consumer Defensive Stock Performance;,citation_abstract=Yahoo Finance’s Consumer Defensive performance dashboard help you quickly analyze &amp;amp;amp; examine stock performance across the Consumer Defensive sector using dozens of metrics and views.;,citation_language=en-US;,citation_journal_title=Yahoo Finance;,citation_publisher=https://finance.yahoo.com/sectors/consumer-defensive/;">
+<meta name="citation_reference" content="citation_title=Tidyquant: Tidy Quantitative Financial Analysis;,citation_abstract=Bringing business and financial analysis to the ’tidyverse’. The ’tidyquant’ package provides a convenient wrapper to various ’xts’, ’zoo’, ’quantmod’, ’TTR’ and ’PerformanceAnalytics’ package functions and returns the objects in the tidy ’tibble’ format. The main advantage is being able to use quantitative functions with the ’tidyverse’ functions including ’purrr’, ’dplyr’, ’tidyr’, ’ggplot2’, ’lubridate’, etc. See the ’tidyquant’ website for more information, documentation and examples.;,citation_author=Matt Dancho;,citation_author=Davis Vaughan;,citation_publication_date=2025-02;,citation_cover_date=2025-02;,citation_year=2025;">
 <meta name="citation_reference" content="citation_title=Evaluating Clorox: Insights From 11 Financial Analysts  Nasdaq;,citation_publisher=https://www.nasdaq.com/articles/evaluating-clorox-insights-11-financial-analysts;">
 <meta name="citation_reference" content="citation_title=Financial modeling with R;,citation_publisher=https://mlozanoqf.github.io/tutorial_pmf/;">
 <meta name="citation_reference" content="citation_title=How to download stock prices in R :: Coding Finance —;,citation_language=en-US;,citation_journal_title=How to download stock prices in R;,citation_publisher=https://www.codingfinance.com/post/2018-03-27-download-price/;">
@@ -127,8 +123,12 @@ div.csl-indent {
 <meta name="citation_reference" content="citation_title=Investors  The Clorox Company;,citation_publisher=https://investors.thecloroxcompany.com/financial-reporting/annual-reports/default.aspx;">
 <meta name="citation_reference" content="citation_title=Investors  The Clorox Company;,citation_publisher=https://investors.thecloroxcompany.com/financial-reporting/annual-reports/default.aspx;">
 <meta name="citation_reference" content="citation_title=Macroeconomic Analysis with R at Claremont Graduate University;,citation_abstract=Macroeconomics at Claremont Graduate University;,citation_language=en-US;,citation_journal_title=macroLectures;,citation_publisher=https://hisamsabouni.github.io/macroLectures/;">
+<meta name="citation_reference" content="citation_title=Clorox Operations Disrupted By Cyber-Attack;,citation_abstract=The cyber-attack disrupted manufacturing and distribution processes;,citation_author=Alessandro Mascellino;,citation_publication_date=2023-08;,citation_cover_date=2023-08;,citation_year=2023;,citation_language=en-GB;,citation_journal_title=Infosecurity Magazine;,citation_publisher=https://www.infosecurity-magazine.com/news/clorox-disrupted-cyber-attack/;">
 <meta name="citation_reference" content="citation_title=Performance Analysis with tidyquant;,citation_language=en-US;,citation_publisher=https://business-science.github.io/tidyquant/articles/TQ05-performance-analysis-with-tidyquant.html;">
+<meta name="citation_reference" content="citation_title=R: The R Project for Statistical Computing;,citation_publisher=https://www.r-project.org/;">
 <meta name="citation_reference" content="citation_title=Purpose &amp;amp;amp; Values;,citation_abstract=The Clorox Company champions people to be well &amp;amp; thrive every single day. Get company news, learn what’s in our products and search job opportunities.;,citation_language=en-US;,citation_journal_title=The Clorox Company;">
+<meta name="citation_reference" content="citation_title=Quarto;,citation_abstract=An open source technical publishing system for creating beautiful articles, websites, blogs, books, slides, and more. Supports Python, R, Julia, and JavaScript.;,citation_language=en-US;,citation_journal_title=Quarto;,citation_publisher=https://quarto.org/;">
+<meta name="citation_reference" content="citation_title=Recognitions;,citation_abstract=Here are a few recent accomplishments we’re particularly proud of.;,citation_language=en-US;,citation_journal_title=The Clorox Company;">
 <meta name="citation_reference" content="citation_title=Visualization Sector Trends with R Code;,citation_abstract=Welcome to a year-end installment of Reproducible Finance with R, a series posts that will be a little bit different from the norm on Alpha Architect (see here;,citation_author=Jonathan Regenstein;,citation_publication_date=2020-01;,citation_cover_date=2020-01;,citation_year=2020;,citation_language=en-US;,citation_journal_title=Alpha Architect;,citation_publisher=https://alphaarchitect.com/2020/01/visualization-sector-trends-with-r-code/;">
 <meta name="citation_reference" content="citation_title=Responsibility;,citation_abstract=The Clorox Company champions people to be well &amp;amp;amp; thrive every single day. Get company news, learn what’s in our products and search job opportunities.;,citation_language=en-US;,citation_journal_title=The Clorox Company;">
 </head>
@@ -215,10 +215,7 @@ div.csl-indent {
   <li><a href="#fundamental-analysis-of-the-clorox-company-clx" id="toc-fundamental-analysis-of-the-clorox-company-clx" class="nav-link" data-scroll-target="#fundamental-analysis-of-the-clorox-company-clx">Fundamental Analysis of The Clorox Company (CLX)</a></li>
   </ul></li>
   <li><a href="#technical-analysis" id="toc-technical-analysis" class="nav-link" data-scroll-target="#technical-analysis">Technical Analysis</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a>
-  <ul class="collapse">
-  <li><a href="#technical-analysis-of-clorox-clx" id="toc-technical-analysis-of-clorox-clx" class="nav-link" data-scroll-target="#technical-analysis-of-clorox-clx"><strong>Technical Analysis of Clorox (CLX)</strong></a></li>
-  </ul></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
   <li><a href="#company-performance-2019-2024" id="toc-company-performance-2019-2024" class="nav-link" data-scroll-target="#company-performance-2019-2024">Company Performance 2019-2024</a></li>
   <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a>
   <ul class="collapse">
@@ -227,10 +224,10 @@ div.csl-indent {
   </ul></li>
   <li><a href="#forecasting" id="toc-forecasting" class="nav-link" data-scroll-target="#forecasting">Forecasting</a></li>
   <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
-  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1">Summary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a></li>
   </ul>
-<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks/2019-2024-preview.html"><i class="bi bi-journal-code"></i>Company Performance 2019-2024</a></li><li><a href="notebooks/forecasting-preview.html"><i class="bi bi-journal-code"></i>Forecasting</a></li><li><a href="notebooks/fundamentals-preview.html"><i class="bi bi-journal-code"></i>Fundamental Analysis</a></li><li><a href="notebooks/intro-preview.html"><i class="bi bi-journal-code"></i>Introduction</a></li><li><a href="notebooks/personality-preview.html"><i class="bi bi-journal-code"></i>Personality of the Company</a></li><li><a href="notebooks/sector-preview.html"><i class="bi bi-journal-code"></i>Sector Analysis</a></li><li><a href="notebooks/summary-preview.html"><i class="bi bi-journal-code"></i>Summary</a></li><li><a href="notebooks/technical-preview.html"><i class="bi bi-journal-code"></i>Technical Analysis</a></li></ul></div></nav>
+<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks/2019-2024-preview.html"><i class="bi bi-journal-code"></i>Company Performance 2019-2024</a></li><li><a href="notebooks/forecasting-preview.html"><i class="bi bi-journal-code"></i>Forecasting</a></li><li><a href="notebooks/fundamentals.embed-preview.html"><i class="bi bi-journal-code"></i>Fundamental Analysis</a></li><li><a href="notebooks/intro-preview.html"><i class="bi bi-journal-code"></i>Introduction</a></li><li><a href="notebooks/personality-preview.html"><i class="bi bi-journal-code"></i>Personality of the Company</a></li><li><a href="notebooks/sector-preview.html"><i class="bi bi-journal-code"></i>Sector Analysis</a></li><li><a href="notebooks/summary-preview.html"><i class="bi bi-journal-code"></i>Summary</a></li><li><a href="notebooks/technical-preview.html"><i class="bi bi-journal-code"></i>Technical Analysis</a></li></ul></div></nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
@@ -253,12 +250,16 @@ div.csl-indent {
 </section>
 <section id="section" class="level1 quarto-embed-nb-cell">
 <h1></h1>
-<p>That’s a nice intro.</p>
-<div id="09f7382d-365f-4208-a3b2-5244590d8555" class="cell">
+<blockquote class="blockquote">
+<p><strong>On the simplified nature of analysis in this document.</strong></p>
+<p>Subject of financial analysis is very information-dense and to perform such an analysis (be it an analysis of industrial sectors, fundamental, technical, etc.) in earnest is a non-trivial job that we don’t see ourselves capable of performing.</p>
+<p>Therefore, this document aims to provide a simplified, non-rigorous analysis aiming to showcase our understanding of course material and minimal proficiency in scientific communication using tools such as R language <span class="citation" data-cites="ProjectStatisticalComputing"><span>“R: <span>The R Project</span> for <span>Statistical Computing</span>”</span> (<a href="#ref-ProjectStatisticalComputing" role="doc-biblioref">n.d.</a>)</span>, its “tidyquant” package <span class="citation" data-cites="danchoTidyquantTidyQuantitative2025">Dancho and Vaughan (<a href="#ref-danchoTidyquantTidyQuantitative2025" role="doc-biblioref">2025</a>)</span> and Quarto scientific publishing system <span class="citation" data-cites="Quarto"><span>“Quarto”</span> (<a href="#ref-Quarto" role="doc-biblioref">n.d.</a>)</span>.</p>
+</blockquote>
+<div id="15dc0177-0e2a-4b30-8654-1439ce7f71a7" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/notebooks-intro-cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/notebooks-intro-cell-2-output-1.png" width="672" height="480" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/notebooks-intro-cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/notebooks-intro-cell-2-output-1.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -287,13 +288,13 @@ Table&nbsp;1: Astronomical object
 </figcaption>
 <div aria-describedby="tbl-planets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
-<div id="tbl-planets-1" class="quarto-float quarto-figure quarto-figure-center anchored" height="480" width="672">
+<div id="tbl-planets-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-planets-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a)
 </figcaption>
 <div aria-describedby="tbl-planets-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/notebooks-intro-tbl-planets-output-3.png" class="lightbox" data-gallery="tbl-planets" title="Table&nbsp;1&nbsp;(a): "><img src="index_files/figure-html/notebooks-intro-tbl-planets-output-3.png" id="tbl-planets-1" data-ref-parent="tbl-planets" width="672" height="480" class="figure-img"></a>
+<a href="index_files/figure-html/notebooks-intro-tbl-planets-output-3.png" class="lightbox" data-gallery="tbl-planets" title="Table&nbsp;1&nbsp;(a): "><img src="index_files/figure-html/notebooks-intro-tbl-planets-output-3.png" id="tbl-planets-1" class="img-fluid figure-img" data-ref-parent="tbl-planets"></a>
 </div>
 </figure>
 </div>
@@ -315,67 +316,24 @@ Table&nbsp;1: Astronomical object
 <!-- Add some stuff on turbulence and economic/social instability - can lift right out of 10-k or the quarterly report. -->
 <section id="financial-analysis-of-the-clorox-company-clx-in-the-consumer-defensive-sector" class="level3">
 <h3 class="anchored" data-anchor-id="financial-analysis-of-the-clorox-company-clx-in-the-consumer-defensive-sector">Financial Analysis of The Clorox Company (CLX) in the Consumer Defensive Sector</h3>
-<section id="sector-classification" class="level4">
-<h4 class="anchored" data-anchor-id="sector-classification"><strong>1. Sector Classification</strong></h4>
+<section id="sector-analysis-1" class="level4">
+<h4 class="anchored" data-anchor-id="sector-analysis-1"><strong>1. Sector Analysis</strong></h4>
 <p>Clorox operates in the <strong>Consumer Defensive sector</strong>, specifically within the Household and Personal Products sub-sector. This sector is characterized by stable demand and recession resilience.</p>
+<p>Sector’s <strong>Market Cap</strong> is estimated to be $3.7 trillion. The <strong>Market weight (share)</strong> of the sector relative to the other 10 sectors is 5.45%.</p>
+<p>Sector’s <strong>Year-To-Date Return</strong> is 6.17%, which outperforms S&amp;P500 (3.54%).</p>
 <hr>
 </section>
 <section id="position-relative-to-competitors" class="level4">
 <h4 class="anchored" data-anchor-id="position-relative-to-competitors"><strong>2. Position Relative to Competitors</strong></h4>
-<p>Clorox competes with major players such as <strong>Procter &amp; Gamble (PG)</strong>, <strong>Colgate-Palmolive (CL)</strong>, <strong>Church &amp; Dwight (CHD)</strong>, and <strong>Kimberly-Clark (KMB)</strong>. Key comparisons include:</p>
 <!-- Check these values -->
-<table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 19%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Metric</strong></th>
-<th><strong>Clorox (CLX)</strong></th>
-<th><strong>Colgate-Palmolive (CL)</strong></th>
-<th><strong>Procter &amp; Gamble (PG)</strong></th>
-<th><strong>Industry Avg</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Revenue (FY24)</strong></td>
-<td>$7.09B</td>
-<td>$20.10B</td>
-<td>$84.04B</td>
-<td>Varies by sub-industry</td>
-</tr>
-<tr class="even">
-<td><strong>Net Margin</strong></td>
-<td>6.38%</td>
-<td>14.38%</td>
-<td>~18% (est.)</td>
-<td>~10-15%</td>
-</tr>
-<tr class="odd">
-<td><strong>P/E Ratio</strong></td>
-<td>40.62</td>
-<td>24.39</td>
-<td>26.66</td>
-<td>20-25</td>
-</tr>
-<tr class="even">
-<td><strong>Dividend Yield</strong></td>
-<td>3.3%</td>
-<td>2.3%</td>
-<td>2.4%</td>
-<td>2.5-3.5%</td>
-</tr>
-</tbody>
-</table>
+<!-- | **Metric**           | **Clorox (CLX)**      | **Colgate-Palmolive (CL)** | **Procter & Gamble (PG)** | **Industry Avg**       | -->
+<!-- |----------------------|-----------------------|----------------------------|---------------------------|------------------------| -->
+<!-- | **Revenue (FY24)**   | $7.09B   | $20.10B        | $84.04B       | Varies by sub-industry | -->
+<!-- | **Net Margin**       | 6.38%    | 14.38%         | ~18% (est.)               | ~10-15%               | -->
+<!-- | **P/E Ratio**        | 40.62    | 24.39          | 26.66         | 20-25                 | -->
+<!-- | **Dividend Yield**   | 3.3%     | 2.3%           | 2.4%                      | 2.5-3.5%              | -->
 <!-- Move Strengths/Weaknesses, emphasize market share -->
-<ul>
-<li><strong>Market Share</strong>: ~1.99% in cleaning products, lagging behind P&amp;G and Colgate .</li>
-</ul>
+<p>Clorox’s market share inside it’s sector is relatively small:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 21%">
@@ -530,37 +488,22 @@ Table&nbsp;1: Astronomical object
 </tbody>
 </table>
 <p>CLX’s Market share relative to its competitors, as of Q4 2024 within the Consumer Non Cyclical Sector (i.e.&nbsp;Consumer Defensive), source: <span class="citation" data-cites="CloroxMarketShare"><span>“The <span>Clorox Market</span> Share Relative to Its Competitors, as of <span>Q4</span> 2024 - <span>CSIMarket</span>”</span> (<a href="#ref-CloroxMarketShare" role="doc-biblioref">n.d.</a>)</span></p>
-<div id="54330e04-a465-4a07-91e9-ca3aaf0423b9" class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 8
-  symbol date        open  high   low close  volume adjusted
-  &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-1 CLX    2017-01-03  121.  121.  120.  121. 1046000     96.1
-2 CLX    2017-01-04  122.  123.  121.  122. 1114600     96.9
-3 CLX    2017-01-05  122.  123.  121.  123.  775700     97.5
-4 CLX    2017-01-06  122.  123.  122.  123.  526400     97.3
-5 CLX    2017-01-09  123.  123.  121.  121.  812900     96.4
-6 CLX    2017-01-10  121   121.  119.  119. 1150100     94.8# A tibble: 3 × 8
-# Groups:   symbol [3]
-  symbol date        open  high   low close  volume adjusted
-  &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-1 CL     2017-01-03  65.6  65.7  65.1  65.5 3038900     54.0
-2 CLX    2017-01-03 121.  121.  120.  121.  1046000     96.1
-3 PG     2017-01-03  83.9  84.4  83.5  84.2 8792700     67.4</code></pre>
-</div>
+<p>Clorox competes with major players such as <strong>Procter &amp; Gamble (PG)</strong>, <strong>Colgate-Palmolive (CL)</strong>, <strong>Church &amp; Dwight (CHD)</strong>, and <strong>Kimberly-Clark (KMB)</strong>.</p>
+<div id="3a63f2ad-880c-46f5-97f4-01dc3fc19fc0" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/notebooks-sector-cell-2-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/notebooks-sector-cell-2-output-3.png" class="img-fluid figure-img"></a></p>
+<p><a href="index_files/figure-html/notebooks-sector-cell-2-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/notebooks-sector-cell-2-output-2.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <hr>
-</section>
-<section id="economic-indicator-comparison" class="level4">
-<h4 class="anchored" data-anchor-id="economic-indicator-comparison"><strong>3. Economic Indicator Comparison</strong></h4>
-<p>Clorox’s performance relative to the <strong>S&amp;P 500</strong> and <strong>Dow Jones Industrial Average (DJIA)</strong> highlights its defensive nature: - <strong>Beta</strong>: 0.42 (less volatile than the market). - <strong>1-Year Stock Performance</strong>: -3.3% (CLX) vs.&nbsp;+7.9% (S&amp;P 500) and +15.05% (DJIA). - <strong>Dividend Growth</strong>: 35 consecutive years of increases, outperforming many S&amp;P 500 staples.</p>
+<!-- #### **3. Economic Indicator Comparison** -->
+<!-- Clorox’s performance relative to the **S&P 500** and **Dow Jones Industrial Average (DJIA)** highlights its defensive nature: -->
+<!-- - **Beta**: 0.42 (less volatile than the market). -->
+<!-- - **1-Year Stock Performance**: -3.3% (CLX) vs. +7.9% (S&P 500) and +15.05% (DJIA). -->
+<!-- - **Dividend Growth**: 35 consecutive years of increases, outperforming many S&P 500 staples. -->
 <!--TODO - provide charts for these-->
 <!-- ```{r}  -->
 <!-- # Load required libraries -->
@@ -607,48 +550,20 @@ Table&nbsp;1: Astronomical object
 <!--          y = "Beta", -->
 <!--          color = "Benchmark") + -->
 <!--     theme_minimal() -->
-<pre><code>---
-
-#### **4. Strategic and Financial Challenges**
-- **Cyberattack Impact**: Caused a 20% Q1 FY24 sales decline, though recovery efforts restored ~90% market share by Q3 .
-- **Margin Recovery**: Gross margin expanded to 46.5% in Q4 FY24, driven by cost savings .
-- **Divestitures**: Sold non-core businesses (Argentina, VMS) to focus on high-growth segments .
-
-&lt;!-- Move this to other chapters --&gt;
-
----
-
-#### **5. R Code for Visualization**
-Below is R code to compare Clorox’s stock performance with competitors and indices (not really, but look into how to get that working):
-
-::: {.cell}
-
-```{.r .cell-code .hidden}
-library(PerformanceAnalytics)
-
-library(quantmod)
-
-# Acquire historical stock data
-
-getSymbols("CLX", from = "2015-01-01", to = "2025-01-01")
-
-[1] "CLX"</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">Cl</span>(CLX)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate periodic returns</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">ROC</span>(stock_prices, <span class="at">type =</span> <span class="st">"discrete"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(returns) <span class="co"># Remove NA values from the dataset</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze the performance</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.CumReturns</span>(returns, <span class="at">main =</span> <span class="st">"Cumulative Returns of CLX"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="index_files/figure-html/fd5826d0-530c-4389-b0b3-3eb780fce541-1-sector_files/figure-ipynb/cumulative-returns-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/fd5826d0-530c-4389-b0b3-3eb780fce541-1-sector_files/figure-ipynb/cumulative-returns-1.png" class="img-fluid"></a></p>
-</section>
-</section>
-</section>
+<!-- ``` -->
 <hr>
+</section>
+<section id="strategic-and-financial-challenges" class="level4">
+<h4 class="anchored" data-anchor-id="strategic-and-financial-challenges"><strong>4. Strategic and Financial Challenges</strong></h4>
+<ul>
+<li><strong>Cyberattack Impact</strong>: Caused a 20% Q1 FY24 sales decline, though recovery efforts restored ~90% market share by Q3 .</li>
+<li><strong>Margin Recovery</strong>: Gross margin expanded to 46.5% in Q4 FY24, driven by cost savings .</li>
+<li><strong>Divestitures</strong>: Sold non-core businesses (Argentina, VMS) to focus on high-growth segments .</li>
+</ul>
+<!-- Move this to other chapters -->
+<hr>
+<hr>
+</section>
 <section id="key-insights" class="level4">
 <h4 class="anchored" data-anchor-id="key-insights"><strong>6. Key Insights</strong></h4>
 <ul>
@@ -658,7 +573,8 @@ getSymbols("CLX", from = "2015-01-01", to = "2025-01-01")
 </ul>
 <hr>
 <p>For real-time data, update the R code with current ticker prices and adjust the date range. The analysis underscores Clorox’s resilience in a defensive sector but signals caution due to margin pressures and competitive headwinds.</p>
-<p>:::</p>
+</section>
+</section>
 </section>
 <section id="personality-of-the-company" class="level2">
 <h2 class="anchored" data-anchor-id="personality-of-the-company">Personality of the Company</h2>
@@ -677,7 +593,7 @@ Cite a few articles + analysts average.
 <p>Clorox’s stated purpose is to “champion people to be well and thrive every single day” <span class="citation" data-cites="PurposeValues"><span>“Purpose &amp; <span>Values</span>”</span> (<a href="#ref-PurposeValues" role="doc-biblioref">n.d.</a>)</span>. As a health and wellness company, Clorox aims to make a meaningful and positive impact on the world by improving the health and safety of employees, consumers, and communities. All of this is reflected in their family-friendly and inclusive branding.</p>
 </section>
 <section id="responsibility-policies" class="level5">
-<h5 class="anchored" data-anchor-id="responsibility-policies">2. <strong>Responsibility Policies</strong></h5>
+<h5 class="anchored" data-anchor-id="responsibility-policies"><strong>2. Responsibility Policies</strong></h5>
 <p>Clorox integrates environmental, social, and governance (ESG) goals into its core business strategy <span class="citation" data-cites="Responsibility"><span>“Responsibility”</span> (<a href="#ref-Responsibility" role="doc-biblioref">n.d.</a>)</span>. Key areas of focus include:</p>
 <ul>
 <li><strong>Healthy Lives</strong>: Promoting employee well-being, product stewardship, and transparency in ingredients.<br>
@@ -689,7 +605,7 @@ Cite a few articles + analysts average.
 <p>Clorox has set ambitious targets, such as achieving net-zero emissions by 2050.</p>
 </section>
 <section id="ignite-strategy" class="level5">
-<h5 class="anchored" data-anchor-id="ignite-strategy">3. <strong>IGNITE Strategy</strong></h5>
+<h5 class="anchored" data-anchor-id="ignite-strategy"><strong>3. IGNITE Strategy</strong></h5>
 <p>The IGNITE strategy is Clorox’s long-term plan to drive what the company calls a “purpose-driven growth” <span class="citation" data-cites="IGNITEStrategy"><span>“<span>IGNITE Strategy</span>”</span> (<a href="#ref-IGNITEStrategy" role="doc-biblioref">n.d.</a>)</span> by aligning financial goals with ESG priorities. Key pillars include:</p>
 <ul>
 <li><strong>Fuel Growth</strong>: Leveraging technology and sustainability to generate cost savings and reinvest in brands.<br>
@@ -703,8 +619,8 @@ Cite a few articles + analysts average.
 <p>The strategy also includes specific financial targets, such as 2-4% net sales growth and 11-13% free cash flow generation.</p>
 </section>
 </section>
-<section id="key-executives-and-their-performance" class="level4">
-<h4 class="anchored" data-anchor-id="key-executives-and-their-performance"><strong>2. Key Executives and Their Performance</strong></h4>
+<section id="key-executives-their-commitment-and-performance" class="level4">
+<h4 class="anchored" data-anchor-id="key-executives-their-commitment-and-performance"><strong>2. Key Executives, Their Commitment and Performance</strong></h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 24%">
@@ -786,13 +702,15 @@ Cite a few articles + analysts average.
 <p>Key Executives, source: <span class="citation" data-cites="CloroxCompanyCLX"><span>“The <span>Clorox Company</span> (<span>CLX</span>) <span>Company Profile</span> &amp; <span>Facts</span>”</span> (<a href="#ref-CloroxCompanyCLX" role="doc-biblioref">n.d.</a>)</span></p>
 <p>According to <span class="citation" data-cites="CloroxCompanyBusiness"><span>“The <span>Clorox Company</span>: <span>Business Model</span>, <span>SWOT Analysis</span>, and <span>Competitors</span> 2024 - <span>PitchGrade</span>”</span> (<a href="#ref-CloroxCompanyBusiness" role="doc-biblioref">n.d.</a>)</span>, CEO and Chairman Linda J. Rendle, as well as the other executives and board members have significant ownership stakes at the company, indicating high confidence in their business.</p>
 <p>Financial analysis website Simply WallSt gives the upper management team at Clorox high marks on all 4 criteria: Compensation vs Market, Compensation vs Earnings, Experienced Management and Experienced Board <span class="citation" data-cites="CloroxCompanyCLXa"><span>“The <span>Clorox Company</span> (<span>CLX</span>) <span>Leadership</span> &amp; <span>Management Team Analysis</span>”</span> (<a href="#ref-CloroxCompanyCLXa" role="doc-biblioref">n.d.</a>)</span>.</p>
-<ul>
-<li><strong>Strengths</strong>: Strong brands (e.g., Clorox bleach, Glad bags), ESG focus (recyclable packaging by 2025) .</li>
-<li><strong>Weaknesses</strong>: Lower profitability vs.&nbsp;peers, cyberattack recovery costs .</li>
-</ul>
 </section>
 <section id="company-brand-and-reputation" class="level4">
 <h4 class="anchored" data-anchor-id="company-brand-and-reputation"><strong>3. Company Brand and Reputation</strong></h4>
+<p>Clorox is a globally recognized leader in the cleaning and consumer products industry, known for its trusted brands such as <strong>Clorox Bleach</strong>, <strong>Pine-Sol</strong>, <strong>Hidden Valley</strong>, <strong>Brita</strong>, and <strong>Burt’s Bees</strong>.</p>
+<p>The company has received numerous accolades, including being named one of <strong>America’s Greenest Companies</strong> by Newsweek, a <strong>Safer Choice Partner of the Year</strong> by the EPA, and a top performer in the <strong>Human Rights Campaign Foundation’s Corporate Equality Index</strong>. Its sustainable brands, such as <strong>Brita</strong>, <strong>Burt’s Bees</strong>, and <strong>Green Works</strong>, have gained significant consumer trust for their eco-friendly and socially responsible practices <span class="citation" data-cites="Recognitions"><span>“Recognitions”</span> (<a href="#ref-Recognitions" role="doc-biblioref">n.d.</a>)</span>.</p>
+<hr>
+<p>In August 2023, Clorox experienced a severe <strong>cyberattack</strong> <span class="citation" data-cites="mascellinoCloroxOperationsDisrupted2023">Mascellino (<a href="#ref-mascellinoCloroxOperationsDisrupted2023" role="doc-biblioref">2023</a>)</span> that disrupted its IT systems and operations. The attack, which was detected on August 14, forced the company to take affected systems offline, leading to significant production delays and supply chain disruptions. Clorox activated its business continuity plans, reverting to manual processes for order fulfillment and customer communications.</p>
+<p>The cyberattack had a material financial impact, with Clorox reporting a 23-28% decline in quarterly sales and a drop in its stock price by over 25% following the incident.</p>
+<p>Clorox’s response to the cyberattack highlighted its crisis management capabilities. The company maintained transparency by providing regular updates to stakeholders and implementing phased recovery plans to restore operations safely. Brand and reputation were not severely damaged in the process.</p>
 </section>
 </section>
 <section id="fundamental-analysis" class="level2">
@@ -817,15 +735,15 @@ EV = Mcap + Debt
 <section id="i.-graham-number-calculation" class="level4">
 <h4 class="anchored" data-anchor-id="i.-graham-number-calculation"><strong>I. Graham Number Calculation</strong></h4>
 <p>The Graham Number estimates a stock’s intrinsic value using earnings per share (EPS) and book value per share (BVPS):<br>
-<strong>Formula</strong>:<br>
-$ = $</p>
+<strong>Formula</strong>:</p>
+<p><span class="math inline">\(\text{Graham Number} = \sqrt{22.5 \times \text{EPS} \times \text{BVPS}}\)</span></p>
 <ul>
 <li><strong>EPS (TTM)</strong>: $3.67<br>
 </li>
 <li><strong>BVPS</strong>: $0.98 (Total Equity: $121M / Shares Outstanding: 123.19M)<br>
 </li>
 <li><strong>Calculation</strong>:<br>
-$ = $</li>
+<span class="math inline">\(\sqrt{22.5 \times 3.67 \times 0.98} = \sqrt{80.92} \approx \boxed{8.99}\)</span></li>
 <li><strong>Interpretation</strong>: CLX’s current stock price (~$149.61) far exceeds the Graham Number, indicating potential overvaluation based on traditional metrics .</li>
 </ul>
 <hr>
@@ -1008,129 +926,53 @@ Return for ETF vs return for stock over time.
 Stock correlation calculator?
 Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-analysis.
 -->
-<section id="technical-analysis-of-clorox-clx" class="level3">
-<h3 class="anchored" data-anchor-id="technical-analysis-of-clorox-clx"><strong>Technical Analysis of Clorox (CLX)</strong></h3>
-<section id="r-code-for-technical-charts" class="level4">
-<h4 class="anchored" data-anchor-id="r-code-for-technical-charts"><strong>1. R Code for Technical Charts</strong></h4>
-<div id="dc102a85-0a6d-4c0c-8a57-57f0df5b9e31" class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "CLX"</code></pre>
-</div>
+<blockquote class="blockquote">
+<p><strong>Important</strong></p>
+<p>Technical analysis in this section follows the wonderful tutorial provided here: [<span class="citation" data-cites="FinancialModelingb"><span>“Financial Modeling with <span>R</span>”</span> (<a href="#ref-FinancialModelingb" role="doc-biblioref">n.d.</a>)</span>]</p>
+</blockquote>
+<p>We’ll start with providing a simple plot of stock price movement.</p>
+<div id="41af9510-2ae5-4d02-b7e0-126e9cdad075" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/notebooks-technical-cell-2-output-3.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/notebooks-technical-cell-2-output-4.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="index_files/figure-html/notebooks-technical-cell-2-output-5.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="index_files/figure-html/notebooks-technical-cell-2-output-6.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="index_files/figure-html/notebooks-technical-cell-2-output-7.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="index_files/figure-html/notebooks-technical-cell-2-output-8.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="index_files/figure-html/notebooks-technical-cell-2-output-9.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="index_files/figure-html/notebooks-technical-cell-2-output-10.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="index_files/figure-html/notebooks-technical-cell-2-output-11.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="index_files/figure-html/notebooks-technical-cell-2-output-12.png" width="672" height="480" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="index_files/figure-html/notebooks-technical-cell-2-output-13.png" width="672" height="480" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/notebooks-technical-cell-2-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/notebooks-technical-cell-2-output-2.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<hr>
-</section>
-<section id="key-technical-indicators-interpretation" class="level4">
-<h4 class="anchored" data-anchor-id="key-technical-indicators-interpretation"><strong>2. Key Technical Indicators &amp; Interpretation</strong></h4>
-<p><strong>a. Price Trends &amp; Moving Averages</strong><br>
-- <strong>Golden/Death Cross</strong>: The 50-day SMA (blue) crossing above/below the 200-day SMA (red) signals bullish/bearish trends.<br>
-- <strong>Current Status</strong> (as of 2025-02-13): CLX’s SMA(50) = $144.21, SMA(200) = $138.50 → <strong>bullish crossover</strong> (recovery from 2024 cyberattack dip).</p>
-<p><strong>b. Momentum &amp; Oscillators</strong><br>
-- <strong>RSI (14-day)</strong>: Currently at 62 (neutral). Overbought (&gt;70) in Q4 2024 during recovery rally.<br>
-- <strong>MACD</strong>: Histogram turning positive in 2025, signaling bullish momentum.</p>
-<p><strong>c.&nbsp;Volume &amp; OBV</strong><br>
-- <strong>On-Balance Volume (OBV)</strong>: Rising with price recovery, confirming bullish volume-pressure.</p>
-<p><strong>d.&nbsp;Support/Resistance</strong><br>
-- <strong>Support</strong>: $130 (2023 low)<br>
-- <strong>Resistance</strong>: $155 (pre-cyberattack 2023 high).</p>
-<p><strong>e. Bollinger Bands</strong><br>
-- Price near upper band ($152) → short-term overbought.</p>
-<hr>
-</section>
-<section id="technical-insights" class="level4">
-<h4 class="anchored" data-anchor-id="technical-insights"><strong>3. Technical Insights</strong></h4>
-<ol type="1">
-<li><strong>Trend Strength</strong>: ADX = 28 (moderate uptrend).<br>
-</li>
-<li><strong>Breakout Potential</strong>: Price approaching $155 resistance; a breakout could target $170.<br>
-</li>
-<li><strong>Divergence Risk</strong>: RSI divergence in late 2024 signaled temporary pullback.<br>
-</li>
-<li><strong>Volume Confirmation</strong>: Rising OBV supports bullish bias.</li>
-</ol>
-<hr>
-</section>
-<section id="summary" class="level4">
-<h4 class="anchored" data-anchor-id="summary"><strong>4. Summary</strong></h4>
-<p>Clorox’s technicals suggest a <strong>bullish recovery phase</strong> post-cyberattack, with momentum (MACD) and volume (OBV) aligning with price action. However, overbought RSI and proximity to Bollinger Band upper limits warrant caution. Use the R code to update these metrics in real time. Adjust SMA periods (e.g., 20/50-day) for shorter-term analysis.</p>
-</section>
-</section>
+<p>To identify basic trend in this movement, we then chart the <strong>Simple Moving Average</strong>.</p>
+<div id="3d46682d-b7f7-4192-afcb-d4140cb3490e" class="cell">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/notebooks-technical-cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/notebooks-technical-cell-3-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>By playing with the “n” value - the average of the last n-day stock prices - we produced a line that closely resembles the price line. Since the SMA line crosses the price line from top to bottom, we’re supposed to anticipate a drop in the stock price.</p>
+<p><strong>The Bollinger Bands</strong> is another useful tool of technical analysis. These are “envelopes plotted at a standard deviation level above and below a simple moving average of the price” [<span class="citation" data-cites="FinancialModelingb"><span>“Financial Modeling with <span>R</span>”</span> (<a href="#ref-FinancialModelingb" role="doc-biblioref">n.d.</a>)</span>]. They supposed to show the volatility of a price of the stock and the size of expected change of the price in the future.</p>
+<p>Let’s demonstrate.</p>
+<div id="1f905c28-d3a2-4d25-bf13-a608bd42e79c" class="cell">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/notebooks-technical-cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/notebooks-technical-cell-4-output-2.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And finally let’s look at such charts for major competitors to get the feel of the market.</p>
+<div id="6cb61266-8eb6-4ef8-aee8-48085f1e48d6" class="cell">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/notebooks-technical-cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="index_files/figure-html/notebooks-technical-cell-5-output-2.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As we can see, the volatility of the stock prices shouldn’t be that great in the near future. Since technical analysis is best-suited for short-term trading, near future is all we can advise or client on based on such analysis.</p>
 </section>
 <section id="company-performance-2019-2024" class="level2">
 <h2 class="anchored" data-anchor-id="company-performance-2019-2024">Company Performance 2019-2024</h2>
@@ -1242,14 +1084,14 @@ Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-a
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/notebooks-forecasting-cell-2-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="index_files/figure-html/notebooks-forecasting-cell-2-output-2.png" class="img-fluid figure-img"></a></p>
+<p><a href="index_files/figure-html/notebooks-forecasting-cell-2-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="index_files/figure-html/notebooks-forecasting-cell-2-output-2.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="summary-1" class="level2">
-<h2 class="anchored" data-anchor-id="summary-1">Summary</h2>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 </section>
 <section id="section-7" class="level1 quarto-embed-nb-cell">
 <h1></h1>
@@ -1260,11 +1102,29 @@ Can reduce portfolio volatility by pairing inversely correlated securities.
 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-danchoTidyquantTidyQuantitative2025" class="csl-entry" role="listitem">
+Dancho, Matt, and Davis Vaughan. 2025. <span>“Tidyquant: <span>Tidy Quantitative Financial Analysis</span>.”</span>
+</div>
+<div id="ref-FinancialModelingb" class="csl-entry" role="listitem">
+<span>“Financial Modeling with <span>R</span>.”</span> n.d. https://mlozanoqf.github.io/tutorial_pmf/. Accessed February 14, 2025.
+</div>
 <div id="ref-IGNITEStrategy" class="csl-entry" role="listitem">
 <span>“<span>IGNITE Strategy</span>.”</span> n.d. <em>The Clorox Company</em>. Accessed February 14, 2025.
 </div>
+<div id="ref-mascellinoCloroxOperationsDisrupted2023" class="csl-entry" role="listitem">
+Mascellino, Alessandro. 2023. <span>“Clorox <span>Operations Disrupted By Cyber-Attack</span>.”</span> <em>Infosecurity Magazine</em>. https://www.infosecurity-magazine.com/news/clorox-disrupted-cyber-attack/.
+</div>
 <div id="ref-PurposeValues" class="csl-entry" role="listitem">
 <span>“Purpose &amp; <span>Values</span>.”</span> n.d. <em>The Clorox Company</em>. Accessed February 14, 2025.
+</div>
+<div id="ref-Quarto" class="csl-entry" role="listitem">
+<span>“Quarto.”</span> n.d. <em>Quarto</em>. https://quarto.org/. Accessed February 14, 2025.
+</div>
+<div id="ref-ProjectStatisticalComputing" class="csl-entry" role="listitem">
+<span>“R: <span>The R Project</span> for <span>Statistical Computing</span>.”</span> n.d. https://www.r-project.org/. Accessed February 14, 2025.
+</div>
+<div id="ref-Recognitions" class="csl-entry" role="listitem">
+<span>“Recognitions.”</span> n.d. <em>The Clorox Company</em>. Accessed February 14, 2025.
 </div>
 <div id="ref-regensteinVisualizationSectorTrends2020" class="csl-entry" role="listitem">
 Regenstein, Jonathan. 2020. <span>“Visualization <span>Sector Trends</span> with <span>R Code</span>.”</span> <em>Alpha Architect</em>. https://alphaarchitect.com/2020/01/visualization-sector-trends-with-r-code/.

@@ -8,24 +8,19 @@ EBITDA
 P/B ratio
 EV = Mcap + Debt
 -->
-### Fundamental Analysis of The Clorox Company (CLX)  
-Incorporating **Graham Number** and key financial ratios derived from the latest available data (as of February 2025):
 
 ---
 
 #### **I. Graham Number Calculation**  
 The Graham Number estimates a stock’s intrinsic value using earnings per share (EPS) and book value per share (BVPS):  
 **Formula**:  
-$$
-\text{Graham Number} = \sqrt{22.5 \times \text{EPS} \times \text{BVPS}}
-$$
+
+$$\text{Graham Number} = \sqrt{22.5 \times \text{EPS} \times \text{BVPS}}$$
 
 - **EPS (TTM)**: $3.67   
 - **BVPS**: $0.98 (Total Equity: $121M / Shares Outstanding: 123.19M)   
 - **Calculation**:  
-$$
-\sqrt{22.5 \times 3.67 \times 0.98} = \sqrt{80.92} \approx \boxed{8.99}
-$$
+$$\sqrt{22.5 \times 3.67 \times 0.98} = \sqrt{80.92} \approx \boxed{8.99}$$
 - **Interpretation**: CLX’s current stock price (~$149.61) far exceeds the Graham Number, indicating potential overvaluation based on traditional metrics .  
 
 ---

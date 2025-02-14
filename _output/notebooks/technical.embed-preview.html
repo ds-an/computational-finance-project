@@ -156,6 +156,9 @@
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-bac1c56864119d97d87e9872e9e076ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
      <script async="" src="https://hypothes.is/embed.js"></script>
 <script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -179,10 +182,7 @@
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a>
-  <ul class="collapse">
-  <li><a href="#technical-analysis-of-clorox-clx" id="toc-technical-analysis-of-clorox-clx" class="nav-link" data-scroll-target="#technical-analysis-of-clorox-clx"><strong>Technical Analysis of Clorox (CLX)</strong></a></li>
-  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
   </ul>
 </nav>
 </div>
@@ -190,54 +190,230 @@
 </div>
 <main class="content quarto-banner-title-block" id="quarto-document-content">      <section id="section" class="level1">
 <h1></h1>
-<section id="technical-analysis-of-clorox-clx" class="level3">
-<h3 class="anchored" data-anchor-id="technical-analysis-of-clorox-clx"><strong>Technical Analysis of Clorox (CLX)</strong></h3>
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="99b1be79-d61a-4b0d-b48b-1ccfae22ce0d" class="cell raw">
+<!--
+See "technical overview example" in notes. 
+Use The Relative Strength Index (RSI).
+Overbought/oversold analysis. 
+Beta value for 5 years. Open, close, range, average volume, put/call ratios.
+Return for ETF vs return for stock over time.
+Stock correlation calculator?
+Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-analysis.
+-->
+</div></div>
+<blockquote class="blockquote">
+<p><strong>Important</strong></p>
+<p>Technical analysis in this section follows the wonderful tutorial provided here: [<span class="citation" data-cites="FinancialModelingb">@FinancialModelingb</span>]</p>
+</blockquote>
+<p>We’ll start with providing a simple plot of stock price movement.</p>
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="fb6c8d33-d90d-4a1c-84ed-5ff75ce094c2" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>library(tidyquant)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo ── Attaching core tidyquant packages ─────────────────────── tidyquant 1.0.10 ──
+✔ PerformanceAnalytics 2.0.8      ✔ TTR                  0.24.4
+✔ quantmod             0.4.26     ✔ xts                  0.14.1
+── Conflicts ────────────────────────────────────────── tidyquant_conflicts() ──
+✖ zoo::as.Date()                 masks base::as.Date()
+✖ zoo::as.Date.numeric()         masks base::as.Date.numeric()
+✖ PerformanceAnalytics::legend() masks graphics::legend()
+✖ quantmod::summary()            masks base::summary()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:xts':
+
+    first, last
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><a href="technical.embed_files/figure-html/cell-2-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="technical.embed_files/figure-html/cell-2-output-2.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div></div>
+<p>To identify basic trend in this movement, we then chart the <strong>Simple Moving Average</strong>.</p>
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="d70e7c2a-518e-4ca7-a4d2-ea215a64cd36" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>library(tidyquant)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>library(dplyr)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>CLX <span class="op">&lt;-</span> tq_get(<span class="st">"CLX"</span>, get <span class="op">=</span> <span class="st">"stock.prices"</span>, <span class="im">from</span> <span class="op">=</span> <span class="st">"2024-01-01"</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>               to <span class="op">=</span> <span class="st">"2025-02-01"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>CLX <span class="op">|&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  ggplot(aes(x <span class="op">=</span> date, y <span class="op">=</span> close)) <span class="op">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    geom_line()  <span class="op">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    geom_ma(ma_fun <span class="op">=</span> SMA, n <span class="op">=</span> <span class="dv">25</span>, linetype <span class="op">=</span> <span class="dv">1</span>, size <span class="op">=</span> <span class="fl">1.25</span>) <span class="op">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    labs(y <span class="op">=</span> <span class="st">"Closing Price"</span>, x <span class="op">=</span> <span class="st">""</span>) <span class="op">+</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    theme_tq()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><a href="technical.embed_files/figure-html/cell-3-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="technical.embed_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div></div>
+<p>By playing with the “n” value - the average of the last n-day stock prices - we produced a line that closely resembles the price line. Since the SMA line crosses the price line from top to bottom, we’re supposed to anticipate a drop in the stock price.</p>
+<p><strong>The Bollinger Bands</strong> is another useful tool of technical analysis. These are “envelopes plotted at a standard deviation level above and below a simple moving average of the price” [<span class="citation" data-cites="FinancialModelingb">@FinancialModelingb</span>]. They supposed to show the volatility of a price of the stock and the size of expected change of the price in the future.</p>
+<p>Let’s demonstrate.</p>
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="097fea7e-acb7-4d6b-af3f-41ec7776e204" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>library(tidyquant)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>library(dplyr)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>CLX <span class="op">&lt;-</span> tq_get(<span class="st">"CLX"</span>, get <span class="op">=</span> <span class="st">"stock.prices"</span>, <span class="im">from</span> <span class="op">=</span> <span class="st">"2024-01-01"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>               to <span class="op">=</span> <span class="st">"2025-02-01"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>CLX <span class="op">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  ggplot(aes(x <span class="op">=</span> date, y <span class="op">=</span> close, <span class="bu">open</span> <span class="op">=</span> <span class="bu">open</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>              high <span class="op">=</span> high, low <span class="op">=</span> low, close <span class="op">=</span> close)) <span class="op">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    geom_line() <span class="op">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    geom_bbands(ma_fun <span class="op">=</span> SMA, sd <span class="op">=</span> <span class="dv">2</span>, n <span class="op">=</span> <span class="dv">25</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                linetype <span class="op">=</span> <span class="dv">2</span>, size <span class="op">=</span> <span class="fl">0.5</span>, alpha <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                fill        <span class="op">=</span> palette_light()[[<span class="dv">1</span>]],</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                color_bands <span class="op">=</span> palette_light()[[<span class="dv">1</span>]],</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                color_ma    <span class="op">=</span> palette_light()[[<span class="dv">2</span>]]) <span class="op">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    labs(y <span class="op">=</span> <span class="st">"Closing Price"</span>, x <span class="op">=</span> <span class="st">""</span>) <span class="op">+</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    theme_tq()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The following aesthetics were dropped during statistical transformation: open.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: open.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><a href="technical.embed_files/figure-html/cell-4-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="technical.embed_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div></div>
+<p>As we can see, the volatility shouldn’t be that great in the near future. Since technical analysis is best-suited for short-term trading, near future is all we can advise or client on based on such analysis.</p>
 <section id="r-code-for-technical-charts" class="level4">
 <h4 class="anchored" data-anchor-id="r-code-for-technical-charts"><strong>1. R Code for Technical Charts</strong></h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(TTR)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Download CLX data</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">"CLX"</span>, <span class="at">src =</span> <span class="st">"yahoo"</span>, <span class="at">from =</span> <span class="st">"2020-01-01"</span>, <span class="at">to =</span> <span class="fu">Sys.Date</span>())</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract closing prices and volume</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>clx <span class="ot">&lt;-</span> CLX[, <span class="dv">4</span>]  <span class="co"># Closing prices</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>volume <span class="ot">&lt;-</span> CLX[, <span class="dv">5</span>]  <span class="co"># Volume</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate technical indicators</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>sma_50 <span class="ot">&lt;-</span> <span class="fu">SMA</span>(clx, <span class="at">n =</span> <span class="dv">50</span>)  <span class="co"># 50-day SMA</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>sma_200 <span class="ot">&lt;-</span> <span class="fu">SMA</span>(clx, <span class="at">n =</span> <span class="dv">200</span>)  <span class="co"># 200-day SMA</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>rsi <span class="ot">&lt;-</span> <span class="fu">RSI</span>(clx, <span class="at">n =</span> <span class="dv">14</span>)  <span class="co"># 14-day RSI</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>macd <span class="ot">&lt;-</span> <span class="fu">MACD</span>(clx, <span class="at">nFast =</span> <span class="dv">12</span>, <span class="at">nSlow =</span> <span class="dv">26</span>, <span class="at">nSig =</span> <span class="dv">9</span>)  <span class="co"># MACD</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>adx <span class="ot">&lt;-</span> <span class="fu">ADX</span>(CLX[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">n =</span> <span class="dv">14</span>)  <span class="co"># ADX for trend strength</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>bbands <span class="ot">&lt;-</span> <span class="fu">BBands</span>(CLX[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">n =</span> <span class="dv">20</span>, <span class="at">sd =</span> <span class="dv">2</span>)  <span class="co"># Bollinger Bands</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Create multi-panel plot</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Price chart with SMAs and Bollinger Bands</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">chartSeries</span>(CLX, <span class="at">TA =</span> <span class="cn">NULL</span>, <span class="at">theme =</span> <span class="st">"white"</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">addBBands</span>()</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">addTA</span>(sma_50, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">on =</span> <span class="dv">1</span>)</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">addTA</span>(sma_200, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">on =</span> <span class="dv">1</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">addTA</span>(adx[, <span class="st">"ADX"</span>], <span class="at">col =</span> <span class="st">"purple"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"CLX Price, SMAs, Bollinger Bands, and ADX"</span>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># RSI and MACD</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">chartSeries</span>(CLX, <span class="at">TA =</span> <span class="cn">NULL</span>, <span class="at">theme =</span> <span class="st">"white"</span>)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">addRSI</span>(<span class="at">n =</span> <span class="dv">14</span>, <span class="at">maType =</span> <span class="st">"EMA"</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">addMACD</span>()</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"RSI and MACD"</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Volume and OBV</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>obv <span class="ot">&lt;-</span> <span class="fu">OBV</span>(CLX[, <span class="dv">4</span>], CLX[, <span class="dv">5</span>])</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">chartSeries</span>(CLX, <span class="at">TA =</span> <span class="cn">NULL</span>, <span class="at">theme =</span> <span class="st">"white"</span>)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">addTA</span>(volume, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">type =</span> <span class="st">"h"</span>)</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">addTA</span>(obv, <span class="at">col =</span> <span class="st">"darkgreen"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"Volume and On-Balance Volume (OBV)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="674ef60d-be7f-4dc6-b45d-993b6bbd0a8b" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>library(quantmod)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>library(TTR)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>library(gridExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'gridExtra'The following object is masked from 'package:dplyr':
+
+    combine</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "CLX"</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="technical.embed_files/figure-html/cell-5-output-3.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="technical.embed_files/figure-html/cell-5-output-4.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="technical.embed_files/figure-html/cell-5-output-5.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="technical.embed_files/figure-html/cell-5-output-6.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="technical.embed_files/figure-html/cell-5-output-7.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="technical.embed_files/figure-html/cell-5-output-8.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="technical.embed_files/figure-html/cell-5-output-9.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="technical.embed_files/figure-html/cell-5-output-10.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="technical.embed_files/figure-html/cell-5-output-11.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="technical.embed_files/figure-html/cell-5-output-12.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="technical.embed_files/figure-html/cell-5-output-13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="technical.embed_files/figure-html/cell-5-output-13.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div></div>
 <hr>
 </section>
 <section id="key-technical-indicators-interpretation" class="level4">
@@ -273,7 +449,6 @@
 <section id="summary" class="level4">
 <h4 class="anchored" data-anchor-id="summary"><strong>4. Summary</strong></h4>
 <p>Clorox’s technicals suggest a <strong>bullish recovery phase</strong> post-cyberattack, with momentum (MACD) and volume (OBV) aligning with price action. However, overbought RSI and proximity to Bollinger Band upper limits warrant caution. Use the R code to update these metrics in real time. Adjust SMA periods (e.g., 20/50-day) for shorter-term analysis.</p>
-</section>
 </section>
 </section>
      </main>
@@ -693,6 +868,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>  </div> <!-- /content --> 
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script> 
   
 </body></html>

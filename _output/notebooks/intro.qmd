@@ -1,4 +1,10 @@
-That's a nice intro.
+::: {.callout-warning}
+## On the simplified nature of analysis in this document. 
+
+Subject of financial analysis is very information-dense and to perform such an analysis (be it an analysis of industrial sectors, fundamental, technical, etc.) in earnest is a non-trivial job that we don't see ourselves capable of performing.
+
+Therefore, this document aims to provide a simplified, non-rigorous analysis aiming to showcase our understanding of course material and minimal proficiency in scientific communication using tools such as R language @ProjectStatisticalComputing, its "tidyquant" package @danchoTidyquantTidyQuantitative2025 and Quarto scientific publishing system @Quarto.
+:::
 
 ```{r} 
 plot(rnorm(100))

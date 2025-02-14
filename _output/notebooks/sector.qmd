@@ -1,26 +1,28 @@
 <!-- Add some stuff on turbulence and economic/social instability - can lift right out of 10-k or the quarterly report. -->
 ### Financial Analysis of The Clorox Company (CLX) in the Consumer Defensive Sector
 
-#### **1. Sector Classification**
+#### **1. Sector Analysis**
 Clorox operates in the **Consumer Defensive sector**, specifically within the Household and Personal Products sub-sector. This sector is characterized by stable demand and recession resilience.
+
+Sector's **Market Cap** is estimated to be $3.7 trillion. The **Market weight (share)** of the sector relative to the other 10 sectors is 5.45%.
+
+Sector's **Year-To-Date Return** is 6.17%, which outperforms S&P500 (3.54%). 
 
 ---
 
 #### **2. Position Relative to Competitors**
-Clorox competes with major players such as **Procter & Gamble (PG)**, **Colgate-Palmolive (CL)**, **Church & Dwight (CHD)**, and **Kimberly-Clark (KMB)**. Key comparisons include:
-
 <!-- Check these values -->
 
-| **Metric**           | **Clorox (CLX)**      | **Colgate-Palmolive (CL)** | **Procter & Gamble (PG)** | **Industry Avg**       |
-|----------------------|-----------------------|----------------------------|---------------------------|------------------------|
-| **Revenue (FY24)**   | $7.09B   | $20.10B        | $84.04B       | Varies by sub-industry |
-| **Net Margin**       | 6.38%    | 14.38%         | ~18% (est.)               | ~10-15%               |
-| **P/E Ratio**        | 40.62    | 24.39          | 26.66         | 20-25                 |
-| **Dividend Yield**   | 3.3%     | 2.3%           | 2.4%                      | 2.5-3.5%              |
+<!-- | **Metric**           | **Clorox (CLX)**      | **Colgate-Palmolive (CL)** | **Procter & Gamble (PG)** | **Industry Avg**       | -->
+<!-- |----------------------|-----------------------|----------------------------|---------------------------|------------------------| -->
+<!-- | **Revenue (FY24)**   | $7.09B   | $20.10B        | $84.04B       | Varies by sub-industry | -->
+<!-- | **Net Margin**       | 6.38%    | 14.38%         | ~18% (est.)               | ~10-15%               | -->
+<!-- | **P/E Ratio**        | 40.62    | 24.39          | 26.66         | 20-25                 | -->
+<!-- | **Dividend Yield**   | 3.3%     | 2.3%           | 2.4%                      | 2.5-3.5%              | -->
 
 <!-- Move Strengths/Weaknesses, emphasize market share -->
 
-- **Market Share**: ~1.99% in cleaning products, lagging behind P&G and Colgate .
+Clorox's market share inside it's sector is relatively small:
 
 | COMPANY NAME                           | MARKET SHARE   12 Months Ending   Q4 2024 | MARKET SHARE   12 Months Ending  Q3 2024 | MARKET SHARE   MRQ  Q4 2024 | MARKET SHARE     Q3 2024 |
 |----------------------------------------|-------------------------------------------|------------------------------------------|-----------------------------|--------------------------|
@@ -46,36 +48,33 @@ Clorox competes with major players such as **Procter & Gamble (PG)**, **Colgate-
 
 : CLX's Market share relative to its competitors, as of Q4 2024 within the Consumer Non Cyclical Sector (i.e. Consumer Defensive), source: @CloroxMarketShare {.striped .hover}
 
+Clorox competes with major players such as **Procter & Gamble (PG)**, **Colgate-Palmolive (CL)**, **Church & Dwight (CHD)**, and **Kimberly-Clark (KMB)**.
+
 ```{r price dynamics} 
 library(tidyquant)
 library(ggplot2)
 library(dplyr)
 
-tickers <- c("CLX", "CL", "PG")
+tickers <- c("CLX", "CL", "PG", "CHD", "KMB")
 
 prices <- tq_get(tickers,
-               from = "2017-01-01",
+               from = "2020-01-01",
                to = "2025-02-01",
                get = "stock.prices")
 
-head(prices)
-
-prices |>
-  group_by(symbol) |>
-  slice(1)
-
 prices |>
   ggplot(aes(x = date, y = adjusted, color = symbol)) +
-  geom_line()
+  geom_line() +
+  labs(subtitle = "Simple stock price comparison for the last 5 years")
 ```
 
 ---
 
-#### **3. Economic Indicator Comparison**
-Clorox’s performance relative to the **S&P 500** and **Dow Jones Industrial Average (DJIA)** highlights its defensive nature:
-- **Beta**: 0.42 (less volatile than the market).
-- **1-Year Stock Performance**: -3.3% (CLX) vs. +7.9% (S&P 500) and +15.05% (DJIA).
-- **Dividend Growth**: 35 consecutive years of increases, outperforming many S&P 500 staples.
+<!-- #### **3. Economic Indicator Comparison** -->
+<!-- Clorox’s performance relative to the **S&P 500** and **Dow Jones Industrial Average (DJIA)** highlights its defensive nature: -->
+<!-- - **Beta**: 0.42 (less volatile than the market). -->
+<!-- - **1-Year Stock Performance**: -3.3% (CLX) vs. +7.9% (S&P 500) and +15.05% (DJIA). -->
+<!-- - **Dividend Growth**: 35 consecutive years of increases, outperforming many S&P 500 staples. -->
 
 <!--TODO - provide charts for these-->
 
@@ -124,7 +123,7 @@ Clorox’s performance relative to the **S&P 500** and **Dow Jones Industrial Av
 <!--          y = "Beta", -->
 <!--          color = "Benchmark") + -->
 <!--     theme_minimal() -->
-```
+<!-- ``` -->
 
 ---
 
@@ -136,57 +135,6 @@ Clorox’s performance relative to the **S&P 500** and **Dow Jones Industrial Av
 <!-- Move this to other chapters -->
 
 ---
-
-#### **5. R Code for Visualization**
-Below is R code to compare Clorox’s stock performance with competitors and indices (not really, but look into how to get that working):
-
-```{r cumulative-returns}
-
-library(PerformanceAnalytics)
-
-library(quantmod)
-
-# Acquire historical stock data
-
-getSymbols("CLX", from = "2015-01-01", to = "2025-01-01")
-
-stock_prices <- Cl(CLX)
-
-# Calculate periodic returns
-
-returns <- ROC(stock_prices, type = "discrete")
-
-returns <- na.omit(returns) # Remove NA values from the dataset
-
-# Analyze the performance
-
-chart.CumReturns(returns, main = "Cumulative Returns of CLX")
-```
-
-```{r}
-library(quantmod)
-library(kableExtra)
-coef_table <- data.frame(
-  Variables = c("var 1", "var 2", "var 3"),
-  Coefficients = c(1.6, 0.2, -2.0),
-  Conf.Lower = c(1.3, -0.4, -2.5),
-  Conf.Higher = c(1.9, 0.6, -1.4)
-) 
-
-sol = data.frame(
-  Variable = coef_table$Variables,
-  Visualization = ""
-) %>%
-  kbl(booktabs = T) %>%
-  kable_classic(full_width = FALSE) %>%
-  column_spec(2, image = spec_pointrange(
-    x = coef_table$Coefficients, 
-    xmin = coef_table$Conf.Lower, 
-    xmax = coef_table$Conf.Higher, 
-    vline = 0)
-    )
-
-```
 
 ---
 

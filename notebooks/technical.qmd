@@ -1,3 +1,13 @@
+<!--
+See "technical overview example" in notes. 
+Use The Relative Strength Index (RSI).
+Overbought/oversold analysis. 
+Beta value for 5 years. Open, close, range, average volume, put/call ratios.
+Return for ETF vs return for stock over time.
+Stock correlation calculator?
+Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-analysis.
+-->
+
 ### **Technical Analysis of Clorox (CLX)**
 
 #### **1. R Code for Technical Charts**

@@ -1,3 +1,13 @@
+<!--
+Common size analysis for fundamental analysis.
+Life cycle stage.
+ROI for stock over a period of time.
+Analyst's views and rating.
+client.shwab.com
+EBITDA
+P/B ratio
+EV = Mcap + Debt
+-->
 ### Fundamental Analysis of The Clorox Company (CLX)  
 Incorporating **Graham Number** and key financial ratios derived from the latest available data (as of February 2025):
 

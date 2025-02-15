@@ -27,9 +27,9 @@ abstract: |
 ::: {.callout-warning}
 ## On the simplified nature of analysis in this document. 
 
-Subject of financial analysis is very information-dense and to perform such an analysis (be it an analysis of industrial sectors, fundamental, technical, etc.) in earnest is a non-trivial job that we don't see ourselves capable of performing.
+This document aims to provide a simplified, non-rigorous analysis aiming to showcase our understanding of course material and minimal proficiency in scientific communication using tools such as web scraping and searching for financial data, DeepSeek LLM with Web Search functionality, R language [@ProjectStatisticalComputing], its "tidyquant" package [@danchoTidyquantTidyQuantitative2025] and Quarto scientific publishing system [@Quarto]. 
 
-Therefore, this document aims to provide a simplified, non-rigorous analysis iming to showcase our understanding of course material and minimal proficiency in scientific communication using tools such as web scraping and searching for financial data, DeepSeek LLM with Web Search functionality, R language [@ProjectStatisticalComputing], its "tidyquant" package [@danchoTidyquantTidyQuantitative2025] and Quarto scientific publishing system [@Quarto].
+Doing financial analysis in earnest (be it technical, fundamental, of industrial sector, etc.) is beyond our abilities - we don't delude ourselves into thinking that it isn't.
 :::
 
 ## Sector Analysis
@@ -45,7 +45,7 @@ In this section we analyze financial data on websites such as [https://finance.y
 
 ### **Financial Analysis of the Clorox Company in the Consumer Defensive Sector**
 
-#### **1. Sector Analysis**
+#### **Sector Analysis**
 Clorox operates in the **Consumer Defensive sector**, specifically within the Household and Personal Products sub-sector. This sector is characterized by stable demand and recession resilience.
 
 Sector's **Market Cap** is estimated to be $3.7 trillion. The **Market Weight (Share)** of the sector relative to the other 10 sectors is 5.45%.
@@ -54,7 +54,7 @@ Sector's **Year-To-Date Return** is 6.17%, which outperforms S&P500 (3.54%).
 
 ---
 
-#### **2. Position Relative to Competitors**
+#### **Position Relative to Competitors**
 
 Clorox's market share inside it's sector is relatively small:
 

@@ -1,5 +1,6 @@
 ---
 title: Research Report on the Clorox Company (CLX)
+subtitle: A Final Project for the Computational Finance Cource
 # title-block-banner: true
 authors:
   - name: Andrey Malyukov
@@ -11,10 +12,17 @@ authors:
     affiliation: Sami Shamoon College of Engineering
     roles: writing
     corresponding: false
+  # - name: Alan Solomon
+  #   affiliation: Sami Shamoon College of Engineering
+  #   roles: 
+  #     - lecturer
+  #     - advisor
+  #   corresponding: false
 bibliography: references.bib
 keywords:
   - Financial Report
   - Feduciary
+  - Course Project
 number-section: true
 abstract: |
   In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...

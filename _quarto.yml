@@ -30,6 +30,7 @@ format:
   html:
     comments:
       hypothesis: true
+    page-layout: full
   docx:
     output-file: report-malyukov-bass
     output-ext: docx

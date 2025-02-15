@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="keywords" content="Financial Report, Feduciary">
+<meta name="keywords" content="Financial Report, Feduciary, Course Project">
 
 <title>Research Report on the Clorox Company (CLX)</title>
 <style>
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -97,14 +131,16 @@ window.Quarto = {
 <meta name="citation_title" content="Research Report on the Clorox Company (CLX)">
 <meta name="citation_abstract" content="In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...
 ">
-<meta name="citation_keywords" content="Financial Report,Feduciary">
+<meta name="citation_keywords" content="Financial Report,Feduciary,Course Project">
 <meta name="citation_author" content="Andrey Malyukov">
 <meta name="citation_author" content="Roza Bass">
 <meta name="citation_language" content="en">
 <meta name="citation_reference" content="citation_title=10-K Annual Report Thu Aug 08 2024;,citation_abstract=Clorox Co (CLX) SEC Filing 10-K Annual Report for the fiscal year ending Sunday, June 30, 2024;,citation_language=en-US;,citation_journal_title=Last10K.com;,citation_publisher=https://last10k.com/sec-filings/clx/0000021076-24-000030.htm;">
 <meta name="citation_reference" content="citation_title=10-Q Quarterly Report Mon Feb 03 2025;,citation_abstract=Clorox Co (CLX) SEC Filing 10-Q Quarterly Report for the period ending Tuesday, December 31, 2024;,citation_language=en-US;,citation_journal_title=Last10K.com;,citation_publisher=https://last10k.com/sec-filings/clx/0000021076-25-000013.htm;">
+<meta name="citation_reference" content="citation_title=8.7 ARIMA modelling in R  Forecasting: Principles and Practice (2nd ed);,citation_abstract=2nd edition;">
 <meta name="citation_reference" content="citation_title=Apple’s SWOT analysis: Stock faces AI challenges amid strong ecosystem By Investing.com;,citation_abstract=Apple’s SWOT analysis: stock faces AI challenges amid strong ecosystem;,citation_language=en-US;,citation_journal_title=Investing.com;,citation_publisher=https://www.investing.com/news/swot-analysis/cloroxs-swot-analysis-stock-faces-challenges-amid-market-share-gains-3847534;">
 <meta name="citation_reference" content="citation_title=Clorox Faces Mixed Analyst Outlook Amid Cyberattack and Market Challenges;,citation_abstract=The Clorox Company remains a critical focal point for Wall Street analysts as they assess the consumer goods giant’s strategic maneuvers and market performance amidst a rapidly changing financial…;,citation_author=Eric Blancaro;,citation_publication_date=2024-09;,citation_cover_date=2024-09;,citation_year=2024;,citation_language=en-GB;,citation_journal_title=The Financial Analyst;,citation_publisher=https://thefinancialanalyst.net/2024/09/22/clorox-faces-mixed-analyst-outlook-amid-cyberattack-and-market-challenges/;">
+<meta name="citation_reference" content="citation_title=8 Reasons Why Forecasting Is Hard;,citation_abstract=Forecasting is a popular but difficult problem in data science. Challenges arise for several reasons, from non-stationarity to noise and missing values. Tackling these issues may be pivotal for improving forecasting performance. Introduction Atime series is a sequence of values ordered by time. The key aspect about these data sets is the temporal dependency among […];,citation_author=Vitor Cerqueira;,citation_publication_date=2022-11;,citation_cover_date=2022-11;,citation_year=2022;,citation_language=en-US;,citation_journal_title=Towards Data Science;,citation_publisher=https://towardsdatascience.com/8-reasons-why-forecasting-is-hard-481755a05325/;">
 <meta name="citation_reference" content="citation_title=Charting with tidyquant;,citation_language=en-US;,citation_publisher=https://business-science.github.io/tidyquant/articles/TQ04-charting-with-tidyquant.html;">
 <meta name="citation_reference" content="citation_title=The Clorox Company: Business Model, SWOT Analysis, and Competitors 2024 - PitchGrade;,citation_publisher=https://pitchgrade.com/companies/the-clorox-company;">
 <meta name="citation_reference" content="citation_title=The Clorox Company (CLX) Company Profile &amp;amp;amp; Facts;,citation_abstract=See the company profile for The Clorox Company (CLX) including business summary, industry/sector information, number of employees, business summary, corporate governance, key executives and their compensation.;,citation_language=en-US;,citation_journal_title=Yahoo Finance;,citation_publisher=https://finance.yahoo.com/quote/CLX/profile/;">
@@ -118,6 +154,7 @@ window.Quarto = {
 <meta name="citation_reference" content="citation_title=Tidyquant: Tidy Quantitative Financial Analysis;,citation_abstract=Bringing business and financial analysis to the ’tidyverse’. The ’tidyquant’ package provides a convenient wrapper to various ’xts’, ’zoo’, ’quantmod’, ’TTR’ and ’PerformanceAnalytics’ package functions and returns the objects in the tidy ’tibble’ format. The main advantage is being able to use quantitative functions with the ’tidyverse’ functions including ’purrr’, ’dplyr’, ’tidyr’, ’ggplot2’, ’lubridate’, etc. See the ’tidyquant’ website for more information, documentation and examples.;,citation_author=Matt Dancho;,citation_author=Davis Vaughan;,citation_publication_date=2025-02;,citation_cover_date=2025-02;,citation_year=2025;">
 <meta name="citation_reference" content="citation_title=Evaluating Clorox: Insights From 11 Financial Analysts  Nasdaq;,citation_publisher=https://www.nasdaq.com/articles/evaluating-clorox-insights-11-financial-analysts;">
 <meta name="citation_reference" content="citation_title=Financial modeling with R;,citation_publisher=https://mlozanoqf.github.io/tutorial_pmf/;">
+<meta name="citation_reference" content="citation_title=Forecasting and predictive analytics: A critical look at the basic building blocks of a predictive model;,citation_language=en-US;,citation_journal_title=Brookings;,citation_publisher=https://www.brookings.edu/articles/forecasting-and-predictive-analytics-a-critical-look-at-the-basic-building-blocks-of-a-predictive-model/;">
 <meta name="citation_reference" content="citation_title=How to download stock prices in R :: Coding Finance —;,citation_language=en-US;,citation_journal_title=How to download stock prices in R;,citation_publisher=https://www.codingfinance.com/post/2018-03-27-download-price/;">
 <meta name="citation_reference" content="citation_title=IGNITE Strategy;,citation_abstract=The Clorox Company champions people to be well &amp;amp;amp; thrive every single day. Get company news, learn what’s in our products and search job opportunities.;,citation_language=en-US;,citation_journal_title=The Clorox Company;">
 <meta name="citation_reference" content="citation_title=Investors  The Clorox Company;,citation_publisher=https://investors.thecloroxcompany.com/financial-reporting/annual-reports/default.aspx;">
@@ -137,14 +174,15 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
+    <div class="quarto-title column-page-right">
       <h1 class="title">Research Report on the Clorox Company (CLX)</h1>
+            <p class="subtitle lead">A Final Project for the Computational Finance Cource</p>
           </div>
 
     
     <div class="quarto-title-meta-container">
       <div class="quarto-title-meta-column-start">
-            <div class="quarto-title-meta-author">
+            <div class="quarto-title-meta-author column-page-right">
           <div class="quarto-title-meta-heading">Authors</div>
           <div class="quarto-title-meta-heading">Affiliation</div>
           
@@ -166,7 +204,7 @@ window.Quarto = {
                   </div>
                     </div>
         
-        <div class="quarto-title-meta">
+        <div class="quarto-title-meta column-page-right">
 
                       
           
@@ -187,13 +225,13 @@ window.Quarto = {
     <div>
       <div class="keywords">
         <div class="block-title">Keywords</div>
-        <p>Financial Report, Feduciary</p>
+        <p>Financial Report, Feduciary, Course Project</p>
       </div>
     </div>
 
     <div class="quarto-other-links-text-target">
     </div>  </div>
-</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
@@ -210,10 +248,7 @@ window.Quarto = {
   <li><a href="#personality-of-the-company" id="toc-personality-of-the-company" class="nav-link" data-scroll-target="#personality-of-the-company">Personality of the Company</a></li>
   <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
   <li><a href="#fundamental-analysis" id="toc-fundamental-analysis" class="nav-link" data-scroll-target="#fundamental-analysis">Fundamental Analysis</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a>
-  <ul class="collapse">
-  <li><a href="#fundamental-analysis-of-the-clorox-company-clx" id="toc-fundamental-analysis-of-the-clorox-company-clx" class="nav-link" data-scroll-target="#fundamental-analysis-of-the-clorox-company-clx">Fundamental Analysis of The Clorox Company (CLX)</a></li>
-  </ul></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
   <li><a href="#technical-analysis" id="toc-technical-analysis" class="nav-link" data-scroll-target="#technical-analysis">Technical Analysis</a></li>
   <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
   <li><a href="#company-performance-2019-2024" id="toc-company-performance-2019-2024" class="nav-link" data-scroll-target="#company-performance-2019-2024">Company Performance 2019-2024</a></li>
@@ -227,11 +262,11 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a></li>
   </ul>
-<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks/2019-2024-preview.html"><i class="bi bi-journal-code"></i>Company Performance 2019-2024</a></li><li><a href="notebooks/forecasting-preview.html"><i class="bi bi-journal-code"></i>Forecasting</a></li><li><a href="notebooks/fundamentals.embed-preview.html"><i class="bi bi-journal-code"></i>Fundamental Analysis</a></li><li><a href="notebooks/intro-preview.html"><i class="bi bi-journal-code"></i>Introduction</a></li><li><a href="notebooks/personality-preview.html"><i class="bi bi-journal-code"></i>Personality of the Company</a></li><li><a href="notebooks/sector-preview.html"><i class="bi bi-journal-code"></i>Sector Analysis</a></li><li><a href="notebooks/summary-preview.html"><i class="bi bi-journal-code"></i>Summary</a></li><li><a href="notebooks/technical-preview.html"><i class="bi bi-journal-code"></i>Technical Analysis</a></li></ul></div></nav>
+<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks/2019-2024-preview.html"><i class="bi bi-journal-code"></i>Company Performance 2019-2024</a></li><li><a href="notebooks/forecasting-preview.html"><i class="bi bi-journal-code"></i>Forecasting</a></li><li><a href="notebooks/fundamentals-preview.html"><i class="bi bi-journal-code"></i>Fundamental Analysis</a></li><li><a href="notebooks/intro-preview.html"><i class="bi bi-journal-code"></i>Introduction</a></li><li><a href="notebooks/personality-preview.html"><i class="bi bi-journal-code"></i>Personality of the Company</a></li><li><a href="notebooks/sector-preview.html"><i class="bi bi-journal-code"></i>Sector Analysis</a></li><li><a href="notebooks/summary-preview.html"><i class="bi bi-journal-code"></i>Summary</a></li><li><a href="notebooks/technical-preview.html"><i class="bi bi-journal-code"></i>Technical Analysis</a></li></ul></div></nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-right" id="quarto-document-content">
 
 
 
@@ -255,7 +290,7 @@ window.Quarto = {
 <p>Subject of financial analysis is very information-dense and to perform such an analysis (be it an analysis of industrial sectors, fundamental, technical, etc.) in earnest is a non-trivial job that we don’t see ourselves capable of performing.</p>
 <p>Therefore, this document aims to provide a simplified, non-rigorous analysis aiming to showcase our understanding of course material and minimal proficiency in scientific communication using tools such as R language <span class="citation" data-cites="ProjectStatisticalComputing"><span>“R: <span>The R Project</span> for <span>Statistical Computing</span>”</span> (<a href="#ref-ProjectStatisticalComputing" role="doc-biblioref">n.d.</a>)</span>, its “tidyquant” package <span class="citation" data-cites="danchoTidyquantTidyQuantitative2025">Dancho and Vaughan (<a href="#ref-danchoTidyquantTidyQuantitative2025" role="doc-biblioref">2025</a>)</span> and Quarto scientific publishing system <span class="citation" data-cites="Quarto"><span>“Quarto”</span> (<a href="#ref-Quarto" role="doc-biblioref">n.d.</a>)</span>.</p>
 </blockquote>
-<div id="15dc0177-0e2a-4b30-8654-1439ce7f71a7" class="cell">
+<div id="b60f1751-58c9-4d99-85fb-242e509d91bb" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -728,10 +763,107 @@ EBITDA
 P/B ratio
 EV = Mcap + Debt
 -->
-<section id="fundamental-analysis-of-the-clorox-company-clx" class="level3">
-<h3 class="anchored" data-anchor-id="fundamental-analysis-of-the-clorox-company-clx">Fundamental Analysis of The Clorox Company (CLX)</h3>
-<p>Incorporating <strong>Graham Number</strong> and key financial ratios derived from the latest available data (as of February 2025):</p>
 <hr>
+<blockquote class="blockquote">
+<p><strong>Important</strong></p>
+<p>In this section we will take a look at quantitative fundamental analysis tools provided by the “tidyquant” R language package [<span class="citation" data-cites="danchoTidyquantTidyQuantitative2025">Dancho and Vaughan (<a href="#ref-danchoTidyquantTidyQuantitative2025" role="doc-biblioref">2025</a>)</span>] and use them to get key financial ratios of fundamental analysis for the Clorox company. This section is based on the following wonderful tutorial: <span class="citation" data-cites="PerformanceAnalysisTidyquant"><span>“Performance <span>Analysis</span> with Tidyquant”</span> (<a href="#ref-PerformanceAnalysisTidyquant" role="doc-biblioref">n.d.</a>)</span></p>
+</blockquote>
+<p>First let’s retrieve 5-year period returns from the prices adjusted for stock splits, both for Clorox and S&amp;P500 as the baseline. Next, we combine both datasets (Clorox and S&amp;P500 returns) using “left-join” on the “date” field. Using this dataset, we can retrieve all kind of fundamental metrics, such as <strong>Alpha</strong> (0.0008), <strong>Beta</strong> (0.414).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-planet-measures</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Astronomical object</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ purrr::%||%()   masks base::%||%()
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-planet-measures</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Astronomical object</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+── Attaching core tidyquant packages ─────────────────────── tidyquant 1.0.10 ──
+✔ PerformanceAnalytics 2.0.8      ✔ TTR                  0.24.4
+✔ quantmod             0.4.26     ✔ xts                  0.14.1── Conflicts ────────────────────────────────────────── tidyquant_conflicts() ──
+✖ purrr::%||%()                  masks base::%||%()
+✖ zoo::as.Date()                 masks base::as.Date()
+✖ zoo::as.Date.numeric()         masks base::as.Date.numeric()
+✖ dplyr::filter()                masks stats::filter()
+✖ xts::first()                   masks dplyr::first()
+✖ dplyr::lag()                   masks stats::lag()
+✖ xts::last()                    masks dplyr::last()
+✖ PerformanceAnalytics::legend() masks graphics::legend()
+✖ quantmod::summary()            masks base::summary()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-planet-measures</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Astronomical object</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Ra <span class="ot">&lt;-</span> <span class="st">"CLX"</span> <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_get</span>(<span class="at">get  =</span> <span class="st">"stock.prices"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">from =</span> <span class="st">"2020-01-01"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">to   =</span> <span class="st">"2025-02-01"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(symbol) <span class="sc">|&gt;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_transmute</span>(<span class="at">select     =</span> adjusted, </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">mutate_fun =</span> periodReturn, </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">period     =</span> <span class="st">"monthly"</span>, </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col_rename =</span> <span class="st">"Ra"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>Rb <span class="ot">&lt;-</span> <span class="st">"^GSPC"</span> <span class="sc">|&gt;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_get</span>(<span class="at">get  =</span> <span class="st">"stock.prices"</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">from =</span> <span class="st">"2020-01-01"</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>           <span class="at">to   =</span> <span class="st">"2025-02-01"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_transmute</span>(<span class="at">select     =</span> adjusted, </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">mutate_fun =</span> periodReturn, </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                 <span class="at">period     =</span> <span class="st">"monthly"</span>, </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col_rename =</span> <span class="st">"Rb"</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>RaRb <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Ra, Rb, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date"</span> <span class="ot">=</span> <span class="st">"date"</span>))</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>RaRb_capm <span class="ot">&lt;-</span> RaRb <span class="sc">%&gt;%</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_performance</span>(<span class="at">Ra =</span> Ra, </span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Rb =</span> Rb, </span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                   <span class="at">performance_fun =</span> table.CAPM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Registered S3 method overwritten by 'robustbase':
+  method          from     
+  hatvalues.lmrob RobStatTM</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-planet-measures</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Astronomical object</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>RaRb_capm <span class="sc">%&gt;%</span> <span class="fu">select</span>(symbol, Alpha, Beta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code># A tibble: 1 × 3
+# Groups:   symbol [1]
+  symbol  Alpha  Beta
+  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+1 CLX    0.0008 0.414</code></pre>
+<p>We can also get the <strong>Annualized Sharpe Ratio and Returns</strong>, <strong>Types of Mean Return (Geometric, Arithmetic, etc.)</strong>, <strong>Kurtosis</strong>, as well as <strong>Maximum and Median Return</strong> by following the similar steps (no need for the baseline this time).</p>
+<div id="abb58371-d8b5-430a-a4ff-bcadebbebb4a" class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+# Groups:   symbol [1]
+  symbol AnnualizedReturn `AnnualizedSharpe(Rf=0%)` AnnualizedStdDev
+  &lt;chr&gt;             &lt;dbl&gt;                     &lt;dbl&gt;            &lt;dbl&gt;
+1 CLX              0.0381                     0.153            0.249# A tibble: 1 × 17
+# Groups:   symbol [1]
+  symbol ArithmeticMean GeometricMean Kurtosis `LCLMean(0.95)` Maximum Median
+  &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+1 CLX            0.0056        0.0031     1.20         -0.0128   0.218 0.0054
+# ℹ 10 more variables: Minimum &lt;dbl&gt;, NAs &lt;dbl&gt;, Observations &lt;dbl&gt;,
+#   Quartile1 &lt;dbl&gt;, Quartile3 &lt;dbl&gt;, SEMean &lt;dbl&gt;, Skewness &lt;dbl&gt;,
+#   Stdev &lt;dbl&gt;, `UCLMean(0.95)` &lt;dbl&gt;, Variance &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<!-- Put the values in the markdown tables, mention concepts of qualitative analysis -->
 <section id="i.-graham-number-calculation" class="level4">
 <h4 class="anchored" data-anchor-id="i.-graham-number-calculation"><strong>I. Graham Number Calculation</strong></h4>
 <p>The Graham Number estimates a stock’s intrinsic value using earnings per share (EPS) and book value per share (BVPS):<br>
@@ -911,7 +1043,6 @@ EV = Mcap + Debt
 <p>Clorox’s fundamentals reflect a company in recovery, balancing strong brand equity and dividend reliability with significant debt and valuation risks. While operational improvements (e.g., margin expansion, ERP transition) are promising, the stock’s premium pricing and leverage warrant caution. Investors should monitor debt reduction and margin sustainability in 2025 .</p>
 </section>
 </section>
-</section>
 <section id="technical-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="technical-analysis">Technical Analysis</h2>
 </section>
@@ -931,7 +1062,7 @@ Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-a
 <p>Technical analysis in this section follows the wonderful tutorial provided here: [<span class="citation" data-cites="FinancialModelingb"><span>“Financial Modeling with <span>R</span>”</span> (<a href="#ref-FinancialModelingb" role="doc-biblioref">n.d.</a>)</span>]</p>
 </blockquote>
 <p>We’ll start with providing a simple plot of stock price movement.</p>
-<div id="41af9510-2ae5-4d02-b7e0-126e9cdad075" class="cell">
+<div id="979de4c9-b6be-471c-8eb3-b87f4b2f0d98" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -941,7 +1072,7 @@ Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-a
 </div>
 </div>
 <p>To identify basic trend in this movement, we then chart the <strong>Simple Moving Average</strong>.</p>
-<div id="3d46682d-b7f7-4192-afcb-d4140cb3490e" class="cell">
+<div id="ec06792a-4bec-4ba7-b1dd-e91590e6e6c1" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -953,7 +1084,7 @@ Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-a
 <p>By playing with the “n” value - the average of the last n-day stock prices - we produced a line that closely resembles the price line. Since the SMA line crosses the price line from top to bottom, we’re supposed to anticipate a drop in the stock price.</p>
 <p><strong>The Bollinger Bands</strong> is another useful tool of technical analysis. These are “envelopes plotted at a standard deviation level above and below a simple moving average of the price” [<span class="citation" data-cites="FinancialModelingb"><span>“Financial Modeling with <span>R</span>”</span> (<a href="#ref-FinancialModelingb" role="doc-biblioref">n.d.</a>)</span>]. They supposed to show the volatility of a price of the stock and the size of expected change of the price in the future.</p>
 <p>Let’s demonstrate.</p>
-<div id="1f905c28-d3a2-4d25-bf13-a608bd42e79c" class="cell">
+<div id="eae7d62f-751c-4bfd-8e07-d49c9bb860f0" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -963,7 +1094,7 @@ Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-a
 </div>
 </div>
 <p>And finally let’s look at such charts for major competitors to get the feel of the market.</p>
-<div id="6cb61266-8eb6-4ef8-aee8-48085f1e48d6" class="cell">
+<div id="96bd3ec6-8a3b-4155-982c-580c9a195a0b" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1080,11 +1211,27 @@ Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-a
 <ul>
 <li>What risks does it list on 10-k? Summarize.</li>
 </ul>
-<div id="8f491163-b7bb-4f25-972d-21e7b5de4789" class="cell">
+<p>Long-term financial forecasting, like all social forecasting, is an incredibly fraught undertaking due to many different reasons (see, for example, [<span class="citation" data-cites="cerqueira8ReasonsWhy2022">Cerqueira (<a href="#ref-cerqueira8ReasonsWhy2022" role="doc-biblioref">2022</a>)</span>] and [<span class="citation" data-cites="ForecastingPredictiveAnalytics"><span>“Forecasting and Predictive Analytics: <span>A</span> Critical Look at the Basic Building Blocks of a Predictive Model”</span> (<a href="#ref-ForecastingPredictiveAnalytics" role="doc-biblioref">n.d.</a>)</span>]). Luckily, many tools are available for us to experiment with.</p>
+<p>We’ve already done some simple short-term forecasting in our “Technical Analysis” section using <strong>SMA</strong> and <strong>Bollinger Bands</strong>. We’ve also accessed volatility by calculating <strong>Beta</strong> value and estimated risk/return using <strong>Annualized Sharpe Ratio</strong>, which might help us in medium-term forecasting. Now we will try using advanced <strong>ARIMA</strong> (Auto-Regressive Integrated Moving Averages) to predict stock prices for the next 6 months and for the next year.</p>
+<div id="febe19df-5fd3-4ae0-8b5d-f150b60dd3e9" class="cell">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
 <p><a href="index_files/figure-html/notebooks-forecasting-cell-2-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="index_files/figure-html/notebooks-forecasting-cell-2-output-2.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/notebooks-forecasting-cell-2-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="index_files/figure-html/notebooks-forecasting-cell-2-output-3.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/notebooks-forecasting-cell-2-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="index_files/figure-html/notebooks-forecasting-cell-2-output-4.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1102,17 +1249,26 @@ Can reduce portfolio volatility by pairing inversely correlated securities.
 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-cerqueira8ReasonsWhy2022" class="csl-entry" role="listitem">
+Cerqueira, Vitor. 2022. <span>“8 <span>Reasons Why Forecasting Is Hard</span>.”</span> <em>Towards Data Science</em>. https://towardsdatascience.com/8-reasons-why-forecasting-is-hard-481755a05325/.
+</div>
 <div id="ref-danchoTidyquantTidyQuantitative2025" class="csl-entry" role="listitem">
 Dancho, Matt, and Davis Vaughan. 2025. <span>“Tidyquant: <span>Tidy Quantitative Financial Analysis</span>.”</span>
 </div>
 <div id="ref-FinancialModelingb" class="csl-entry" role="listitem">
 <span>“Financial Modeling with <span>R</span>.”</span> n.d. https://mlozanoqf.github.io/tutorial_pmf/. Accessed February 14, 2025.
 </div>
+<div id="ref-ForecastingPredictiveAnalytics" class="csl-entry" role="listitem">
+<span>“Forecasting and Predictive Analytics: <span>A</span> Critical Look at the Basic Building Blocks of a Predictive Model.”</span> n.d. <em>Brookings</em>. https://www.brookings.edu/articles/forecasting-and-predictive-analytics-a-critical-look-at-the-basic-building-blocks-of-a-predictive-model/. Accessed February 15, 2025.
+</div>
 <div id="ref-IGNITEStrategy" class="csl-entry" role="listitem">
 <span>“<span>IGNITE Strategy</span>.”</span> n.d. <em>The Clorox Company</em>. Accessed February 14, 2025.
 </div>
 <div id="ref-mascellinoCloroxOperationsDisrupted2023" class="csl-entry" role="listitem">
 Mascellino, Alessandro. 2023. <span>“Clorox <span>Operations Disrupted By Cyber-Attack</span>.”</span> <em>Infosecurity Magazine</em>. https://www.infosecurity-magazine.com/news/clorox-disrupted-cyber-attack/.
+</div>
+<div id="ref-PerformanceAnalysisTidyquant" class="csl-entry" role="listitem">
+<span>“Performance <span>Analysis</span> with Tidyquant.”</span> n.d. https://business-science.github.io/tidyquant/articles/TQ05-performance-analysis-with-tidyquant.html. Accessed February 14, 2025.
 </div>
 <div id="ref-PurposeValues" class="csl-entry" role="listitem">
 <span>“Purpose &amp; <span>Values</span>.”</span> n.d. <em>The Clorox Company</em>. Accessed February 14, 2025.

@@ -169,6 +169,22 @@
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
 \ifdefined\contentsname
@@ -253,10 +269,7 @@ the tools of computational finance.
 \tableofcontents
 }
 
-\section{}\label{section}
-
-\begin{quote}
-\textbf{On the simplified nature of analysis in this document.}
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, opacityback=0, coltitle=black, arc=.35mm, leftrule=.75mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{On the simplified nature of analysis in this document.}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, breakable, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-warning-color-frame]
 
 Subject of financial analysis is very information-dense and to perform
 such an analysis (be it an analysis of industrial sectors, fundamental,
@@ -264,28 +277,26 @@ technical, etc.) in earnest is a non-trivial job that we don't see
 ourselves capable of performing.
 
 Therefore, this document aims to provide a simplified, non-rigorous
-analysis aiming to showcase our understanding of course material and
+analysis iming to showcase our understanding of course material and
 minimal proficiency in scientific communication using tools such as web
 scraping and searching for financial data, DeepSeek LLM with Web Search
-functionality, R language {[}{``R: {The R Project} for {Statistical
-Computing}''} (n.d.){]}, its ``tidyquant'' package {[}Dancho and Vaughan
-(2025){]} and Quarto scientific publishing system {[}{``Quarto''}
-(n.d.){]}.
-\end{quote}
+functionality, R language ({``R: {The R Project} for {Statistical
+Computing}''} 2025), its ``tidyquant'' package (Dancho and Vaughan 2025)
+and Quarto scientific publishing system ({``Quarto''} 2025).
+
+\end{tcolorbox}
 
 \subsection{Sector Analysis}\label{sector-analysis}
 
-\section{}\label{section-1}
-
-\begin{quote}
-\textbf{Note}
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, opacityback=0, coltitle=black, arc=.35mm, leftrule=.75mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, breakable, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame]
 
 In this section we analyze financial data on websites such as
 \url{https://finance.yahoo.com}, as well as using the
 \href{https://chat.deepseek.com/}{DeepSeek LLM} to find analysis on the
-web and provide summaries. Some basic charting using R language {[}{``R:
-{The R Project} for {Statistical Computing}''} (n.d.){]} is introduced.
-\end{quote}
+web and provide summaries. Some basic charting using R language ({``R:
+{The R Project} for {Statistical Computing}''} 2025) is introduced.
+
+\end{tcolorbox}
 
 \subsubsection{Financial Analysis of the Clorox Company in the Consumer
 Defensive
@@ -313,11 +324,29 @@ Competitors}}{2. Position Relative to Competitors}}\label{position-relative-to-c
 Clorox's market share inside it's sector is relatively small:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2192}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2329}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2329}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1644}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1507}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2389}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1611}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1444}}@{}}
+\caption{CLX's Market share relative to its competitors, as of Q4 2024
+within the Consumer Non Cyclical Sector (i.e.~Consumer Defensive),
+source: {``The {Clorox Market} Share Relative to Its Competitors, as of
+{Q4} 2024 - {CSIMarket}''} (2025)}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+COMPANY NAME
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MARKET SHARE 12 Months Ending Q4 2024
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MARKET SHARE 12 Months Ending Q3 2024
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MARKET SHARE MRQ Q4 2024
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MARKET SHARE Q3 2024
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 COMPANY NAME
@@ -357,17 +386,91 @@ Unilever Plc & 24.32\% & 22.02\% & 24.32\% & 22.02\% \\
 SUBTOTAL & 100\% & 100\% & 100\% & 100\% \\
 \end{longtable}
 
-CLX's Market share relative to its competitors, as of Q4 2024 within the
-Consumer Non Cyclical Sector (i.e.~Consumer Defensive), source: {``The
-{Clorox Market} Share Relative to Its Competitors, as of {Q4} 2024 -
-{CSIMarket}''} (n.d.)
-
 Clorox competes with major players such as \textbf{Procter \& Gamble
 (PG)}, \textbf{Colgate-Palmolive (CL)}, \textbf{Church \& Dwight (CHD)},
 and \textbf{Kimberly-Clark (KMB)}. Let's look at their stock price
 relative to each other using R language.
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-sector-cell-2-output-2.png}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyquant)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+\end{verbatim}
+
+\begin{verbatim}
+-- Attaching core tidyquant packages ----------------------- tidyquant 1.0.10 --
+v PerformanceAnalytics 2.0.8      v TTR                  0.24.4
+v quantmod             0.4.26     v xts                  0.14.1
+-- Conflicts ------------------------------------------ tidyquant_conflicts() --
+x zoo::as.Date()                 masks base::as.Date()
+x zoo::as.Date.numeric()         masks base::as.Date.numeric()
+x PerformanceAnalytics::legend() masks graphics::legend()
+x quantmod::summary()            masks base::summary()
+i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:xts':
+
+    first, last
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tickers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"CLX"}\NormalTok{, }\StringTok{"CL"}\NormalTok{, }\StringTok{"PG"}\NormalTok{, }\StringTok{"CHD"}\NormalTok{, }\StringTok{"KMB"}\NormalTok{)}
+
+\NormalTok{prices }\OtherTok{\textless{}{-}} \FunctionTok{tq\_get}\NormalTok{(tickers,}
+               \AttributeTok{from =} \StringTok{"2024{-}01{-}01"}\NormalTok{,}
+               \AttributeTok{to =} \StringTok{"2025{-}02{-}01"}\NormalTok{,}
+               \AttributeTok{get =} \StringTok{"stock.prices"}\NormalTok{)}
+
+\NormalTok{prices }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ date, }\AttributeTok{y =}\NormalTok{ adjusted, }\AttributeTok{color =}\NormalTok{ symbol)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{subtitle =} \StringTok{"Simple stock price comparison for the last year against major competitors"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/unnamed-chunk-1-1.pdf}}
 
 \subsubsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion}
 
@@ -380,36 +483,34 @@ characterizes the sector itself.
 \subsection{Personality of the
 Company}\label{personality-of-the-company}
 
-\section{}\label{section-2}
-
-\begin{quote}
-\textbf{Note}
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, opacityback=0, coltitle=black, arc=.35mm, leftrule=.75mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, breakable, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame]
 
 In this section we collect and cite a variety of publicly available
 sources to perform an analysis of the company personality. We use use
 DeepSeek LLM with Web Search functionality to collect and analyze these
 sources.
-\end{quote}
 
-\paragraph{\texorpdfstring{\textbf{Company Purpose and
+\end{tcolorbox}
+
+\subsubsection{\texorpdfstring{\textbf{Company Purpose and
 Responsibility}}{Company Purpose and Responsibility}}\label{company-purpose-and-responsibility}
 
-\subparagraph{\texorpdfstring{\textbf{Company
+\paragraph{\texorpdfstring{\textbf{Company
 Purpose}}{Company Purpose}}\label{company-purpose}
 
 Clorox's stated purpose is to ``champion people to be well and thrive
-every single day'' {[}{``Purpose \& {Values}''} (n.d.){]}. As a health
-and wellness company, Clorox aims to make a meaningful and positive
-impact on the world by improving the health and safety of employees,
-consumers, and communities. All of this is reflected in their
-family-friendly and inclusive branding.
+every single day'' ({``Purpose \& {Values}''} 2025). As a health and
+wellness company, Clorox aims to make a meaningful and positive impact
+on the world by improving the health and safety of employees, consumers,
+and communities. All of this is reflected in their family-friendly and
+inclusive branding.
 
-\subparagraph{\texorpdfstring{\textbf{Responsibility
+\paragraph{\texorpdfstring{\textbf{Responsibility
 Policies}}{Responsibility Policies}}\label{responsibility-policies}
 
 Clorox integrates environmental, social, and governance (ESG) goals into
-its core business strategy {[}{``Responsibility''} (n.d.){]}. Key areas
-of focus include:
+its core business strategy ({``Responsibility''} 2025). Key areas of
+focus include:
 
 \begin{itemize}
 \tightlist
@@ -428,12 +529,12 @@ of focus include:
 Clorox has set ambitious targets, such as achieving net-zero emissions
 by 2050.
 
-\subparagraph{\texorpdfstring{\textbf{IGNITE
+\paragraph{\texorpdfstring{\textbf{IGNITE
 Strategy}}{IGNITE Strategy}}\label{ignite-strategy}
 
 The IGNITE strategy is Clorox's long-term plan to drive what the company
-calls a ``purpose-driven growth'' {[}{``{IGNITE Strategy}''} (n.d.){]}
-by aligning financial goals with ESG priorities. Key pillars include:
+calls a ``purpose-driven growth'' ({``{IGNITE Strategy}''} 2025) by
+aligning financial goals with ESG priorities. Key pillars include:
 
 \begin{itemize}
 \tightlist
@@ -455,14 +556,29 @@ by aligning financial goals with ESG priorities. Key pillars include:
 The strategy also includes specific financial targets, such as 2-4\% net
 sales growth and 11-13\% free cash flow generation.
 
-\paragraph{\texorpdfstring{\textbf{Key Executives, Their Commitment and
+\subsubsection{\texorpdfstring{\textbf{Key Executives, Their Commitment
+and
 Performance}}{Key Executives, Their Commitment and Performance}}\label{key-executives-their-commitment-and-performance}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2432}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.5405}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0946}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1216}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2476}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.5714}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0762}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1048}}@{}}
+\caption{Key Executives, source: ({``The {Clorox Company} ({CLX})
+{Company Profile} \& {Facts}''} 2025)}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Title
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Pay
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Year Born
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Name
@@ -495,11 +611,8 @@ Mr.~Eric Sean Schwartz & Senior VP \& Chief Marketing Officer & -- &
 Mr.~Erbie L. Foster Jr. & Chief Diversity Officer & -- & -- \\
 \end{longtable}
 
-Key Executives, source: {[}{``The {Clorox Company} ({CLX}) {Company
-Profile} \& {Facts}''} (n.d.){]}
-
-According to {[}{``The {Clorox Company}: {Business Model}, {SWOT
-Analysis}, and {Competitors} 2024 - {PitchGrade}''} (n.d.){]}, CEO and
+According to ({``The {Clorox Company}: {Business Model}, {SWOT
+Analysis}, and {Competitors} 2024 - {PitchGrade}''} 2025), CEO and
 Chairman Linda J. Rendle, as well as the other executives and board
 members have significant ownership stakes at the company, indicating
 high confidence in their business.
@@ -507,10 +620,10 @@ high confidence in their business.
 Financial analysis website Simply WallSt gives the upper management team
 at Clorox high marks on all 4 criteria: Compensation vs Market,
 Compensation vs Earnings, Experienced Management and Experienced Board
-{[}{``The {Clorox Company} ({CLX}) {Leadership} \& {Management Team
-Analysis}''} (n.d.){]}.
+({``The {Clorox Company} ({CLX}) {Leadership} \& {Management Team
+Analysis}''} 2025).
 
-\paragraph{\texorpdfstring{\textbf{Company Brand and
+\subsubsection{\texorpdfstring{\textbf{Company Brand and
 Reputation}}{Company Brand and Reputation}}\label{company-brand-and-reputation}
 
 Clorox is a globally recognized leader in the cleaning and consumer
@@ -525,13 +638,13 @@ Choice Partner of the Year} by the EPA, and a top performer in the
 Its sustainable brands, such as \textbf{Brita}, \textbf{Burt's Bees},
 and \textbf{Green Works}, have gained significant consumer trust for
 their eco-friendly and socially responsible practices
-{[}{``Recognitions''} (n.d.){]}.
+({``Recognitions''} 2025).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 In August 2023, Clorox experienced a severe \textbf{cyberattack}
-{[}Mascellino (2023){]} that disrupted its IT systems and operations.
-The attack, which was detected on August 14, forced the company to take
+(Mascellino 2023) that disrupted its IT systems and operations. The
+attack, which was detected on August 14, forced the company to take
 affected systems offline, leading to significant production delays and
 supply chain disruptions. Clorox activated its business continuity
 plans, reverting to manual processes for order fulfillment and customer
@@ -547,7 +660,7 @@ updates to stakeholders and implementing phased recovery plans to
 restore operations safely. Brand and reputation were not severely
 damaged in the process.
 
-\paragraph{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion-1}
+\subsubsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion-1}
 
 We can use modern LLM chatbots to collect publicly available sources and
 perform analysis of the company personality. The analysis shows strong
@@ -555,20 +668,17 @@ branding, good leadership and consistent performance.
 
 \subsection{Fundamental Analysis}\label{fundamental-analysis}
 
-\section{}\label{section-3}
-
-\begin{quote}
-\textbf{Note}
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, opacityback=0, coltitle=black, arc=.35mm, leftrule=.75mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, breakable, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame]
 
 In this section we will take a look at quantitative fundamental analysis
-tools provided by the ``tidyquant'' R language package {[}Dancho and
-Vaughan (2025){]} and use them to get key financial ratios of
-fundamental analysis for the Clorox company. This section is based on
-the following wonderful tutorial: {``Performance {Analysis} with
-Tidyquant''} (n.d.)
-\end{quote}
+tools provided by the ``tidyquant'' R language package (Dancho and
+Vaughan 2025) and use them to get key financial ratios of fundamental
+analysis for the Clorox company. This section is based on the following
+wonderful tutorial: {``Performance {Analysis} with Tidyquant''} (2025)
 
-\paragraph{\texorpdfstring{\textbf{Basic Fundamental Analysis of the
+\end{tcolorbox}
+
+\subsubsection{\texorpdfstring{\textbf{Basic Fundamental Analysis of the
 Clorox
 Company}}{Basic Fundamental Analysis of the Clorox Company}}\label{basic-fundamental-analysis-of-the-clorox-company}
 
@@ -581,12 +691,73 @@ fundamental metrics, such as \textbf{Alpha} (0.0008), \textbf{Beta}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{library(tidyverse)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-# A tibble: 1 × 3
+-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+v forcats   1.0.0     v stringr   1.5.1
+v lubridate 1.9.4     v tibble    3.2.1
+v purrr     1.0.4     v tidyr     1.3.1
+v readr     2.1.5     
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x purrr::%||%()   masks base::%||%()
+x dplyr::filter() masks stats::filter()
+x dplyr::first()  masks xts::first()
+x dplyr::lag()    masks stats::lag()
+x dplyr::last()   masks xts::last()
+i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyquant)}
+
+\NormalTok{Ra }\OtherTok{\textless{}{-}} \StringTok{"CLX"} \SpecialCharTok{|\textgreater{}}
+    \FunctionTok{tq\_get}\NormalTok{(}\AttributeTok{get  =} \StringTok{"stock.prices"}\NormalTok{,}
+           \AttributeTok{from =} \StringTok{"2020{-}01{-}01"}\NormalTok{,}
+           \AttributeTok{to   =} \StringTok{"2025{-}02{-}01"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{group\_by}\NormalTok{(symbol) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{tq\_transmute}\NormalTok{(}\AttributeTok{select     =}\NormalTok{ adjusted, }
+                 \AttributeTok{mutate\_fun =}\NormalTok{ periodReturn, }
+                 \AttributeTok{period     =} \StringTok{"monthly"}\NormalTok{, }
+                 \AttributeTok{col\_rename =} \StringTok{"Ra"}\NormalTok{)}
+
+
+\NormalTok{Rb }\OtherTok{\textless{}{-}} \StringTok{"\^{}GSPC"} \SpecialCharTok{|\textgreater{}}
+    \FunctionTok{tq\_get}\NormalTok{(}\AttributeTok{get  =} \StringTok{"stock.prices"}\NormalTok{,}
+           \AttributeTok{from =} \StringTok{"2020{-}01{-}01"}\NormalTok{,}
+           \AttributeTok{to   =} \StringTok{"2025{-}02{-}01"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{tq\_transmute}\NormalTok{(}\AttributeTok{select     =}\NormalTok{ adjusted, }
+                 \AttributeTok{mutate\_fun =}\NormalTok{ periodReturn, }
+                 \AttributeTok{period     =} \StringTok{"monthly"}\NormalTok{, }
+                 \AttributeTok{col\_rename =} \StringTok{"Rb"}\NormalTok{)}
+
+\NormalTok{RaRb }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(Ra, Rb, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"date"} \OtherTok{=} \StringTok{"date"}\NormalTok{))}
+
+
+\NormalTok{RaRb\_capm }\OtherTok{\textless{}{-}}\NormalTok{ RaRb }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{tq\_performance}\NormalTok{(}\AttributeTok{Ra =}\NormalTok{ Ra, }
+                   \AttributeTok{Rb =}\NormalTok{ Rb, }
+                   \AttributeTok{performance\_fun =}\NormalTok{ table.CAPM)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Registered S3 method overwritten by 'robustbase':
+  method          from     
+  hatvalues.lmrob RobStatTM
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RaRb\_capm }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(symbol, Alpha, Beta) }\SpecialCharTok{|\textgreater{}} \FunctionTok{print}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 1 x 3
 # Groups:   symbol [1]
   symbol  Alpha  Beta
   <chr>   <dbl> <dbl>
@@ -600,41 +771,53 @@ following the similar steps (no need for the baseline this time).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{library(tidyverse)}
-\NormalTok{library(tidyquant)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(tidyquant)}
 
-\NormalTok{Ra }\OperatorTok{\textless{}{-}} \StringTok{"CLX"} \OperatorTok{|\textgreater{}}
-\NormalTok{    tq\_get(get  }\OperatorTok{=} \StringTok{"stock.prices"}\NormalTok{,}
-           \ImportTok{from} \OperatorTok{=} \StringTok{"2020{-}01{-}01"}\NormalTok{,}
-\NormalTok{           to   }\OperatorTok{=} \StringTok{"2025{-}02{-}01"}\NormalTok{) }\OperatorTok{|\textgreater{}}
-\NormalTok{    group\_by(symbol) }\OperatorTok{|\textgreater{}}
-\NormalTok{    tq\_transmute(select     }\OperatorTok{=}\NormalTok{ adjusted, }
-\NormalTok{                 mutate\_fun }\OperatorTok{=}\NormalTok{ periodReturn, }
-\NormalTok{                 period     }\OperatorTok{=} \StringTok{"monthly"}\NormalTok{, }
-\NormalTok{                 col\_rename }\OperatorTok{=} \StringTok{"Ra"}\NormalTok{)}
+\NormalTok{Ra }\OtherTok{\textless{}{-}} \StringTok{"CLX"} \SpecialCharTok{|\textgreater{}}
+    \FunctionTok{tq\_get}\NormalTok{(}\AttributeTok{get  =} \StringTok{"stock.prices"}\NormalTok{,}
+           \AttributeTok{from =} \StringTok{"2020{-}01{-}01"}\NormalTok{,}
+           \AttributeTok{to   =} \StringTok{"2025{-}02{-}01"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{group\_by}\NormalTok{(symbol) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{tq\_transmute}\NormalTok{(}\AttributeTok{select     =}\NormalTok{ adjusted, }
+                 \AttributeTok{mutate\_fun =}\NormalTok{ periodReturn, }
+                 \AttributeTok{period     =} \StringTok{"monthly"}\NormalTok{, }
+                 \AttributeTok{col\_rename =} \StringTok{"Ra"}\NormalTok{)}
 
-\NormalTok{Ra }\OperatorTok{|\textgreater{}}
-\NormalTok{  tq\_performance(Ra }\OperatorTok{=}\NormalTok{ Ra, Rb }\OperatorTok{=}\NormalTok{ NULL, performance\_fun }\OperatorTok{=}\NormalTok{ table.AnnualizedReturns) }\OperatorTok{|\textgreater{}}
-  \BuiltInTok{print}\NormalTok{()}
+\NormalTok{Ra }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{tq\_performance}\NormalTok{(}\AttributeTok{Ra =}\NormalTok{ Ra, }\AttributeTok{Rb =} \ConstantTok{NULL}\NormalTok{, }\AttributeTok{performance\_fun =}\NormalTok{ table.AnnualizedReturns) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{print}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-# A tibble: 1 × 4
+# A tibble: 1 x 4
 # Groups:   symbol [1]
   symbol AnnualizedReturn `AnnualizedSharpe(Rf=0%)` AnnualizedStdDev
   <chr>             <dbl>                     <dbl>            <dbl>
-1 CLX              0.0381                     0.153            0.249# A tibble: 1 × 17
+1 CLX              0.0381                     0.153            0.249
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Ra }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{tq\_performance}\NormalTok{(}\AttributeTok{Ra =}\NormalTok{ Ra, }\AttributeTok{Rb =} \ConstantTok{NULL}\NormalTok{, }\AttributeTok{performance\_fun =}\NormalTok{ table.Stats) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{print}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 1 x 17
 # Groups:   symbol [1]
   symbol ArithmeticMean GeometricMean Kurtosis `LCLMean(0.95)` Maximum Median
   <chr>           <dbl>         <dbl>    <dbl>           <dbl>   <dbl>  <dbl>
 1 CLX            0.0056        0.0031     1.20         -0.0128   0.218 0.0054
-# ℹ 10 more variables: Minimum <dbl>, NAs <dbl>, Observations <dbl>,
+# i 10 more variables: Minimum <dbl>, NAs <dbl>, Observations <dbl>,
 #   Quartile1 <dbl>, Quartile3 <dbl>, SEMean <dbl>, Skewness <dbl>,
 #   Stdev <dbl>, `UCLMean(0.95)` <dbl>, Variance <dbl>
 \end{verbatim}
 
-\paragraph{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion-2}
+\subsubsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion-2}
 
 We can use the ``tidyquant'' R language package to perform fundamental
 analysis of the company and obtain all of the key financial ratios for
@@ -643,16 +826,14 @@ fundamentals.
 
 \subsection{Technical Analysis}\label{technical-analysis}
 
-\section{}\label{section-4}
-
-\begin{quote}
-\textbf{Note}
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, opacityback=0, coltitle=black, arc=.35mm, leftrule=.75mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, breakable, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame]
 
 Technical analysis in this section follows the wonderful tutorial
-provided here: {[}{``Financial Modeling with {R}''} (n.d.){]}
-\end{quote}
+provided here: ({``Financial Modeling with {R}''} 2025)
 
-\paragraph{\texorpdfstring{\textbf{Basic Technical Analysis of the
+\end{tcolorbox}
+
+\subsubsection{\texorpdfstring{\textbf{Basic Technical Analysis of the
 Clorox
 Company}}{Basic Technical Analysis of the Clorox Company}}\label{basic-technical-analysis-of-the-clorox-company}
 
@@ -660,32 +841,41 @@ We'll start with providing a simple plot of stock price movement.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{library(tidyquant)}
+\FunctionTok{library}\NormalTok{(tidyquant)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{CLX }\OtherTok{\textless{}{-}} \FunctionTok{tq\_get}\NormalTok{(}\StringTok{"CLX"}\NormalTok{, }\AttributeTok{get =} \StringTok{"stock.prices"}\NormalTok{, }\AttributeTok{from =} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
+               \AttributeTok{to =} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
+
+\NormalTok{CLX }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ date, }\AttributeTok{y =}\NormalTok{ close)) }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{labs}\NormalTok{(}\AttributeTok{y =} \StringTok{"Closing price"}\NormalTok{, }\AttributeTok{x =} \StringTok{""}\NormalTok{, }\AttributeTok{title =} \StringTok{"Simple plot representing closing prices of the CLX stock for the past year"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{theme\_tq}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-2-output-2.png}}
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/unnamed-chunk-4-1.pdf}}
 
 To identify basic trend in this movement, we then chart the
 \textbf{Simple Moving Average}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{library(tidyquant)}
-\NormalTok{library(ggplot2)}
-\NormalTok{library(dplyr)}
-\NormalTok{CLX }\OperatorTok{\textless{}{-}}\NormalTok{ tq\_get(}\StringTok{"CLX"}\NormalTok{, get }\OperatorTok{=} \StringTok{"stock.prices"}\NormalTok{, }\ImportTok{from} \OperatorTok{=} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
-\NormalTok{               to }\OperatorTok{=} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
-\NormalTok{CLX }\OperatorTok{|\textgreater{}}
-\NormalTok{  ggplot(aes(x }\OperatorTok{=}\NormalTok{ date, y }\OperatorTok{=}\NormalTok{ close)) }\OperatorTok{+}
-\NormalTok{    geom\_line()  }\OperatorTok{+}
-\NormalTok{    geom\_ma(ma\_fun }\OperatorTok{=}\NormalTok{ SMA, n }\OperatorTok{=} \DecValTok{25}\NormalTok{, linetype }\OperatorTok{=} \DecValTok{1}\NormalTok{, size }\OperatorTok{=} \FloatTok{1.25}\NormalTok{) }\OperatorTok{+}
-\NormalTok{    labs(y }\OperatorTok{=} \StringTok{"Closing Price"}\NormalTok{, x }\OperatorTok{=} \StringTok{""}\NormalTok{) }\OperatorTok{+} 
-\NormalTok{    theme\_tq()}
+\FunctionTok{library}\NormalTok{(tidyquant)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{CLX }\OtherTok{\textless{}{-}} \FunctionTok{tq\_get}\NormalTok{(}\StringTok{"CLX"}\NormalTok{, }\AttributeTok{get =} \StringTok{"stock.prices"}\NormalTok{, }\AttributeTok{from =} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
+               \AttributeTok{to =} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
+\NormalTok{CLX }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ date, }\AttributeTok{y =}\NormalTok{ close)) }\SpecialCharTok{+}
+    \FunctionTok{geom\_line}\NormalTok{()  }\SpecialCharTok{+}
+    \FunctionTok{geom\_ma}\NormalTok{(}\AttributeTok{ma\_fun =}\NormalTok{ SMA, }\AttributeTok{n =} \DecValTok{25}\NormalTok{, }\AttributeTok{linetype =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \FloatTok{1.25}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{labs}\NormalTok{(}\AttributeTok{y =} \StringTok{"Closing Price"}\NormalTok{, }\AttributeTok{x =} \StringTok{""}\NormalTok{) }\SpecialCharTok{+} 
+    \FunctionTok{theme\_tq}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-3-output-1.png}}
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/unnamed-chunk-5-1.pdf}}
 
 By playing with the ``n'' value - the average of the last n-day stock
 prices - we produced a line that closely resembles the price line. Since
@@ -694,68 +884,124 @@ to anticipate a drop in the stock price.
 
 \textbf{The Bollinger Bands} is another useful tool of technical
 analysis. These are ``envelopes plotted at a standard deviation level
-above and below a simple moving average of the price'' {[}{``Financial
-Modeling with {R}''} (n.d.){]}. They supposed to show the volatility of
-a price of the stock and the size of expected change of the price in the
+above and below a simple moving average of the price'' ({``Financial
+Modeling with {R}''} 2025). They supposed to show the volatility of a
+price of the stock and the size of expected change of the price in the
 future.
 
 Let's demonstrate.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{library(tidyquant)}
-\NormalTok{library(ggplot2)}
-\NormalTok{library(dplyr)}
-\NormalTok{CLX }\OperatorTok{\textless{}{-}}\NormalTok{ tq\_get(}\StringTok{"CLX"}\NormalTok{, get }\OperatorTok{=} \StringTok{"stock.prices"}\NormalTok{, }\ImportTok{from} \OperatorTok{=} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
-\NormalTok{               to }\OperatorTok{=} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
-\NormalTok{CLX }\OperatorTok{|\textgreater{}}
-\NormalTok{  ggplot(aes(x }\OperatorTok{=}\NormalTok{ date, y }\OperatorTok{=}\NormalTok{ close, }\BuiltInTok{open} \OperatorTok{=} \BuiltInTok{open}\NormalTok{,}
-\NormalTok{              high }\OperatorTok{=}\NormalTok{ high, low }\OperatorTok{=}\NormalTok{ low, close }\OperatorTok{=}\NormalTok{ close)) }\OperatorTok{+}
-\NormalTok{    geom\_line() }\OperatorTok{+}
-\NormalTok{    geom\_bbands(ma\_fun }\OperatorTok{=}\NormalTok{ SMA, sd }\OperatorTok{=} \DecValTok{2}\NormalTok{, n }\OperatorTok{=} \DecValTok{25}\NormalTok{,}
-\NormalTok{                linetype }\OperatorTok{=} \DecValTok{2}\NormalTok{, size }\OperatorTok{=} \FloatTok{0.5}\NormalTok{, alpha }\OperatorTok{=} \FloatTok{0.2}\NormalTok{,}
-\NormalTok{                fill        }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{1}\NormalTok{]],}
-\NormalTok{                color\_bands }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{1}\NormalTok{]],}
-\NormalTok{                color\_ma    }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{2}\NormalTok{]]) }\OperatorTok{+}
-\NormalTok{    labs(y }\OperatorTok{=} \StringTok{"Closing Price"}\NormalTok{, x }\OperatorTok{=} \StringTok{""}\NormalTok{) }\OperatorTok{+}
-\NormalTok{    theme\_tq()}
+\FunctionTok{library}\NormalTok{(tidyquant)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{CLX }\OtherTok{\textless{}{-}} \FunctionTok{tq\_get}\NormalTok{(}\StringTok{"CLX"}\NormalTok{, }\AttributeTok{get =} \StringTok{"stock.prices"}\NormalTok{, }\AttributeTok{from =} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
+               \AttributeTok{to =} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
+\NormalTok{CLX }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ date, }\AttributeTok{y =}\NormalTok{ close, }\AttributeTok{open =}\NormalTok{ open,}
+              \AttributeTok{high =}\NormalTok{ high, }\AttributeTok{low =}\NormalTok{ low, }\AttributeTok{close =}\NormalTok{ close)) }\SpecialCharTok{+}
+    \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{geom\_bbands}\NormalTok{(}\AttributeTok{ma\_fun =}\NormalTok{ SMA, }\AttributeTok{sd =} \DecValTok{2}\NormalTok{, }\AttributeTok{n =} \DecValTok{25}\NormalTok{,}
+                \AttributeTok{linetype =} \DecValTok{2}\NormalTok{, }\AttributeTok{size =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.2}\NormalTok{,}
+                \AttributeTok{fill        =} \FunctionTok{palette\_light}\NormalTok{()[[}\DecValTok{1}\NormalTok{]],}
+                \AttributeTok{color\_bands =} \FunctionTok{palette\_light}\NormalTok{()[[}\DecValTok{1}\NormalTok{]],}
+                \AttributeTok{color\_ma    =} \FunctionTok{palette\_light}\NormalTok{()[[}\DecValTok{2}\NormalTok{]]) }\SpecialCharTok{+}
+    \FunctionTok{labs}\NormalTok{(}\AttributeTok{y =} \StringTok{"Closing Price"}\NormalTok{, }\AttributeTok{x =} \StringTok{""}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{theme\_tq}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-4-output-2.png}}
+\begin{verbatim}
+Warning: The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/unnamed-chunk-6-1.pdf}}
 
 And finally let's look at such charts for major competitors to get the
 feel of the market.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{library(tidyquant)}
-\NormalTok{library(ggplot2)}
-\NormalTok{library(dplyr)}
-\NormalTok{prices }\OperatorTok{\textless{}{-}}\NormalTok{ tq\_get(c(}\StringTok{"CLX"}\NormalTok{, }\StringTok{"CL"}\NormalTok{, }\StringTok{"PG"}\NormalTok{, }\StringTok{"CHD"}\NormalTok{), get }\OperatorTok{=} \StringTok{"stock.prices"}\NormalTok{, }\ImportTok{from} \OperatorTok{=} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
-\NormalTok{  to }\OperatorTok{=} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
-\NormalTok{prices }\OperatorTok{|\textgreater{}}
-\NormalTok{  ggplot(aes(x }\OperatorTok{=}\NormalTok{ date, y }\OperatorTok{=}\NormalTok{ close, }\BuiltInTok{open} \OperatorTok{=} \BuiltInTok{open}\NormalTok{,}
-\NormalTok{              high }\OperatorTok{=}\NormalTok{ high, low }\OperatorTok{=}\NormalTok{ low, close }\OperatorTok{=}\NormalTok{ close)) }\OperatorTok{+}
-\NormalTok{    geom\_line() }\OperatorTok{+}
-\NormalTok{    geom\_bbands(ma\_fun }\OperatorTok{=}\NormalTok{ SMA, sd }\OperatorTok{=} \DecValTok{2}\NormalTok{, n }\OperatorTok{=} \DecValTok{25}\NormalTok{,}
-\NormalTok{                linetype }\OperatorTok{=} \DecValTok{2}\NormalTok{, size }\OperatorTok{=} \FloatTok{0.5}\NormalTok{, alpha }\OperatorTok{=} \FloatTok{0.2}\NormalTok{,}
-\NormalTok{                fill        }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{1}\NormalTok{]],}
-\NormalTok{                color\_bands }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{1}\NormalTok{]],}
-\NormalTok{                color\_ma    }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{2}\NormalTok{]]) }\OperatorTok{+}
-\NormalTok{    facet\_wrap(}\OperatorTok{\textasciitilde{}}\NormalTok{ symbol, ncol }\OperatorTok{=} \DecValTok{2}\NormalTok{, scales }\OperatorTok{=} \StringTok{"free\_y"}\NormalTok{) }\OperatorTok{+}
-\NormalTok{    theme\_tq()}
+\FunctionTok{library}\NormalTok{(tidyquant)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{prices }\OtherTok{\textless{}{-}} \FunctionTok{tq\_get}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"CLX"}\NormalTok{, }\StringTok{"CL"}\NormalTok{, }\StringTok{"PG"}\NormalTok{, }\StringTok{"CHD"}\NormalTok{), }\AttributeTok{get =} \StringTok{"stock.prices"}\NormalTok{, }\AttributeTok{from =} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
+  \AttributeTok{to =} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
+\NormalTok{prices }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ date, }\AttributeTok{y =}\NormalTok{ close, }\AttributeTok{open =}\NormalTok{ open,}
+              \AttributeTok{high =}\NormalTok{ high, }\AttributeTok{low =}\NormalTok{ low, }\AttributeTok{close =}\NormalTok{ close)) }\SpecialCharTok{+}
+    \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{geom\_bbands}\NormalTok{(}\AttributeTok{ma\_fun =}\NormalTok{ SMA, }\AttributeTok{sd =} \DecValTok{2}\NormalTok{, }\AttributeTok{n =} \DecValTok{25}\NormalTok{,}
+                \AttributeTok{linetype =} \DecValTok{2}\NormalTok{, }\AttributeTok{size =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.2}\NormalTok{,}
+                \AttributeTok{fill        =} \FunctionTok{palette\_light}\NormalTok{()[[}\DecValTok{1}\NormalTok{]],}
+                \AttributeTok{color\_bands =} \FunctionTok{palette\_light}\NormalTok{()[[}\DecValTok{1}\NormalTok{]],}
+                \AttributeTok{color\_ma    =} \FunctionTok{palette\_light}\NormalTok{()[[}\DecValTok{2}\NormalTok{]]) }\SpecialCharTok{+}
+    \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ symbol, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{, }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{theme\_tq}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-2.png}}
+\begin{verbatim}
+Warning: The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+The following aesthetics were dropped during statistical transformation: open.
+i This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+i Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/unnamed-chunk-7-1.pdf}}
 
 As we can see, the volatility of the stock prices shouldn't be that
 great in the near future. Since technical analysis is best-suited for
 short-term trading, near future is all we can advise or client on based
 on such analysis.
 
-\subsubsection{Conclusion}\label{conclusion-3}
+\subsubsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion-3}
 
 We can use ``tidyquant'' R language package along with other packages
 for producing charts to perform basic technical analysis of stock price.
@@ -764,17 +1010,15 @@ The analysis predicts stable performance in the short term.
 \subsection{Company Performance
 2019-2024}\label{company-performance-2019-2024}
 
-\section{}\label{section-5}
-
-\begin{quote}
-\textbf{Note}
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, opacityback=0, coltitle=black, arc=.35mm, leftrule=.75mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, breakable, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame]
 
 In this section we provide some historic data and rudimentary analysis
 of the company during the 2019-2024 period.
-\end{quote}
 
-\subsubsection{Historical Analysis of the
-Company}\label{historical-analysis-of-the-company}
+\end{tcolorbox}
+
+\subsubsection{\texorpdfstring{\textbf{Historical Analysis of the
+Company}}{Historical Analysis of the Company}}\label{historical-analysis-of-the-company}
 
 As we've identified in the previous sections, major events for the
 company in this peroid included the adoption of IGNITE strategy and
@@ -790,11 +1034,25 @@ the time period you are interested in, and get it same as always.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{library(tidyquant)}
+\FunctionTok{library}\NormalTok{(tidyquant)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\NormalTok{tickers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"CLX"}\NormalTok{, }\StringTok{"CL"}\NormalTok{, }\StringTok{"PG"}\NormalTok{, }\StringTok{"CHD"}\NormalTok{, }\StringTok{"KMB"}\NormalTok{)}
+
+\NormalTok{prices }\OtherTok{\textless{}{-}} \FunctionTok{tq\_get}\NormalTok{(tickers,}
+               \AttributeTok{from =} \StringTok{"2019{-}01{-}01"}\NormalTok{,}
+               \AttributeTok{to =} \StringTok{"2024{-}12{-}31"}\NormalTok{,}
+               \AttributeTok{get =} \StringTok{"stock.prices"}\NormalTok{)}
+
+\NormalTok{prices }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ date, }\AttributeTok{y =}\NormalTok{ adjusted, }\AttributeTok{color =}\NormalTok{ symbol)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{subtitle =} \StringTok{"Simple stock price comparison for the last 5 years against major competitors"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-2019-2024-cell-2-output-2.png}}
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/unnamed-chunk-8-1.pdf}}
 
 Fundamental analysis based on revenue data for the last five-year period
 can be found in the ``Fundamental Analysis'' section.
@@ -806,13 +1064,34 @@ data for the last five-year period in nice tables. All of it can be
 scraped - we'll scrape and reproduce some of it here.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.2208}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.2370}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1272}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1272}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1272}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1272}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1272}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1272}}@{}}
+\caption{CLX's Historical Financial Ratios, source: {``The {Clorox
+Company} ({CLX}) {Financial Ratios} and {Metrics}''}
+(2025)}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Fiscal Year
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Current
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2024
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2023
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2022
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2021
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2020
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Fiscal Year
@@ -850,10 +1129,7 @@ PS Ratio & 2.56 & 2.39 & 2.66 & 2.44 & 3.05 & 4.11 \\
 PB Ratio & 166.14 & 34.45 & 50.67 & 23.80 & 37.80 & 30.43 \\
 \end{longtable}
 
-CLX's Historical Financial Ratios, source: {``The {Clorox Market} Share
-Relative to Its Competitors, as of {Q4} 2024 - {CSIMarket}''} (n.d.)
-
-\subsubsection{Conclusion}\label{conclusion-4}
+\subsubsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion-4}
 
 We can use publicly available data, as well as the R language to get
 historical financial data and ratios. The analysis shows strong
@@ -861,14 +1137,12 @@ performance during the last five-year period.
 
 \subsection{Forecasting}\label{forecasting}
 
-\section{}\label{section-6}
-
-\begin{quote}
-\textbf{Note}
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, opacityback=0, coltitle=black, arc=.35mm, leftrule=.75mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, breakable, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame]
 
 In this section we use ARIMA model to provide a long-term forecast of
 the company stock price.
-\end{quote}
+
+\end{tcolorbox}
 
 \subsubsection{\texorpdfstring{\textbf{Long-Term Financial Forecast for
 the Company Using ARIMA
@@ -876,10 +1150,9 @@ Model}}{Long-Term Financial Forecast for the Company Using ARIMA Model}}\label{l
 
 Long-term financial forecasting, like all social forecasting, is an
 incredibly fraught undertaking due to many different reasons (see, for
-example, {[}Cerqueira (2022){]} and {[}{``Forecasting and Predictive
-Analytics: {A} Critical Look at the Basic Building Blocks of a
-Predictive Model''} (n.d.){]}). Luckily, many tools are available for us
-to experiment with.
+example, (Cerqueira 2022) and ({``Forecasting and Predictive Analytics:
+{A} Critical Look at the Basic Building Blocks of a Predictive Model''}
+2025)). Luckily, many tools are available for us to experiment with.
 
 We've already done some simple short-term forecasting in our ``Technical
 Analysis'' section using \textbf{SMA} and \textbf{Bollinger Bands}.
@@ -891,13 +1164,79 @@ stock prices for the next 6 months and for the next year.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{library(tidyquant)}
+\FunctionTok{library}\NormalTok{(tidyquant)}
+\FunctionTok{library}\NormalTok{(forecast)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(timetk)}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-forecasting-cell-2-output-2.png}}
+\begin{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-forecasting-cell-2-output-3.png}}
+Attaching package: 'timetk'
+\end{verbatim}
+
+\begin{verbatim}
+The following object is masked from 'package:tidyquant':
+
+    FANG
+\end{verbatim}
+
+\begin{verbatim}
+The following object is masked from 'package:base':
+
+    %||%
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\NormalTok{clx\_stock }\OtherTok{\textless{}{-}} \FunctionTok{tq\_get}\NormalTok{(}\StringTok{"CLX"}\NormalTok{, }
+                   \AttributeTok{get =} \StringTok{"stock.prices"}\NormalTok{, }
+                   \AttributeTok{from =} \StringTok{"2020{-}01{-}01"}\NormalTok{, }
+                   \AttributeTok{to =} \StringTok{"2025{-}02{-}01"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(date, close) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{arrange}\NormalTok{(date)}
+
+\NormalTok{clx\_price\_ts }\OtherTok{\textless{}{-}} \FunctionTok{tk\_ts}\NormalTok{(clx\_stock, }\AttributeTok{start =} \DecValTok{2020}\NormalTok{, }
+              \AttributeTok{frequency =} \DecValTok{252}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: Non-numeric columns being dropped: date
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{arima\_model }\OtherTok{\textless{}{-}} \FunctionTok{auto.arima}\NormalTok{(clx\_price\_ts)}
+
+\NormalTok{arima\_forecast }\OtherTok{\textless{}{-}} \FunctionTok{forecast}\NormalTok{(arima\_model, }\AttributeTok{h =} \DecValTok{365}\SpecialCharTok{/}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{autoplot}\NormalTok{(arima\_forecast) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"CLX Stock Price Forecast 6 Months (ARIMA)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Price (USD)"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Date"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/unnamed-chunk-9-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{arima\_forecast }\OtherTok{\textless{}{-}} \FunctionTok{forecast}\NormalTok{(arima\_model, }\AttributeTok{h =} \DecValTok{365}\NormalTok{)}
+
+\FunctionTok{autoplot}\NormalTok{(arima\_forecast) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"CLX Stock Price Forecast Year (ARIMA)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Price (USD)"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Date"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/unnamed-chunk-9-2.pdf}}
 
 We can see the band for the future time periods representing possible
 price ranges and 2 confidence levels.
@@ -910,7 +1249,7 @@ of possible future prices, albeit without major ups or downs.
 
 \subsection{Summary}\label{summary}
 
-\section{}\label{section-7}
+\section{}\label{section}
 
 \subsubsection{\texorpdfstring{\textbf{Analysis Summary and Letter
 Grade}}{Analysis Summary and Letter Grade}}\label{analysis-summary-and-letter-grade}
@@ -931,11 +1270,11 @@ quantitative analysis of individual corporations. These tools are indeed
 analysis. There are many great ways to learn more about finance and
 investment. We would recommend to look at the following sources (which
 we ourselves used to prepare this document) to learn more:
-{[}{``Quantitative Finance with {R}''} (n.d.){]}, {[}Wahlen, Baginski,
+{[}{``Quantitative Finance with {R}''} (2025){]}, {[}Wahlen, Baginski,
 and Bradshaw (2022){]}, {[}\emph{Forecasting: {Principles} and
-{Practice} (2nd Ed)} (n.d.){]}, {[}{``R for {Data Science} (2e)''}
-(n.d.){]}, {[}{``Tidy {Quantitative Financial Analysis}''} (n.d.){]},
-{[}{``Investopedia''} (n.d.){]}.
+{Practice} (2nd Ed)} (2025){]}, {[}{``R for {Data Science} (2e)''}
+(2025){]}, {[}{``Tidy {Quantitative Financial Analysis}''} (2025){]},
+{[}{``Investopedia''} (2025){]}.
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
@@ -949,26 +1288,23 @@ Dancho, Matt, and Davis Vaughan. 2025. {``Tidyquant: {Tidy Quantitative
 Financial Analysis}.''}
 
 \bibitem[\citeproctext]{ref-FinancialModelingb}
-{``Financial Modeling with {R}.''} n.d.
-https://mlozanoqf.github.io/tutorial\_pmf/. Accessed February 14, 2025.
+{``Financial Modeling with {R}.''} 2025.
+https://mlozanoqf.github.io/tutorial\_pmf/.
 
 \bibitem[\citeproctext]{ref-ForecastingPredictiveAnalytics}
 {``Forecasting and Predictive Analytics: {A} Critical Look at the Basic
-Building Blocks of a Predictive Model.''} n.d. \emph{Brookings}.
+Building Blocks of a Predictive Model.''} 2025. \emph{Brookings}.
 https://www.brookings.edu/articles/forecasting-and-predictive-analytics-a-critical-look-at-the-basic-building-blocks-of-a-predictive-model/.
-Accessed February 15, 2025.
 
 \bibitem[\citeproctext]{ref-ForecastingPrinciplesPractice}
-\emph{Forecasting: {Principles} and {Practice} (2nd Ed)}. n.d. Accessed
-February 15, 2025.
+\emph{Forecasting: {Principles} and {Practice} (2nd Ed)}. 2025.
 
 \bibitem[\citeproctext]{ref-IGNITEStrategy}
-{``{IGNITE Strategy}.''} n.d. \emph{The Clorox Company}. Accessed
-February 14, 2025.
+{``{IGNITE Strategy}.''} 2025. \emph{The Clorox Company}.
 
 \bibitem[\citeproctext]{ref-Investopedia}
-{``Investopedia.''} n.d. \emph{Investopedia}.
-https://www.investopedia.com/. Accessed February 15, 2025.
+{``Investopedia.''} 2025. \emph{Investopedia}.
+https://www.investopedia.com/.
 
 \bibitem[\citeproctext]{ref-mascellinoCloroxOperationsDisrupted2023}
 Mascellino, Alessandro. 2023. {``Clorox {Operations Disrupted By
@@ -976,65 +1312,58 @@ Cyber-Attack}.''} \emph{Infosecurity Magazine}.
 https://www.infosecurity-magazine.com/news/clorox-disrupted-cyber-attack/.
 
 \bibitem[\citeproctext]{ref-PerformanceAnalysisTidyquant}
-{``Performance {Analysis} with Tidyquant.''} n.d.
+{``Performance {Analysis} with Tidyquant.''} 2025.
 https://business-science.github.io/tidyquant/articles/TQ05-performance-analysis-with-tidyquant.html.
-Accessed February 14, 2025.
 
 \bibitem[\citeproctext]{ref-PurposeValues}
-{``Purpose \& {Values}.''} n.d. \emph{The Clorox Company}. Accessed
-February 14, 2025.
+{``Purpose \& {Values}.''} 2025. \emph{The Clorox Company}.
 
 \bibitem[\citeproctext]{ref-QuantitativeFinancea}
-{``Quantitative Finance with {R}.''} n.d. https://mlozanoqf.github.io/.
-Accessed February 15, 2025.
+{``Quantitative Finance with {R}.''} 2025. https://mlozanoqf.github.io/.
 
 \bibitem[\citeproctext]{ref-Quarto}
-{``Quarto.''} n.d. \emph{Quarto}. https://quarto.org/. Accessed February
-14, 2025.
+{``Quarto.''} 2025. \emph{Quarto}. https://quarto.org/.
 
 \bibitem[\citeproctext]{ref-DataScience2e}
-{``R for {Data Science} (2e).''} n.d. https://r4ds.hadley.nz/. Accessed
-February 11, 2025.
+{``R for {Data Science} (2e).''} 2025. https://r4ds.hadley.nz/.
 
 \bibitem[\citeproctext]{ref-ProjectStatisticalComputing}
-{``R: {The R Project} for {Statistical Computing}.''} n.d.
-https://www.r-project.org/. Accessed February 14, 2025.
+{``R: {The R Project} for {Statistical Computing}.''} 2025.
+https://www.r-project.org/.
 
 \bibitem[\citeproctext]{ref-Recognitions}
-{``Recognitions.''} n.d. \emph{The Clorox Company}. Accessed February
-14, 2025.
+{``Recognitions.''} 2025. \emph{The Clorox Company}.
 
 \bibitem[\citeproctext]{ref-Responsibility}
-{``Responsibility.''} n.d. \emph{The Clorox Company}. Accessed February
-14, 2025.
+{``Responsibility.''} 2025. \emph{The Clorox Company}.
 
 \bibitem[\citeproctext]{ref-CloroxCompanyCLX}
-{``The {Clorox Company} ({CLX}) {Company Profile} \& {Facts}.''} n.d.
+{``The {Clorox Company} ({CLX}) {Company Profile} \& {Facts}.''} 2025.
 \emph{Yahoo Finance}. https://finance.yahoo.com/quote/CLX/profile/.
-Accessed February 13, 2025.
+
+\bibitem[\citeproctext]{ref-CloroxCompanyCLXc}
+{``The {Clorox Company} ({CLX}) {Financial Ratios} and {Metrics}.''}
+2025. \emph{Stock Analysis}.
+https://stockanalysis.com/stocks/clx/financials/ratios/.
 
 \bibitem[\citeproctext]{ref-CloroxCompanyCLXa}
 {``The {Clorox Company} ({CLX}) {Leadership} \& {Management Team
-Analysis}.''} n.d. \emph{Simply Wall St}.
+Analysis}.''} 2025. \emph{Simply Wall St}.
 https://simplywall.st/stocks/us/household/nyse-clx/clorox/management.
-Accessed February 14, 2025.
 
 \bibitem[\citeproctext]{ref-CloroxCompanyBusiness}
 {``The {Clorox Company}: {Business Model}, {SWOT Analysis}, and
-{Competitors} 2024 - {PitchGrade}.''} n.d.
-https://pitchgrade.com/companies/the-clorox-company. Accessed February
-13, 2025.
+{Competitors} 2024 - {PitchGrade}.''} 2025.
+https://pitchgrade.com/companies/the-clorox-company.
 
 \bibitem[\citeproctext]{ref-CloroxMarketShare}
 {``The {Clorox Market} Share Relative to Its Competitors, as of {Q4}
-2024 - {CSIMarket}.''} n.d.
-https://csimarket.com/stocks/competitionSEG2.php?code=CLX. Accessed
-February 14, 2025.
+2024 - {CSIMarket}.''} 2025.
+https://csimarket.com/stocks/competitionSEG2.php?code=CLX.
 
 \bibitem[\citeproctext]{ref-TidyQuantitativeFinancial}
-{``Tidy {Quantitative Financial Analysis}.''} n.d.
-https://business-science.github.io/tidyquant/. Accessed February 13,
-2025.
+{``Tidy {Quantitative Financial Analysis}.''} 2025.
+https://business-science.github.io/tidyquant/.
 
 \bibitem[\citeproctext]{ref-wahlenFinancialReportingFinancial2022}
 Wahlen, James M., Stephen P. Baginski, and Mark Bradshaw. 2022.

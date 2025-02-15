@@ -125,8 +125,8 @@ and Vaughan 2025</xref>) and Quarto scientific publishing system
   introduced.</p>
   </boxed-text>
   <sec id="financial-analysis-of-the-clorox-company-in-the-consumer-defensive-sector">
-    <title>Financial Analysis of the Clorox Company in the Consumer
-    Defensive Sector</title>
+    <title><bold>Financial Analysis of the Clorox Company in the
+    Consumer Defensive Sector</bold></title>
     <sec id="sector-analysis-1">
       <title><bold>1. Sector Analysis</bold></title>
       <p>Clorox operates in the <bold>Consumer Defensive sector</bold>,
@@ -1374,7 +1374,7 @@ autoplot(arima_forecast) +
 </ref-list>
 </back>
 
-<sub-article article-type="notebook" id="nb-36-nb-article">
+<sub-article article-type="notebook" id="nb-18-nb-article">
 <front-stub>
 <title-group>
 <article-title>Financial Report on the Clorox Company
@@ -1471,8 +1471,8 @@ the tools of computational finance.</p>
     </disp-quote>
   </boxed-text>
   <sec id="financial-analysis-of-the-clorox-company-in-the-consumer-defensive-sector-nb-article">
-    <title>Financial Analysis of the Clorox Company in the Consumer
-    Defensive Sector</title>
+    <title><bold>Financial Analysis of the Clorox Company in the
+    Consumer Defensive Sector</bold></title>
     <sec id="sector-analysis-1-nb-article">
       <title><bold>1. Sector Analysis</bold></title>
       <p>Clorox operates in the <bold>Consumer Defensive sector</bold>,
@@ -2780,7 +2780,7 @@ autoplot(arima_forecast) +
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-4-nb-1">
+<sub-article article-type="notebook" id="nb-2-nb-1">
 <front-stub>
 </front-stub>
 
@@ -3006,7 +3006,7 @@ prices |&gt;
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-8-nb-2">
+<sub-article article-type="notebook" id="nb-4-nb-2">
 <front-stub>
 </front-stub>
 
@@ -3155,7 +3155,7 @@ autoplot(arima_forecast) +
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-12-nb-3">
+<sub-article article-type="notebook" id="nb-6-nb-3">
 <front-stub>
 </front-stub>
 
@@ -3321,7 +3321,7 @@ Ra |&gt;
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-16-nb-4">
+<sub-article article-type="notebook" id="nb-8-nb-4">
 <front-stub>
 </front-stub>
 
@@ -3353,7 +3353,7 @@ Ra |&gt;
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-20-nb-5">
+<sub-article article-type="notebook" id="nb-10-nb-5">
 <front-stub>
 </front-stub>
 
@@ -3580,7 +3580,7 @@ Ra |&gt;
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-24-nb-6">
+<sub-article article-type="notebook" id="nb-12-nb-6">
 <front-stub>
 </front-stub>
 
@@ -3866,7 +3866,7 @@ prices |&gt;
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-28-nb-7">
+<sub-article article-type="notebook" id="nb-14-nb-7">
 <front-stub>
 </front-stub>
 
@@ -3902,7 +3902,7 @@ prices |&gt;
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-32-nb-8">
+<sub-article article-type="notebook" id="nb-16-nb-8">
 <front-stub>
 </front-stub>
 

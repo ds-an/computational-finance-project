@@ -43,7 +43,7 @@ Therefore, this document aims to provide a simplified, non-rigorous analysis imi
 In this section we analyze financial data on websites such as [https://finance.yahoo.com](https://finance.yahoo.com), as well as using the [DeepSeek LLM](https://chat.deepseek.com/) to find analysis on the web and provide summaries. Some basic charting using R language [@ProjectStatisticalComputing] is introduced.
 :::
 
-### Financial Analysis of the Clorox Company in the Consumer Defensive Sector
+### **Financial Analysis of the Clorox Company in the Consumer Defensive Sector**
 
 #### **1. Sector Analysis**
 Clorox operates in the **Consumer Defensive sector**, specifically within the Household and Personal Products sub-sector. This sector is characterized by stable demand and recession resilience.

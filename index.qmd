@@ -45,7 +45,7 @@ In this section we analyze financial data on websites such as [https://finance.y
 
 ### **Financial Analysis of the Clorox Company in the Consumer Defensive Sector**
 
-#### **1. Sector Analysis**
+#### **Sector Analysis**
 Clorox operates in the **Consumer Defensive sector**, specifically within the Household and Personal Products sub-sector. This sector is characterized by stable demand and recession resilience.
 
 Sector's **Market Cap** is estimated to be $3.7 trillion. The **Market Weight (Share)** of the sector relative to the other 10 sectors is 5.45%.
@@ -54,7 +54,7 @@ Sector's **Year-To-Date Return** is 6.17%, which outperforms S&P500 (3.54%).
 
 ---
 
-#### **2. Position Relative to Competitors**
+#### **Position Relative to Competitors**
 
 Clorox's market share inside it's sector is relatively small:
 

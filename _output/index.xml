@@ -128,7 +128,7 @@ and Vaughan 2025</xref>) and Quarto scientific publishing system
     <title><bold>Financial Analysis of the Clorox Company in the
     Consumer Defensive Sector</bold></title>
     <sec id="sector-analysis-1">
-      <title><bold>1. Sector Analysis</bold></title>
+      <title><bold>Sector Analysis</bold></title>
       <p>Clorox operates in the <bold>Consumer Defensive sector</bold>,
       specifically within the Household and Personal Products
       sub-sector. This sector is characterized by stable demand and
@@ -140,7 +140,7 @@ and Vaughan 2025</xref>) and Quarto scientific publishing system
       outperforms S&amp;P500 (3.54%).</p>
     </sec>
     <sec id="position-relative-to-competitors">
-      <title><bold>2. Position Relative to Competitors</bold></title>
+      <title><bold>Position Relative to Competitors</bold></title>
       <p>Clorox’s market share inside it’s sector is relatively
       small:</p>
       <table-wrap>
@@ -1474,7 +1474,7 @@ the tools of computational finance.</p>
     <title><bold>Financial Analysis of the Clorox Company in the
     Consumer Defensive Sector</bold></title>
     <sec id="sector-analysis-1-nb-article">
-      <title><bold>1. Sector Analysis</bold></title>
+      <title><bold>Sector Analysis</bold></title>
       <p>Clorox operates in the <bold>Consumer Defensive sector</bold>,
       specifically within the Household and Personal Products
       sub-sector. This sector is characterized by stable demand and
@@ -1486,7 +1486,7 @@ the tools of computational finance.</p>
       outperforms S&amp;P500 (3.54%).</p>
     </sec>
     <sec id="position-relative-to-competitors-nb-article">
-      <title><bold>2. Position Relative to Competitors</bold></title>
+      <title><bold>Position Relative to Competitors</bold></title>
       <p>Clorox’s market share inside it’s sector is relatively
       small:</p>
       <table-wrap>
@@ -2788,381 +2788,6 @@ autoplot(arima_forecast) +
 <boxed-text>
   <disp-quote>
     <p><bold>Note</bold></p>
-    <p>In this section we provide some historic data and rudimentary
-    analysis of the company during the 2019-2024 period.</p>
-  </disp-quote>
-</boxed-text>
-<sec id="historical-analysis-of-the-company-nb-1">
-  <title><bold>Historical Analysis of the Company</bold></title>
-  <p>As we’ve identified in the previous sections, major events for the
-  company in this peroid included the adoption of IGNITE strategy and
-  recent cyberattack. Another major event was, of course, the global
-  pandemic.</p>
-  <p>In terms of the corporation’s life cycle, Clorox is definitely in
-  the <bold>Maturity</bold> phase: it is relatively stable, resilient to
-  shocks and demonstrates confidence during the recovery from such
-  shocks.</p>
-  <p>Getting historical data is very easy with R language - you just
-  provide the time period you are interested in, and get it same as
-  always.</p>
-  <sec specific-use="notebook-content">
-  <code language="r script">library(tidyquant)
-  </code>
-  <boxed-text>
-    <preformat>Registered S3 method overwritten by 'quantmod':
-  method            from
-  as.zoo.data.frame zoo </preformat>
-  </boxed-text>
-  <boxed-text>
-    <preformat>── Attaching core tidyquant packages ─────────────────────── tidyquant 1.0.10 ──
-✔ PerformanceAnalytics 2.0.8      ✔ TTR                  0.24.4
-✔ quantmod             0.4.26     ✔ xts                  0.14.1
-── Conflicts ────────────────────────────────────────── tidyquant_conflicts() ──
-✖ zoo::as.Date()                 masks base::as.Date()
-✖ zoo::as.Date.numeric()         masks base::as.Date.numeric()
-✖ PerformanceAnalytics::legend() masks graphics::legend()
-✖ quantmod::summary()            masks base::summary()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</preformat>
-  </boxed-text>
-  <code language="r script">library(ggplot2)
-library(dplyr)
-  </code>
-  <boxed-text>
-    <preformat>
-######################### Warning from 'xts' package ##########################
-#                                                                             #
-# The dplyr lag() function breaks how base R's lag() function is supposed to  #
-# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
-# source() into this session won't work correctly.                            #
-#                                                                             #
-# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
-# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
-# dplyr from breaking base R's lag() function.                                #
-#                                                                             #
-# Code in packages is not affected. It's protected by R's namespace mechanism #
-# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
-#                                                                             #
-###############################################################################
-
-Attaching package: 'dplyr'
-
-The following objects are masked from 'package:xts':
-
-    first, last
-
-The following objects are masked from 'package:stats':
-
-    filter, lag
-
-The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</preformat>
-  </boxed-text>
-  <code language="r script">tickers &lt;- c(&quot;CLX&quot;, &quot;CL&quot;, &quot;PG&quot;, &quot;CHD&quot;, &quot;KMB&quot;)
-
-prices &lt;- tq_get(tickers,
-               from = &quot;2019-01-01&quot;,
-               to = &quot;2024-12-31&quot;,
-               get = &quot;stock.prices&quot;)
-
-prices |&gt;
-  ggplot(aes(x = date, y = adjusted, color = symbol)) +
-  geom_line() +
-  labs(subtitle = &quot;Simple stock price comparison for the last 5 years against major competitors&quot;)
-  </code>
-  <graphic mimetype="image" mime-subtype="png" xlink:href="2019-2024_files/figure-jats/unnamed-chunk-1-1.png" />
-  </sec>
-  <p>Fundamental analysis based on revenue data for the last five-year
-  period can be found in the “Fundamental Analysis” section.</p>
-  <p>Sites like
-  <ext-link ext-link-type="uri" xlink:href="https://stockanalysis.com">https://stockanalysis.com</ext-link>
-  provide all kinds of historic data for the last five-year period in
-  nice tables. All of it can be scraped - we’ll scrape and reproduce
-  some of it here.</p>
-  <table-wrap>
-    <caption>
-      <p>CLX’s Historical Financial Ratios, source:
-      @CloroxCompanyCLXc</p>
-    </caption>
-    <table>
-      <colgroup>
-        <col width="24%" />
-        <col width="13%" />
-        <col width="13%" />
-        <col width="13%" />
-        <col width="13%" />
-        <col width="13%" />
-        <col width="13%" />
-      </colgroup>
-      <thead>
-        <tr>
-          <th>Fiscal Year</th>
-          <th>Current</th>
-          <th>FY 2024</th>
-          <th>FY 2023</th>
-          <th>FY 2022</th>
-          <th>FY 2021</th>
-          <th>FY 2020</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Period Ending</td>
-          <td>Feb ’25 Feb 14, 2025</td>
-          <td>Jun ’24 Jun 30, 2024</td>
-          <td>Jun ’23 Jun 30, 2023</td>
-          <td>Jun ’22 Jun 30, 2022</td>
-          <td>Jun ’21 Jun 30, 2021</td>
-          <td>Jun ’20 Jun 30, 2020</td>
-        </tr>
-        <tr>
-          <td>Market Capitalization</td>
-          <td>18,222</td>
-          <td>16,948</td>
-          <td>19,661</td>
-          <td>17,352</td>
-          <td>22,376</td>
-          <td>27,626</td>
-        </tr>
-        <tr>
-          <td>Market Cap Growth</td>
-          <td>13.64%</td>
-          <td>-13.80%</td>
-          <td>13.31%</td>
-          <td>-22.45%</td>
-          <td>-19.00%</td>
-          <td>41.66%</td>
-        </tr>
-        <tr>
-          <td>Enterprise Value</td>
-          <td>21,024</td>
-          <td>19,913</td>
-          <td>22,613</td>
-          <td>20,467</td>
-          <td>25,241</td>
-          <td>30,412</td>
-        </tr>
-        <tr>
-          <td>Last Close Price</td>
-          <td>147.92</td>
-          <td>133.25</td>
-          <td>150.09</td>
-          <td>128.86</td>
-          <td>159.95</td>
-          <td>190.95</td>
-        </tr>
-        <tr>
-          <td>PE Ratio</td>
-          <td>40.32</td>
-          <td>60.53</td>
-          <td>131.95</td>
-          <td>37.56</td>
-          <td>31.52</td>
-          <td>29.42</td>
-        </tr>
-        <tr>
-          <td>Forward PE</td>
-          <td>20.81</td>
-          <td>21.90</td>
-          <td>29.44</td>
-          <td>28.13</td>
-          <td>25.00</td>
-          <td>30.85</td>
-        </tr>
-        <tr>
-          <td>PS Ratio</td>
-          <td>2.56</td>
-          <td>2.39</td>
-          <td>2.66</td>
-          <td>2.44</td>
-          <td>3.05</td>
-          <td>4.11</td>
-        </tr>
-        <tr>
-          <td>PB Ratio</td>
-          <td>166.14</td>
-          <td>34.45</td>
-          <td>50.67</td>
-          <td>23.80</td>
-          <td>37.80</td>
-          <td>30.43</td>
-        </tr>
-      </tbody>
-    </table>
-  </table-wrap>
-</sec>
-<sec id="conclusion-nb-1">
-  <title><bold>Conclusion</bold></title>
-  <p>We can use publicly available data, as well as the R language to
-  get historical financial data and ratios. The analysis shows strong
-  performance during the last five-year period.</p>
-</sec>
-</body>
-
-
-
-<back>
-</back>
-
-
-</sub-article>
-<sub-article article-type="notebook" id="nb-6-nb-2">
-<front-stub>
-</front-stub>
-
-<body>
-<boxed-text>
-  <disp-quote>
-    <p><bold>Note</bold></p>
-    <p>In this section we use ARIMA model to provide a long-term
-    forecast of the company stock price.</p>
-  </disp-quote>
-</boxed-text>
-<sec id="long-term-financial-forecast-for-the-company-using-arima-model-nb-2">
-  <title><bold>Long-Term Financial Forecast for the Company Using ARIMA
-  Model</bold></title>
-  <p>Long-term financial forecasting, like all social forecasting, is an
-  incredibly fraught undertaking due to many different reasons (see, for
-  example, [@cerqueira8ReasonsWhy2022] and
-  [@ForecastingPredictiveAnalytics]). Luckily, many tools are available
-  for us to experiment with.</p>
-  <p>We’ve already done some simple short-term forecasting in our
-  “Technical Analysis” section using <bold>SMA</bold> and
-  <bold>Bollinger Bands</bold>. We’ve also accessed volatility by
-  calculating <bold>Beta</bold> value and estimated risk/return using
-  <bold>Annualized Sharpe Ratio</bold>, which might help us in
-  medium-term forecasting. Now we will try using advanced
-  <bold>ARIMA</bold> (Auto-Regressive Integrated Moving Averages) to
-  predict stock prices for the next 6 months and for the next year.</p>
-  <sec specific-use="notebook-content">
-  <code language="r script">library(tidyquant)
-  </code>
-  <boxed-text>
-    <preformat>Registered S3 method overwritten by 'quantmod':
-  method            from
-  as.zoo.data.frame zoo </preformat>
-  </boxed-text>
-  <boxed-text>
-    <preformat>── Attaching core tidyquant packages ─────────────────────── tidyquant 1.0.10 ──
-✔ PerformanceAnalytics 2.0.8      ✔ TTR                  0.24.4
-✔ quantmod             0.4.26     ✔ xts                  0.14.1
-── Conflicts ────────────────────────────────────────── tidyquant_conflicts() ──
-✖ zoo::as.Date()                 masks base::as.Date()
-✖ zoo::as.Date.numeric()         masks base::as.Date.numeric()
-✖ PerformanceAnalytics::legend() masks graphics::legend()
-✖ quantmod::summary()            masks base::summary()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</preformat>
-  </boxed-text>
-  <code language="r script">library(forecast)
-library(ggplot2)
-library(timetk)
-  </code>
-  <boxed-text>
-    <preformat>
-Attaching package: 'timetk'
-
-The following object is masked from 'package:tidyquant':
-
-    FANG
-
-The following object is masked from 'package:base':
-
-    %||%</preformat>
-  </boxed-text>
-  <code language="r script">library(dplyr)
-  </code>
-  <boxed-text>
-    <preformat>
-######################### Warning from 'xts' package ##########################
-#                                                                             #
-# The dplyr lag() function breaks how base R's lag() function is supposed to  #
-# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
-# source() into this session won't work correctly.                            #
-#                                                                             #
-# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
-# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
-# dplyr from breaking base R's lag() function.                                #
-#                                                                             #
-# Code in packages is not affected. It's protected by R's namespace mechanism #
-# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
-#                                                                             #
-###############################################################################
-
-Attaching package: 'dplyr'
-
-The following objects are masked from 'package:xts':
-
-    first, last
-
-The following objects are masked from 'package:stats':
-
-    filter, lag
-
-The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</preformat>
-  </boxed-text>
-  <code language="r script">clx_stock &lt;- tq_get(&quot;CLX&quot;, 
-                   get = &quot;stock.prices&quot;, 
-                   from = &quot;2020-01-01&quot;, 
-                   to = &quot;2025-02-01&quot;) |&gt;
-  select(date, close) |&gt;
-  arrange(date)
-
-clx_price_ts &lt;- tk_ts(clx_stock, start = 2020, 
-              frequency = 252)
-  </code>
-  <boxed-text>
-    <preformat>Warning: Non-numeric columns being dropped: date</preformat>
-  </boxed-text>
-  <code language="r script">arima_model &lt;- auto.arima(clx_price_ts)
-
-arima_forecast &lt;- forecast(arima_model, h = 365/2)
-
-autoplot(arima_forecast) +
-  labs(title = &quot;CLX Stock Price Forecast 6 Months (ARIMA)&quot;,
-    y = &quot;Price (USD)&quot;,
-    x = &quot;Date&quot;) +
-  theme_minimal()
-  </code>
-  <graphic mimetype="image" mime-subtype="png" xlink:href="forecasting_files/figure-jats/unnamed-chunk-1-1.png" />
-  <code language="r script">arima_forecast &lt;- forecast(arima_model, h = 365)
-
-autoplot(arima_forecast) +
-  labs(title = &quot;CLX Stock Price Forecast Year (ARIMA)&quot;,
-       y = &quot;Price (USD)&quot;,
-       x = &quot;Date&quot;) +
-  theme_minimal()
-  </code>
-  <graphic mimetype="image" mime-subtype="png" xlink:href="forecasting_files/figure-jats/unnamed-chunk-1-2.png" />
-  </sec>
-  <p>We can see the band for the future time periods representing
-  possible price ranges and 2 confidence levels.</p>
-</sec>
-<sec id="conclusion-nb-2">
-  <title><bold>Conclusion</bold></title>
-  <p>We can use advanced forecasting models (such as ARIMA) available in
-  the R language to predict the stock price. The analysis shows a wide
-  range of possible future prices, albeit without major ups or
-  downs.</p>
-</sec>
-</body>
-
-
-
-<back>
-</back>
-
-
-</sub-article>
-<sub-article article-type="notebook" id="nb-9-nb-3">
-<front-stub>
-</front-stub>
-
-<body>
-<boxed-text>
-  <disp-quote>
-    <p><bold>Note</bold></p>
     <p>In this section we will take a look at quantitative fundamental
     analysis tools provided by the “tidyquant” R language package
     [@danchoTidyquantTidyQuantitative2025] and use them to get key
@@ -3171,7 +2796,7 @@ autoplot(arima_forecast) +
     @PerformanceAnalysisTidyquant</p>
   </disp-quote>
 </boxed-text>
-<sec id="basic-fundamental-analysis-of-the-clorox-company-nb-3">
+<sec id="basic-fundamental-analysis-of-the-clorox-company-nb-1">
   <title><bold>Basic Fundamental Analysis of the Clorox
   Company</bold></title>
   <p>First let’s retrieve 5-year period returns from the prices adjusted
@@ -3305,7 +2930,7 @@ Ra |&gt;
   </boxed-text>
   </sec>
 </sec>
-<sec id="conclusion-nb-3">
+<sec id="conclusion-nb-1">
   <title><bold>Conclusion</bold></title>
   <p>We can use the “tidyquant” R language package to perform
   fundamental analysis of the company and obtain all of the key
@@ -3321,7 +2946,7 @@ Ra |&gt;
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-12-nb-4">
+<sub-article article-type="notebook" id="nb-6-nb-2">
 <front-stub>
 </front-stub>
 
@@ -3353,7 +2978,7 @@ Ra |&gt;
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-15-nb-5">
+<sub-article article-type="notebook" id="nb-9-nb-3">
 <front-stub>
 </front-stub>
 
@@ -3367,9 +2992,9 @@ Ra |&gt;
     analyze these sources.</p>
   </disp-quote>
 </boxed-text>
-<sec id="company-purpose-and-responsibility-nb-5">
+<sec id="company-purpose-and-responsibility-nb-3">
   <title><bold>Company Purpose and Responsibility</bold></title>
-  <sec id="company-purpose-nb-5">
+  <sec id="company-purpose-nb-3">
     <title><bold>Company Purpose</bold></title>
     <p>Clorox’s stated purpose is to “champion people to be well and
     thrive every single day” [@PurposeValues]. As a health and wellness
@@ -3378,7 +3003,7 @@ Ra |&gt;
     and communities. All of this is reflected in their family-friendly
     and inclusive branding.</p>
   </sec>
-  <sec id="responsibility-policies-nb-5">
+  <sec id="responsibility-policies-nb-3">
     <title><bold>Responsibility Policies</bold></title>
     <p>Clorox integrates environmental, social, and governance (ESG)
     goals into its core business strategy [@Responsibility]. Key areas
@@ -3403,7 +3028,7 @@ Ra |&gt;
     <p>Clorox has set ambitious targets, such as achieving net-zero
     emissions by 2050.</p>
   </sec>
-  <sec id="ignite-strategy-nb-5">
+  <sec id="ignite-strategy-nb-3">
     <title><bold>IGNITE Strategy</bold></title>
     <p>The IGNITE strategy is Clorox’s long-term plan to drive what the
     company calls a “purpose-driven growth” [@IGNITEStrategy] by
@@ -3435,7 +3060,7 @@ Ra |&gt;
     2-4% net sales growth and 11-13% free cash flow generation.</p>
   </sec>
 </sec>
-<sec id="key-executives-their-commitment-and-performance-nb-5">
+<sec id="key-executives-their-commitment-and-performance-nb-3">
   <title><bold>Key Executives, Their Commitment and
   Performance</bold></title>
   <table-wrap>
@@ -3534,7 +3159,7 @@ Ra |&gt;
   Compensation vs Earnings, Experienced Management and Experienced Board
   [@CloroxCompanyCLXa].</p>
 </sec>
-<sec id="company-brand-and-reputation-nb-5">
+<sec id="company-brand-and-reputation-nb-3">
   <title><bold>Company Brand and Reputation</bold></title>
   <p>Clorox is a globally recognized leader in the cleaning and consumer
   products industry, known for its trusted brands such as <bold>Clorox
@@ -3565,11 +3190,196 @@ Ra |&gt;
   recovery plans to restore operations safely. Brand and reputation were
   not severely damaged in the process.</p>
 </sec>
-<sec id="conclusion-nb-5">
+<sec id="conclusion-nb-3">
   <title><bold>Conclusion</bold></title>
   <p>We can use modern LLM chatbots to collect publicly available
   sources and perform analysis of the company personality. The analysis
   shows strong branding, good leadership and consistent performance.</p>
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-12-nb-4">
+<front-stub>
+</front-stub>
+
+<body>
+<sec id="analysis-summary-and-letter-grade-nb-4">
+  <title><bold>Analysis Summary and Letter Grade</bold></title>
+  <p>Our analysis shows mature company with stable management, good
+  branding, strong fundamentals and good estimated prospects. We give
+  the letter grade <bold>B</bold> for the company and recommend
+  including its stock in the investment portfolio. Of course, no one
+  single stock should be recommended individually for investment, but
+  portfolio management is out of scope for this document.</p>
+</sec>
+<sec id="advice-for-the-fiduciary-nb-4">
+  <title><bold>Advice for the Fiduciary</bold></title>
+  <p>This document provides the fiduciary with basic tools for the
+  quantitative analysis of individual corporations. These tools are
+  indeed <bold>basic</bold> and should only be viewed as a starting
+  point for serious analysis. There are many great ways to learn more
+  about finance and investment. We would recommend to look at the
+  following sources (which we ourselves used to prepare this document)
+  to learn more: [@QuantitativeFinancea],
+  [@wahlenFinancialReportingFinancial2022],
+  [@ForecastingPrinciplesPractice], [@DataScience2e],
+  [@TidyQuantitativeFinancial], [@Investopedia].</p>
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-15-nb-5">
+<front-stub>
+</front-stub>
+
+<body>
+<boxed-text>
+  <disp-quote>
+    <p><bold>Note</bold></p>
+    <p>In this section we use ARIMA model to provide a long-term
+    forecast of the company stock price.</p>
+  </disp-quote>
+</boxed-text>
+<sec id="long-term-financial-forecast-for-the-company-using-arima-model-nb-5">
+  <title><bold>Long-Term Financial Forecast for the Company Using ARIMA
+  Model</bold></title>
+  <p>Long-term financial forecasting, like all social forecasting, is an
+  incredibly fraught undertaking due to many different reasons (see, for
+  example, [@cerqueira8ReasonsWhy2022] and
+  [@ForecastingPredictiveAnalytics]). Luckily, many tools are available
+  for us to experiment with.</p>
+  <p>We’ve already done some simple short-term forecasting in our
+  “Technical Analysis” section using <bold>SMA</bold> and
+  <bold>Bollinger Bands</bold>. We’ve also accessed volatility by
+  calculating <bold>Beta</bold> value and estimated risk/return using
+  <bold>Annualized Sharpe Ratio</bold>, which might help us in
+  medium-term forecasting. Now we will try using advanced
+  <bold>ARIMA</bold> (Auto-Regressive Integrated Moving Averages) to
+  predict stock prices for the next 6 months and for the next year.</p>
+  <sec specific-use="notebook-content">
+  <code language="r script">library(tidyquant)
+  </code>
+  <boxed-text>
+    <preformat>Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo </preformat>
+  </boxed-text>
+  <boxed-text>
+    <preformat>── Attaching core tidyquant packages ─────────────────────── tidyquant 1.0.10 ──
+✔ PerformanceAnalytics 2.0.8      ✔ TTR                  0.24.4
+✔ quantmod             0.4.26     ✔ xts                  0.14.1
+── Conflicts ────────────────────────────────────────── tidyquant_conflicts() ──
+✖ zoo::as.Date()                 masks base::as.Date()
+✖ zoo::as.Date.numeric()         masks base::as.Date.numeric()
+✖ PerformanceAnalytics::legend() masks graphics::legend()
+✖ quantmod::summary()            masks base::summary()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</preformat>
+  </boxed-text>
+  <code language="r script">library(forecast)
+library(ggplot2)
+library(timetk)
+  </code>
+  <boxed-text>
+    <preformat>
+Attaching package: 'timetk'
+
+The following object is masked from 'package:tidyquant':
+
+    FANG
+
+The following object is masked from 'package:base':
+
+    %||%</preformat>
+  </boxed-text>
+  <code language="r script">library(dplyr)
+  </code>
+  <boxed-text>
+    <preformat>
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:xts':
+
+    first, last
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</preformat>
+  </boxed-text>
+  <code language="r script">clx_stock &lt;- tq_get(&quot;CLX&quot;, 
+                   get = &quot;stock.prices&quot;, 
+                   from = &quot;2020-01-01&quot;, 
+                   to = &quot;2025-02-01&quot;) |&gt;
+  select(date, close) |&gt;
+  arrange(date)
+
+clx_price_ts &lt;- tk_ts(clx_stock, start = 2020, 
+              frequency = 252)
+  </code>
+  <boxed-text>
+    <preformat>Warning: Non-numeric columns being dropped: date</preformat>
+  </boxed-text>
+  <code language="r script">arima_model &lt;- auto.arima(clx_price_ts)
+
+arima_forecast &lt;- forecast(arima_model, h = 365/2)
+
+autoplot(arima_forecast) +
+  labs(title = &quot;CLX Stock Price Forecast 6 Months (ARIMA)&quot;,
+    y = &quot;Price (USD)&quot;,
+    x = &quot;Date&quot;) +
+  theme_minimal()
+  </code>
+  <graphic mimetype="image" mime-subtype="png" xlink:href="forecasting_files/figure-jats/unnamed-chunk-1-1.png" />
+  <code language="r script">arima_forecast &lt;- forecast(arima_model, h = 365)
+
+autoplot(arima_forecast) +
+  labs(title = &quot;CLX Stock Price Forecast Year (ARIMA)&quot;,
+       y = &quot;Price (USD)&quot;,
+       x = &quot;Date&quot;) +
+  theme_minimal()
+  </code>
+  <graphic mimetype="image" mime-subtype="png" xlink:href="forecasting_files/figure-jats/unnamed-chunk-1-2.png" />
+  </sec>
+  <p>We can see the band for the future time periods representing
+  possible price ranges and 2 confidence levels.</p>
+</sec>
+<sec id="conclusion-nb-5">
+  <title><bold>Conclusion</bold></title>
+  <p>We can use advanced forecasting models (such as ARIMA) available in
+  the R language to predict the stock price. The analysis shows a wide
+  range of possible future prices, albeit without major ups or
+  downs.</p>
 </sec>
 </body>
 
@@ -3871,27 +3681,217 @@ prices |&gt;
 </front-stub>
 
 <body>
-<sec id="analysis-summary-and-letter-grade-nb-7">
-  <title><bold>Analysis Summary and Letter Grade</bold></title>
-  <p>Our analysis shows mature company with stable management, good
-  branding, strong fundamentals and good estimated prospects. We give
-  the letter grade <bold>B</bold> for the company and recommend
-  including its stock in the investment portfolio. Of course, no one
-  single stock should be recommended individually for investment, but
-  portfolio management is out of scope for this document.</p>
+<boxed-text>
+  <disp-quote>
+    <p><bold>Note</bold></p>
+    <p>In this section we provide some historic data and rudimentary
+    analysis of the company during the 2019-2024 period.</p>
+  </disp-quote>
+</boxed-text>
+<sec id="historical-analysis-of-the-company-nb-7">
+  <title><bold>Historical Analysis of the Company</bold></title>
+  <p>As we’ve identified in the previous sections, major events for the
+  company in this peroid included the adoption of IGNITE strategy and
+  recent cyberattack. Another major event was, of course, the global
+  pandemic.</p>
+  <p>In terms of the corporation’s life cycle, Clorox is definitely in
+  the <bold>Maturity</bold> phase: it is relatively stable, resilient to
+  shocks and demonstrates confidence during the recovery from such
+  shocks.</p>
+  <p>Getting historical data is very easy with R language - you just
+  provide the time period you are interested in, and get it same as
+  always.</p>
+  <sec specific-use="notebook-content">
+  <code language="r script">library(tidyquant)
+  </code>
+  <boxed-text>
+    <preformat>Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo </preformat>
+  </boxed-text>
+  <boxed-text>
+    <preformat>── Attaching core tidyquant packages ─────────────────────── tidyquant 1.0.10 ──
+✔ PerformanceAnalytics 2.0.8      ✔ TTR                  0.24.4
+✔ quantmod             0.4.26     ✔ xts                  0.14.1
+── Conflicts ────────────────────────────────────────── tidyquant_conflicts() ──
+✖ zoo::as.Date()                 masks base::as.Date()
+✖ zoo::as.Date.numeric()         masks base::as.Date.numeric()
+✖ PerformanceAnalytics::legend() masks graphics::legend()
+✖ quantmod::summary()            masks base::summary()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</preformat>
+  </boxed-text>
+  <code language="r script">library(ggplot2)
+library(dplyr)
+  </code>
+  <boxed-text>
+    <preformat>
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:xts':
+
+    first, last
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</preformat>
+  </boxed-text>
+  <code language="r script">tickers &lt;- c(&quot;CLX&quot;, &quot;CL&quot;, &quot;PG&quot;, &quot;CHD&quot;, &quot;KMB&quot;)
+
+prices &lt;- tq_get(tickers,
+               from = &quot;2019-01-01&quot;,
+               to = &quot;2024-12-31&quot;,
+               get = &quot;stock.prices&quot;)
+
+prices |&gt;
+  ggplot(aes(x = date, y = adjusted, color = symbol)) +
+  geom_line() +
+  labs(subtitle = &quot;Simple stock price comparison for the last 5 years against major competitors&quot;)
+  </code>
+  <graphic mimetype="image" mime-subtype="png" xlink:href="2019-2024_files/figure-jats/unnamed-chunk-1-1.png" />
+  </sec>
+  <p>Fundamental analysis based on revenue data for the last five-year
+  period can be found in the “Fundamental Analysis” section.</p>
+  <p>Sites like
+  <ext-link ext-link-type="uri" xlink:href="https://stockanalysis.com">https://stockanalysis.com</ext-link>
+  provide all kinds of historic data for the last five-year period in
+  nice tables. All of it can be scraped - we’ll scrape and reproduce
+  some of it here.</p>
+  <table-wrap>
+    <caption>
+      <p>CLX’s Historical Financial Ratios, source:
+      @CloroxCompanyCLXc</p>
+    </caption>
+    <table>
+      <colgroup>
+        <col width="24%" />
+        <col width="13%" />
+        <col width="13%" />
+        <col width="13%" />
+        <col width="13%" />
+        <col width="13%" />
+        <col width="13%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Fiscal Year</th>
+          <th>Current</th>
+          <th>FY 2024</th>
+          <th>FY 2023</th>
+          <th>FY 2022</th>
+          <th>FY 2021</th>
+          <th>FY 2020</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Period Ending</td>
+          <td>Feb ’25 Feb 14, 2025</td>
+          <td>Jun ’24 Jun 30, 2024</td>
+          <td>Jun ’23 Jun 30, 2023</td>
+          <td>Jun ’22 Jun 30, 2022</td>
+          <td>Jun ’21 Jun 30, 2021</td>
+          <td>Jun ’20 Jun 30, 2020</td>
+        </tr>
+        <tr>
+          <td>Market Capitalization</td>
+          <td>18,222</td>
+          <td>16,948</td>
+          <td>19,661</td>
+          <td>17,352</td>
+          <td>22,376</td>
+          <td>27,626</td>
+        </tr>
+        <tr>
+          <td>Market Cap Growth</td>
+          <td>13.64%</td>
+          <td>-13.80%</td>
+          <td>13.31%</td>
+          <td>-22.45%</td>
+          <td>-19.00%</td>
+          <td>41.66%</td>
+        </tr>
+        <tr>
+          <td>Enterprise Value</td>
+          <td>21,024</td>
+          <td>19,913</td>
+          <td>22,613</td>
+          <td>20,467</td>
+          <td>25,241</td>
+          <td>30,412</td>
+        </tr>
+        <tr>
+          <td>Last Close Price</td>
+          <td>147.92</td>
+          <td>133.25</td>
+          <td>150.09</td>
+          <td>128.86</td>
+          <td>159.95</td>
+          <td>190.95</td>
+        </tr>
+        <tr>
+          <td>PE Ratio</td>
+          <td>40.32</td>
+          <td>60.53</td>
+          <td>131.95</td>
+          <td>37.56</td>
+          <td>31.52</td>
+          <td>29.42</td>
+        </tr>
+        <tr>
+          <td>Forward PE</td>
+          <td>20.81</td>
+          <td>21.90</td>
+          <td>29.44</td>
+          <td>28.13</td>
+          <td>25.00</td>
+          <td>30.85</td>
+        </tr>
+        <tr>
+          <td>PS Ratio</td>
+          <td>2.56</td>
+          <td>2.39</td>
+          <td>2.66</td>
+          <td>2.44</td>
+          <td>3.05</td>
+          <td>4.11</td>
+        </tr>
+        <tr>
+          <td>PB Ratio</td>
+          <td>166.14</td>
+          <td>34.45</td>
+          <td>50.67</td>
+          <td>23.80</td>
+          <td>37.80</td>
+          <td>30.43</td>
+        </tr>
+      </tbody>
+    </table>
+  </table-wrap>
 </sec>
-<sec id="advice-for-the-fiduciary-nb-7">
-  <title><bold>Advice for the Fiduciary</bold></title>
-  <p>This document provides the fiduciary with basic tools for the
-  quantitative analysis of individual corporations. These tools are
-  indeed <bold>basic</bold> and should only be viewed as a starting
-  point for serious analysis. There are many great ways to learn more
-  about finance and investment. We would recommend to look at the
-  following sources (which we ourselves used to prepare this document)
-  to learn more: [@QuantitativeFinancea],
-  [@wahlenFinancialReportingFinancial2022],
-  [@ForecastingPrinciplesPractice], [@DataScience2e],
-  [@TidyQuantitativeFinancial], [@Investopedia].</p>
+<sec id="conclusion-nb-7">
+  <title><bold>Conclusion</bold></title>
+  <p>We can use publicly available data, as well as the R language to
+  get historical financial data and ratios. The analysis shows strong
+  performance during the last five-year period.</p>
 </sec>
 </body>
 

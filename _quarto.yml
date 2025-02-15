@@ -3,8 +3,8 @@ project:
   output-dir: _output
   preview:
     port: 4001
-  render:
-    - documents/*
+  # render:
+  #   - documents/*
 
 manuscript:
   article: index.qmd

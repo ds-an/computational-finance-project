@@ -125,8 +125,8 @@ and Vaughan 2025</xref>) and Quarto scientific publishing system
   introduced.</p>
   </boxed-text>
   <sec id="financial-analysis-of-the-clorox-company-in-the-consumer-defensive-sector">
-    <title>Financial Analysis of the Clorox Company in the Consumer
-    Defensive Sector</title>
+    <title><bold>Financial Analysis of the Clorox Company in the
+    Consumer Defensive Sector</bold></title>
     <sec id="sector-analysis-1">
       <title><bold>1. Sector Analysis</bold></title>
       <p>Clorox operates in the <bold>Consumer Defensive sector</bold>,
@@ -1374,7 +1374,7 @@ autoplot(arima_forecast) +
 </ref-list>
 </back>
 
-<sub-article article-type="notebook" id="nb-27-nb-article">
+<sub-article article-type="notebook" id="nb-28-nb-article">
 <front-stub>
 <title-group>
 <article-title>Financial Report on the Clorox Company
@@ -1471,8 +1471,8 @@ the tools of computational finance.</p>
     </disp-quote>
   </boxed-text>
   <sec id="financial-analysis-of-the-clorox-company-in-the-consumer-defensive-sector-nb-article">
-    <title>Financial Analysis of the Clorox Company in the Consumer
-    Defensive Sector</title>
+    <title><bold>Financial Analysis of the Clorox Company in the
+    Consumer Defensive Sector</bold></title>
     <sec id="sector-analysis-1-nb-article">
       <title><bold>1. Sector Analysis</bold></title>
       <p>Clorox operates in the <bold>Consumer Defensive sector</bold>,

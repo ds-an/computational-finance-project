@@ -93,14 +93,10 @@ the tools of computational finance.</p>
 <boxed-text>
 <p><bold>On the simplified nature of analysis in this
 document.</bold></p>
-<p>Subject of financial analysis is very information-dense and to
-perform such an analysis (be it an analysis of industrial sectors,
-fundamental, technical, etc.) in earnest is a non-trivial job that we
-don’t see ourselves capable of performing.</p>
-<p>Therefore, this document aims to provide a simplified, non-rigorous
-analysis iming to showcase our understanding of course material and
-minimal proficiency in scientific communication using tools such as web
-scraping and searching for financial data, DeepSeek LLM with Web Search
+<p>This document aims to provide a simplified, non-rigorous analysis
+aiming to showcase our understanding of course material and minimal
+proficiency in scientific communication using tools such as web scraping
+and searching for financial data, DeepSeek LLM with Web Search
 functionality, R language
 (<xref alt="“R: The R Project for Statistical Computing” 2025" rid="ref-ProjectStatisticalComputing" ref-type="bibr">“R:
 The R Project for Statistical Computing” 2025</xref>), its “tidyquant”
@@ -109,6 +105,9 @@ package
 and Vaughan 2025</xref>) and Quarto scientific publishing system
 (<xref alt="“Quarto” 2025" rid="ref-Quarto" ref-type="bibr">“Quarto”
 2025</xref>).</p>
+<p>Doing financial analysis in earnest (be it technical, fundamental, of
+industrial sector, etc.) is beyond our abilities - we don’t delude
+ourselves into thinking that it isn’t.</p>
 </boxed-text>
 <sec id="sector-analysis">
   <title>Sector Analysis</title>
@@ -1374,7 +1373,7 @@ autoplot(arima_forecast) +
 </ref-list>
 </back>
 
-<sub-article article-type="notebook" id="nb-28-nb-article">
+<sub-article article-type="notebook" id="nb-27-nb-article">
 <front-stub>
 <title-group>
 <article-title>Financial Report on the Clorox Company
@@ -1436,15 +1435,11 @@ the tools of computational finance.</p>
   <disp-quote>
     <p><bold>On the simplified nature of analysis in this
     document.</bold></p>
-    <p>Subject of financial analysis is very information-dense and to
-    perform such an analysis (be it an analysis of industrial sectors,
-    fundamental, technical, etc.) in earnest is a non-trivial job that
-    we don’t see ourselves capable of performing.</p>
-    <p>Therefore, this document aims to provide a simplified,
-    non-rigorous analysis iming to showcase our understanding of course
-    material and minimal proficiency in scientific communication using
-    tools such as web scraping and searching for financial data,
-    DeepSeek LLM with Web Search functionality, R language
+    <p>This document aims to provide a simplified, non-rigorous analysis
+    aiming to showcase our understanding of course material and minimal
+    proficiency in scientific communication using tools such as web
+    scraping and searching for financial data, DeepSeek LLM with Web
+    Search functionality, R language
     (<xref alt="“R: The R Project for Statistical Computing” 2025" rid="ref-ProjectStatisticalComputing-nb-article" ref-type="bibr">“R:
     The R Project for Statistical Computing” 2025</xref>), its
     “tidyquant” package
@@ -1452,6 +1447,9 @@ the tools of computational finance.</p>
     and Vaughan 2025</xref>) and Quarto scientific publishing system
     (<xref alt="“Quarto” 2025" rid="ref-Quarto-nb-article" ref-type="bibr">“Quarto”
     2025</xref>).</p>
+    <p>Doing financial analysis in earnest (be it technical,
+    fundamental, of industrial sector, etc.) is beyond our abilities -
+    we don’t delude ourselves into thinking that it isn’t.</p>
   </disp-quote>
 </boxed-text>
 <sec id="sector-analysis-nb-article">

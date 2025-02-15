@@ -27,9 +27,9 @@ abstract: |
 ::: {.callout-warning}
 ## On the simplified nature of analysis in this document. 
 
-Subject of financial analysis is very information-dense and to perform such an analysis (be it an analysis of industrial sectors, fundamental, technical, etc.) in earnest is a non-trivial job that we don't see ourselves capable of performing.
+This document aims to provide a simplified, non-rigorous analysis aiming to showcase our understanding of course material and minimal proficiency in scientific communication using tools such as web scraping and searching for financial data, DeepSeek LLM with Web Search functionality, R language [@ProjectStatisticalComputing], its "tidyquant" package [@danchoTidyquantTidyQuantitative2025] and Quarto scientific publishing system [@Quarto]. 
 
-Therefore, this document aims to provide a simplified, non-rigorous analysis iming to showcase our understanding of course material and minimal proficiency in scientific communication using tools such as web scraping and searching for financial data, DeepSeek LLM with Web Search functionality, R language [@ProjectStatisticalComputing], its "tidyquant" package [@danchoTidyquantTidyQuantitative2025] and Quarto scientific publishing system [@Quarto].
+Doing financial analysis in earnest (be it technical, fundamental, of industrial sector, etc.) is beyond our abilities - we don't delude ourselves into thinking that it isn't.
 :::
 
 ## Sector Analysis

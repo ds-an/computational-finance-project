@@ -8,14 +8,14 @@ Cite a few articles + analysts average.
 In this section we collect and cite a variety of publicly available sources to perform an analysis of the company personality. We use use DeepSeek LLM with Web Search functionality to collect and analyze these sources.
 :::
 
-#### **Company Purpose and Responsibility**
+### **Company Purpose and Responsibility**
 
-##### **Company Purpose**
+#### **Company Purpose**
 
 Clorox’s stated purpose is to "champion people to be well and thrive every single day" [@PurposeValues]. As a health and wellness company, Clorox aims to make a meaningful and positive impact on the world by improving the health and safety of employees, consumers, and communities. All of this is reflected in their family-friendly and inclusive branding.
 
 
-##### **Responsibility Policies**  
+#### **Responsibility Policies**  
 
 Clorox integrates environmental, social, and governance (ESG) goals into its core business strategy [@Responsibility]. Key areas of focus include:  
 
@@ -25,7 +25,7 @@ Clorox integrates environmental, social, and governance (ESG) goals into its cor
 
 Clorox has set ambitious targets, such as achieving net-zero emissions by 2050.   
 
-##### **IGNITE Strategy**  
+#### **IGNITE Strategy**  
 
 The IGNITE strategy is Clorox’s long-term plan to drive what the company calls a "purpose-driven growth" [@IGNITEStrategy] by aligning financial goals with ESG priorities. Key pillars include:  
 
@@ -36,7 +36,7 @@ The IGNITE strategy is Clorox’s long-term plan to drive what the company calls
 
 The strategy also includes specific financial targets, such as 2-4% net sales growth and 11-13% free cash flow generation.
 
-#### **Key Executives, Their Commitment and Performance**
+### **Key Executives, Their Commitment and Performance**
 
 | Name                     | Title                                                      | Pay    | Year Born |
 |--------------------------|------------------------------------------------------------|--------|-----------|
@@ -57,7 +57,7 @@ According to [@CloroxCompanyBusiness], CEO and Chairman Linda J. Rendle, as well
 
 Financial analysis website Simply WallSt gives the upper management team at Clorox high marks on all 4 criteria: Compensation vs Market, Compensation vs Earnings, Experienced Management and Experienced Board [@CloroxCompanyCLXa].
 
-#### **Company Brand and Reputation**
+### **Company Brand and Reputation**
 
 Clorox is a globally recognized leader in the cleaning and consumer products industry, known for its trusted brands such as **Clorox Bleach**, **Pine-Sol**, **Hidden Valley**, **Brita**, and **Burt’s Bees**.
 
@@ -71,6 +71,6 @@ The cyberattack had a material financial impact, with Clorox reporting a 23-28% 
 
 Clorox’s response to the cyberattack highlighted its crisis management capabilities. The company maintained transparency by providing regular updates to stakeholders and implementing phased recovery plans to restore operations safely. Brand and reputation were not severely damaged in the process. 
 
-#### **Conclusion**
+### **Conclusion**
 
 We can use modern LLM chatbots to collect publicly available sources and perform analysis of the company personality. The analysis shows strong branding, good leadership and consistent performance.

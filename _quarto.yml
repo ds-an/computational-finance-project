@@ -3,8 +3,8 @@ project:
   output-dir: _output
   preview:
     port: 4001
-  # render:
-  #   - notebooks/*
+  render:
+    - notebooks/*
 
 manuscript:
   article: index.qmd
@@ -28,8 +28,8 @@ manuscript:
       title: Summary
 format:
   html:
-    comments:
-      hypothesis: true
+    # comments:
+    #   hypothesis: true
     page-layout: full
   docx:
     output-file: report-malyukov-bass

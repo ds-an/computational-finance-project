@@ -28,6 +28,24 @@ abstract: |
 
 ## Sector Analysis
 
+```{r} 
+#| echo: true
+library(tidyquant)
+library(ggplot2)
+library(dplyr)
+
+tickers <- c("CLX", "CL", "PG", "CHD", "KMB")
+
+prices <- tq_get(tickers,
+               from = "2024-01-01",
+               to = "2025-02-01",
+               get = "stock.prices")
+
+prices |>
+  ggplot(aes(x = date, y = adjusted, color = symbol)) +
+  geom_line() +
+  labs(subtitle = "Simple stock price comparison for the last year against major competitors")
+```
 <!-- https://alphaarchitect.com/2020/01/visualization-sector-trends-with-r-code/ -->
 
 {{< embed notebooks/sector.qmd >}}

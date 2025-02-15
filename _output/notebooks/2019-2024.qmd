@@ -2,7 +2,7 @@
 In this section we provide some historic data and rudimentary analysis of the company during the 2019-2024 period.
 :::
 
-### Historical Analysis of the Company 
+### **Historical Analysis of the Company** 
 
 As we've identified in the previous sections, major events for the company in this peroid included the adoption of IGNITE strategy and recent cyberattack. Another major event was, of course, the global pandemic.
 
@@ -49,6 +49,6 @@ Sites like [https://stockanalysis.com](https://stockanalysis.com) provide all ki
 
 : CLX's Historical Financial Ratios, source: @CloroxCompanyCLXc {.striped .hover}
 
-### Conclusion
+### **Conclusion**
 
 We can use publicly available data, as well as the R language to get historical financial data and ratios. The analysis shows strong performance during the last five-year period.

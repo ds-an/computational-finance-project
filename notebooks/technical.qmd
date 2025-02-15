@@ -12,7 +12,7 @@ Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-a
 Technical analysis in this section follows the wonderful tutorial provided here: [@FinancialModelingb]
 :::
 
-#### **Basic Technical Analysis of the Clorox Company**
+### **Basic Technical Analysis of the Clorox Company**
 
 We'll start with providing a simple plot of stock price movement.
 
@@ -98,6 +98,6 @@ prices |>
 
 As we can see, the volatility of the stock prices shouldn't be that great in the near future. Since technical analysis is best-suited for short-term trading, near future is all we can advise or client on based on such analysis.
 
-### Conclusion
+### **Conclusion**
 
 We can use "tidyquant" R language package along with other packages for producing charts to perform basic technical analysis of stock price. The analysis predicts stable performance in the short term.

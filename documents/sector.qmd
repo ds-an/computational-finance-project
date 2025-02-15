@@ -1,0 +1,70 @@
+<!-- Add some stuff on turbulence and economic/social instability - can lift right out of 10-k or the quarterly report. -->
+
+
+::: {.callout-note} 
+In this section we analyze financial data on websites such as [https://finance.yahoo.com](https://finance.yahoo.com), as well as using the [DeepSeek LLM](https://chat.deepseek.com/) to find analysis on the web and provide summaries. Some basic charting using R language [@ProjectStatisticalComputing] is introduced.
+:::
+
+### Financial Analysis of the Clorox Company in the Consumer Defensive Sector
+
+#### **1. Sector Analysis**
+Clorox operates in the **Consumer Defensive sector**, specifically within the Household and Personal Products sub-sector. This sector is characterized by stable demand and recession resilience.
+
+Sector's **Market Cap** is estimated to be $3.7 trillion. The **Market Weight (Share)** of the sector relative to the other 10 sectors is 5.45%.
+
+Sector's **Year-To-Date Return** is 6.17%, which outperforms S&P500 (3.54%). 
+
+---
+
+#### **2. Position Relative to Competitors**
+
+Clorox's market share inside it's sector is relatively small:
+
+| COMPANY NAME                           | MARKET SHARE   12 Months Ending   Q4 2024 | MARKET SHARE   12 Months Ending  Q3 2024 | MARKET SHARE   MRQ  Q4 2024 | MARKET SHARE     Q3 2024 |
+|----------------------------------------|-------------------------------------------|------------------------------------------|-----------------------------|--------------------------|
+| **The Clorox Company**                     | 2.61%                                     | 2.80%                                    | 2.42 %                      | 2.66 %                   |
+| The Campbells Company                  | 3.60%                                     | 3.61%                                    | 3.97%                       | 3.46%                    |
+| Colgate palmolive Company              | 7.32%                                     | 7.54%                                    | 7.09%                       | 7.59%                    |
+| Conagra Brands Inc                     | 4.58%                                     | 4.61%                                    | 4.58%                       | 4.21%                    |
+| Ecolab Inc                             | 5.06%                                     | 5.07%                                    | 5.26%                       | 5.40%                    |
+| Mccormick and Company Incorporated     | 2.45%                                     | 2.50%                                    | 2.58%                       | 2.53%                    |
+| Procter and Gamble Co                  | 30.72%                                    | 31.46%                                   | 31.37%                      | 32.77%                   |
+| Hormel Foods Corporation               | 5.52%                                     | 5.65%                                    | 5.09%                       | 4.37%                    |
+| Avon Products Inc                      | 1.15%                                     | 1.28%                                    | 0.95%                       | 1.23%                    |
+| Horizon Kinetics Holding Corporation   | 0.01%                                     | 0.00%                                    | 0.02%                       | 0.00%                    |
+| Ingredion Incorporated                 | 2.75%                                     | 2.89%                                    | 2.68%                       | 2.83%                    |
+| Lancaster Colony Corporation           | 0.69%                                     | 0.70%                                    | 0.73%                       | 0.70%                    |
+| J and j Snack Foods Corp               | 0.58%                                     | 0.59%                                    | 0.52%                       | 0.64%                    |
+| Treehouse Foods Inc                    | 1.19%                                     | 1.24%                                    | 1.20%                       | 1.19%                    |
+| Dole Plc                               | 3.00%                                     | 3.46%                                    | 3.00%                       | 3.46%                    |
+| Church and Dwight Co Inc               | 2.22%                                     | 2.27%                                    | 2.27%                       | 2.28%                    |
+| Coty Inc                               | 2.22%                                     | 2.30%                                    | 2.39%                       | 2.52%                    |
+| Unilever Plc                           | 24.32%                                    | 22.02%                                   | 24.32%                      | 22.02%                   |
+| SUBTOTAL                               | 100%                                      |   100%                                   | 100%                        | 100%                     |
+
+: CLX's Market share relative to its competitors, as of Q4 2024 within the Consumer Non Cyclical Sector (i.e. Consumer Defensive), source: @CloroxMarketShare {.striped .hover}
+
+Clorox competes with major players such as **Procter & Gamble (PG)**, **Colgate-Palmolive (CL)**, **Church & Dwight (CHD)**, and **Kimberly-Clark (KMB)**. Let's look at their stock price relative to each other using R language.
+
+```{r} 
+#| echo: true
+library(tidyquant)
+library(ggplot2)
+library(dplyr)
+
+tickers <- c("CLX", "CL", "PG", "CHD", "KMB")
+
+prices <- tq_get(tickers,
+               from = "2024-01-01",
+               to = "2025-02-01",
+               get = "stock.prices")
+
+prices |>
+  ggplot(aes(x = date, y = adjusted, color = symbol)) +
+  geom_line() +
+  labs(subtitle = "Simple stock price comparison for the last year against major competitors")
+```
+
+### **Conclusion**
+
+We can use web scraping, modern LLM chatbots and R language to perform all the necessary analysis of the particular industrial sector and the corporation's position in this sector. The analysis shows small, but strong position of the company relative to it's sector, as well characterizes the sector itself.

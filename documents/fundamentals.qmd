@@ -1,0 +1,83 @@
+<!--
+Common size analysis for fundamental analysis.
+Life cycle stage.
+ROI for stock over a period of time.
+Analyst's views and rating.
+client.shwab.com
+EBITDA
+P/B ratio
+EV = Mcap + Debt
+-->
+
+::: {.callout-note}
+In this section we will take a look at quantitative fundamental analysis tools provided by the "tidyquant" R language package [@danchoTidyquantTidyQuantitative2025] and use them to get key financial ratios of fundamental analysis for the Clorox company. This section is based on the following wonderful tutorial: @PerformanceAnalysisTidyquant
+:::
+
+### **Basic Fundamental Analysis of the Clorox Company**
+
+First let's retrieve 5-year period returns from the prices adjusted for stock splits, both for Clorox and S&P500 as the baseline. Next, we combine both datasets (Clorox and S&P500 returns) using "left-join" on the "date" field. Using this dataset, we can retrieve all kind of fundamental metrics, such as **Alpha** (0.0008), **Beta** (0.414).
+
+```{r}
+#| echo: true
+library(tidyverse)
+library(tidyquant)
+
+Ra <- "CLX" |>
+    tq_get(get  = "stock.prices",
+           from = "2020-01-01",
+           to   = "2025-02-01") |>
+    group_by(symbol) |>
+    tq_transmute(select     = adjusted, 
+                 mutate_fun = periodReturn, 
+                 period     = "monthly", 
+                 col_rename = "Ra")
+
+
+Rb <- "^GSPC" |>
+    tq_get(get  = "stock.prices",
+           from = "2020-01-01",
+           to   = "2025-02-01") |>
+    tq_transmute(select     = adjusted, 
+                 mutate_fun = periodReturn, 
+                 period     = "monthly", 
+                 col_rename = "Rb")
+
+RaRb <- left_join(Ra, Rb, by = c("date" = "date"))
+
+
+RaRb_capm <- RaRb %>%
+    tq_performance(Ra = Ra, 
+                   Rb = Rb, 
+                   performance_fun = table.CAPM)
+
+RaRb_capm %>% select(symbol, Alpha, Beta) |> print()
+```
+
+We can also get the **Annualized Sharpe Ratio and Returns**, **Types of Mean Return (Geometric, Arithmetic, etc.)**, **Kurtosis**, as well as **Maximum and Median Return** by following the similar steps (no need for the baseline this time).
+
+```{r} 
+#| echo: true
+library(tidyverse)
+library(tidyquant)
+
+Ra <- "CLX" |>
+    tq_get(get  = "stock.prices",
+           from = "2020-01-01",
+           to   = "2025-02-01") |>
+    group_by(symbol) |>
+    tq_transmute(select     = adjusted, 
+                 mutate_fun = periodReturn, 
+                 period     = "monthly", 
+                 col_rename = "Ra")
+
+Ra |>
+  tq_performance(Ra = Ra, Rb = NULL, performance_fun = table.AnnualizedReturns) |>
+  print()
+
+Ra |>
+  tq_performance(Ra = Ra, Rb = NULL, performance_fun = table.Stats) |>
+  print()
+```
+
+### **Conclusion**  
+We can use the "tidyquant" R language package to perform fundamental analysis of the company and obtain all of the key financial ratios for such analysis. The analysis shows a company in recovery with strong fundamentals.

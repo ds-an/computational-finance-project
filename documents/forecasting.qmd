@@ -1,0 +1,52 @@
+::: {.callout-note} 
+In this section we use ARIMA model to provide a long-term forecast of the company stock price.
+:::
+
+### **Long-Term Financial Forecast for the Company Using ARIMA Model**
+
+Long-term financial forecasting, like all social forecasting, is an incredibly fraught undertaking due to many different reasons (see, for example, [@cerqueira8ReasonsWhy2022] and [@ForecastingPredictiveAnalytics]). Luckily, many tools are available for us to experiment with.
+
+We've already done some simple short-term forecasting in our "Technical Analysis" section using **SMA** and **Bollinger Bands**. We've also accessed volatility by calculating **Beta** value and estimated risk/return using **Annualized Sharpe Ratio**, which might help us in medium-term forecasting. Now we will try using advanced **ARIMA** (Auto-Regressive Integrated Moving Averages) to predict stock prices for the next 6 months and for the next year.
+
+```{r} 
+#| echo: true
+library(tidyquant)
+library(forecast)
+library(ggplot2)
+library(timetk)
+library(dplyr)
+
+clx_stock <- tq_get("CLX", 
+                   get = "stock.prices", 
+                   from = "2020-01-01", 
+                   to = "2025-02-01") |>
+  select(date, close) |>
+  arrange(date)
+
+clx_price_ts <- tk_ts(clx_stock, start = 2020, 
+              frequency = 252)
+
+arima_model <- auto.arima(clx_price_ts)
+
+arima_forecast <- forecast(arima_model, h = 365/2)
+
+autoplot(arima_forecast) +
+  labs(title = "CLX Stock Price Forecast 6 Months (ARIMA)",
+    y = "Price (USD)",
+    x = "Date") +
+  theme_minimal()
+
+arima_forecast <- forecast(arima_model, h = 365)
+
+autoplot(arima_forecast) +
+  labs(title = "CLX Stock Price Forecast Year (ARIMA)",
+       y = "Price (USD)",
+       x = "Date") +
+  theme_minimal()
+```
+
+We can see the band for the future time periods representing possible price ranges and 2 confidence levels.
+
+### **Conclusion**
+
+We can use advanced forecasting models (such as ARIMA) available in the R language to predict the stock price. The analysis shows a wide range of possible future prices, albeit without major ups or downs.

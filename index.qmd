@@ -1,6 +1,6 @@
 ---
-title: Research Report on the Clorox Company (CLX)
-subtitle: A Final Project for the Computational Finance Cource
+title: Financial Report on the Clorox Company (CLX)
+subtitle: A Project for the Computational Finance Course
 # title-block-banner: true
 authors:
   - name: Andrey Malyukov
@@ -12,12 +12,6 @@ authors:
     affiliation: Sami Shamoon College of Engineering
     roles: writing
     corresponding: false
-  # - name: Alan Solomon
-  #   affiliation: Sami Shamoon College of Engineering
-  #   roles: 
-  #     - lecturer
-  #     - advisor
-  #   corresponding: false
 bibliography: references.bib
 keywords:
   - Financial Report
@@ -25,33 +19,14 @@ keywords:
   - Course Project
 number-section: true
 abstract: |
-  In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...
-plain-language-summary: |
-  Earthquake data for the island of La Palma from the September 2021 eruption is found ...
-key-points:
-  - A web scraping script was developed to pull data from the Instituto Geogràphico Nacional into a machine-readable form for analysis
-  - Earthquake events on La Palma are consistent with the presence of both mantle and crustal reservoirs.
+  In this Project for the Computational Finance course led by prof. Alan Solomon at the Sami Shamoon College of Engineering, we aim to demonstrate basic understanding of the course material by writing a guide for the feduciary on how to provide guidance for investors using the tools of computational finance.
 ---
 
-<!-- ## Section -->
-<!-- This is a simple placeholder for the manuscript's main document [@knuth84]. -->
-
-## TODO
-
-Use "PerformanceAnalytics" package for Sharpe ratio and risk analysis.
-
-Cite your stuff: [@regensteinVisualizationSectorTrends2020].
-
-## Introduction
 {{< embed notebooks/intro.qmd >}}
 
 ## Sector Analysis
 
-Performance of all sectors relative to each other.
-
-https://alphaarchitect.com/2020/01/visualization-sector-trends-with-r-code/
-
-Maybe that's a bit much.
+<!-- https://alphaarchitect.com/2020/01/visualization-sector-trends-with-r-code/ -->
 
 {{< embed notebooks/sector.qmd >}}
 

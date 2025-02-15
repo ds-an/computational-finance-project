@@ -66,6 +66,46 @@
 \fi
 \makeatother
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -175,8 +215,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Research Report on the Clorox Company (CLX)},
-  pdfkeywords={Financial Report, Feduciary},
+  pdftitle={Financial Report on the Clorox Company (CLX)},
+  pdfkeywords={Financial Report, Feduciary, Course Project},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -185,18 +225,25 @@
   pdfcreator={LaTeX via pandoc}}
 
 
-\title{Research Report on the Clorox Company (CLX)}
+\title{Financial Report on the Clorox Company (CLX)}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A Project for the Computational Finance Course}
 \author{Andrey Malyukov \and Roza Bass}
 \date{}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-In September 2021, a significant jump in seismic activity on the island
-of La Palma (Canary Islands, Spain) signaled the start of a volcanic
-crisis that still continues at the time of writing. Earthquake data is
-continually collected and published by the Instituto Geográphico
-Nacional (IGN). \ldots{}
+In this Project for the Computational Finance course led by prof. Alan
+Solomon at the Sami Shamoon College of Engineering, we aim to
+demonstrate basic understanding of the course material by writing a
+guide for the feduciary on how to provide guidance for investors using
+the tools of computational finance.
 \end{abstract}
 
 \renewcommand*\contentsname{Table of contents}
@@ -205,14 +252,6 @@ Nacional (IGN). \ldots{}
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
-
-\subsection{TODO}\label{todo}
-
-Use ``PerformanceAnalytics'' package for Sharpe ratio and risk analysis.
-
-Cite your stuff: (Regenstein 2020).
-
-\subsection{Introduction}\label{introduction}
 
 \section{}\label{section}
 
@@ -226,65 +265,31 @@ ourselves capable of performing.
 
 Therefore, this document aims to provide a simplified, non-rigorous
 analysis aiming to showcase our understanding of course material and
-minimal proficiency in scientific communication using tools such as R
-language {``R: {The R Project} for {Statistical Computing}''} (n.d.),
-its ``tidyquant'' package Dancho and Vaughan (2025) and Quarto
-scientific publishing system {``Quarto''} (n.d.).
+minimal proficiency in scientific communication using tools such as web
+scraping and searching for financial data, DeepSeek LLM with Web Search
+functionality, R language {[}{``R: {The R Project} for {Statistical
+Computing}''} (n.d.){]}, its ``tidyquant'' package {[}Dancho and Vaughan
+(2025){]} and Quarto scientific publishing system {[}{``Quarto''}
+(n.d.){]}.
 \end{quote}
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-intro-cell-2-output-1.png}}
-
-We need better stuff though.
-
-\begin{verbatim}
-[1] "CPALTT01USQ657N"           CPALTT01USQ657N
-1955-04-01       0.0000000
-1955-07-01       0.4993758
-1955-10-01       0.1242236
-1956-01-01      -0.2481390
-1956-04-01       0.8706468
-1956-07-01       1.2330456     Index            CPALTT01USQ657N  
- Min.   :1955-04-01   Min.   :-2.8285  
- 1st Qu.:1972-06-08   1st Qu.: 0.3950  
- Median :1989-08-16   Median : 0.8018  
- Mean   :1989-08-16   Mean   : 0.8959  
- 3rd Qu.:2006-10-24   3rd Qu.: 1.1939  
- Max.   :2024-01-01   Max.   : 3.9508  
-\end{verbatim}
-
-\begin{table}
-
-\caption{\label{tbl-planets}Astronomical object}
-
-\centering{
-
-\subcaption{\label{tbl-planets-1}}
-
-\centering{
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-intro-tbl-planets-output-3.png}}
-
-}
-
-}
-
-\end{table}%
-
-Use this kind of macroeconomic analysis maybe?
 
 \subsection{Sector Analysis}\label{sector-analysis}
 
-Performance of all sectors relative to each other.
-
-https://alphaarchitect.com/2020/01/visualization-sector-trends-with-r-code/
-
-Maybe that's a bit much.
-
 \section{}\label{section-1}
 
-\subsubsection{Financial Analysis of The Clorox Company (CLX) in the
-Consumer Defensive
-Sector}\label{financial-analysis-of-the-clorox-company-clx-in-the-consumer-defensive-sector}
+\begin{quote}
+\textbf{Note}
+
+In this section we analyze financial data on websites such as
+\url{https://finance.yahoo.com}, as well as using the
+\href{https://chat.deepseek.com/}{DeepSeek LLM} to find analysis on the
+web and provide summaries. Some basic charting using R language {[}{``R:
+{The R Project} for {Statistical Computing}''} (n.d.){]} is introduced.
+\end{quote}
+
+\subsubsection{Financial Analysis of the Clorox Company in the Consumer
+Defensive
+Sector}\label{financial-analysis-of-the-clorox-company-in-the-consumer-defensive-sector}
 
 \paragraph{\texorpdfstring{\textbf{1. Sector
 Analysis}}{1. Sector Analysis}}\label{sector-analysis-1}
@@ -294,7 +299,7 @@ within the Household and Personal Products sub-sector. This sector is
 characterized by stable demand and recession resilience.
 
 Sector's \textbf{Market Cap} is estimated to be \$3.7 trillion. The
-\textbf{Market weight (share)} of the sector relative to the other 10
+\textbf{Market Weight (Share)} of the sector relative to the other 10
 sectors is 5.45\%.
 
 Sector's \textbf{Year-To-Date Return} is 6.17\%, which outperforms
@@ -359,83 +364,52 @@ Consumer Non Cyclical Sector (i.e.~Consumer Defensive), source: {``The
 
 Clorox competes with major players such as \textbf{Procter \& Gamble
 (PG)}, \textbf{Colgate-Palmolive (CL)}, \textbf{Church \& Dwight (CHD)},
-and \textbf{Kimberly-Clark (KMB)}.
+and \textbf{Kimberly-Clark (KMB)}. Let's look at their stock price
+relative to each other using R language.
 
 \pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-sector-cell-2-output-2.png}}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\subsubsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{4. Strategic and Financial
-Challenges}}{4. Strategic and Financial Challenges}}\label{strategic-and-financial-challenges}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Cyberattack Impact}: Caused a 20\% Q1 FY24 sales decline,
-  though recovery efforts restored \textasciitilde90\% market share by
-  Q3 .
-\item
-  \textbf{Margin Recovery}: Gross margin expanded to 46.5\% in Q4 FY24,
-  driven by cost savings .
-\item
-  \textbf{Divestitures}: Sold non-core businesses (Argentina, VMS) to
-  focus on high-growth segments .
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{6. Key
-Insights}}{6. Key Insights}}\label{key-insights}
-
-\begin{itemize}
-\tightlist
-\item
-  Clorox's valuation (P/E 40.6) reflects optimism about its recovery and
-  IGNITE strategy but is expensive compared to peers .
-\item
-  Consumer Staples sector growth (CAGR 3.7\% for cleaning products)
-  supports long-term stability, but competition from eco-friendly brands
-  (e.g., Seventh Generation) poses risks .
-\item
-  Clorox's underperformance vs.~indices highlights sector-specific
-  challenges (inflation, supply chain) .
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-For real-time data, update the R code with current ticker prices and
-adjust the date range. The analysis underscores Clorox's resilience in a
-defensive sector but signals caution due to margin pressures and
-competitive headwinds.
+We can use web scraping, modern LLM chatbots and R language to perform
+all the necessary analysis of the particular industrial sector and the
+corporation's position in this sector. The analysis shows small, but
+strong position of the company relative to it's sector, as well
+characterizes the sector itself.
 
 \subsection{Personality of the
 Company}\label{personality-of-the-company}
 
 \section{}\label{section-2}
 
-\paragraph{\texorpdfstring{\textbf{1. Company Purpose and
-Responsibility}}{1. Company Purpose and Responsibility}}\label{company-purpose-and-responsibility}
+\begin{quote}
+\textbf{Note}
 
-\subparagraph{\texorpdfstring{\textbf{1. Company
-Purpose}}{1. Company Purpose}}\label{company-purpose}
+In this section we collect and cite a variety of publicly available
+sources to perform an analysis of the company personality. We use use
+DeepSeek LLM with Web Search functionality to collect and analyze these
+sources.
+\end{quote}
+
+\paragraph{\texorpdfstring{\textbf{Company Purpose and
+Responsibility}}{Company Purpose and Responsibility}}\label{company-purpose-and-responsibility}
+
+\subparagraph{\texorpdfstring{\textbf{Company
+Purpose}}{Company Purpose}}\label{company-purpose}
 
 Clorox's stated purpose is to ``champion people to be well and thrive
-every single day'' {``Purpose \& {Values}''} (n.d.). As a health and
-wellness company, Clorox aims to make a meaningful and positive impact
-on the world by improving the health and safety of employees, consumers,
-and communities. All of this is reflected in their family-friendly and
-inclusive branding.
+every single day'' {[}{``Purpose \& {Values}''} (n.d.){]}. As a health
+and wellness company, Clorox aims to make a meaningful and positive
+impact on the world by improving the health and safety of employees,
+consumers, and communities. All of this is reflected in their
+family-friendly and inclusive branding.
 
-\subparagraph{\texorpdfstring{\textbf{2. Responsibility
-Policies}}{2. Responsibility Policies}}\label{responsibility-policies}
+\subparagraph{\texorpdfstring{\textbf{Responsibility
+Policies}}{Responsibility Policies}}\label{responsibility-policies}
 
 Clorox integrates environmental, social, and governance (ESG) goals into
-its core business strategy {``Responsibility''} (n.d.). Key areas of
-focus include:
+its core business strategy {[}{``Responsibility''} (n.d.){]}. Key areas
+of focus include:
 
 \begin{itemize}
 \tightlist
@@ -454,12 +428,12 @@ focus include:
 Clorox has set ambitious targets, such as achieving net-zero emissions
 by 2050.
 
-\subparagraph{\texorpdfstring{\textbf{3. IGNITE
-Strategy}}{3. IGNITE Strategy}}\label{ignite-strategy}
+\subparagraph{\texorpdfstring{\textbf{IGNITE
+Strategy}}{IGNITE Strategy}}\label{ignite-strategy}
 
 The IGNITE strategy is Clorox's long-term plan to drive what the company
-calls a ``purpose-driven growth'' {``{IGNITE Strategy}''} (n.d.) by
-aligning financial goals with ESG priorities. Key pillars include:
+calls a ``purpose-driven growth'' {[}{``{IGNITE Strategy}''} (n.d.){]}
+by aligning financial goals with ESG priorities. Key pillars include:
 
 \begin{itemize}
 \tightlist
@@ -481,9 +455,8 @@ aligning financial goals with ESG priorities. Key pillars include:
 The strategy also includes specific financial targets, such as 2-4\% net
 sales growth and 11-13\% free cash flow generation.
 
-\paragraph{\texorpdfstring{\textbf{2. Key Executives, Their Commitment
-and
-Performance}}{2. Key Executives, Their Commitment and Performance}}\label{key-executives-their-commitment-and-performance}
+\paragraph{\texorpdfstring{\textbf{Key Executives, Their Commitment and
+Performance}}{Key Executives, Their Commitment and Performance}}\label{key-executives-their-commitment-and-performance}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2432}}
@@ -522,23 +495,23 @@ Mr.~Eric Sean Schwartz & Senior VP \& Chief Marketing Officer & -- &
 Mr.~Erbie L. Foster Jr. & Chief Diversity Officer & -- & -- \\
 \end{longtable}
 
-Key Executives, source: {``The {Clorox Company} ({CLX}) {Company
-Profile} \& {Facts}''} (n.d.)
+Key Executives, source: {[}{``The {Clorox Company} ({CLX}) {Company
+Profile} \& {Facts}''} (n.d.){]}
 
-According to {``The {Clorox Company}: {Business Model}, {SWOT Analysis},
-and {Competitors} 2024 - {PitchGrade}''} (n.d.), CEO and Chairman Linda
-J. Rendle, as well as the other executives and board members have
-significant ownership stakes at the company, indicating high confidence
-in their business.
+According to {[}{``The {Clorox Company}: {Business Model}, {SWOT
+Analysis}, and {Competitors} 2024 - {PitchGrade}''} (n.d.){]}, CEO and
+Chairman Linda J. Rendle, as well as the other executives and board
+members have significant ownership stakes at the company, indicating
+high confidence in their business.
 
 Financial analysis website Simply WallSt gives the upper management team
 at Clorox high marks on all 4 criteria: Compensation vs Market,
 Compensation vs Earnings, Experienced Management and Experienced Board
-{``The {Clorox Company} ({CLX}) {Leadership} \& {Management Team
-Analysis}''} (n.d.).
+{[}{``The {Clorox Company} ({CLX}) {Leadership} \& {Management Team
+Analysis}''} (n.d.){]}.
 
-\paragraph{\texorpdfstring{\textbf{3. Company Brand and
-Reputation}}{3. Company Brand and Reputation}}\label{company-brand-and-reputation}
+\paragraph{\texorpdfstring{\textbf{Company Brand and
+Reputation}}{Company Brand and Reputation}}\label{company-brand-and-reputation}
 
 Clorox is a globally recognized leader in the cleaning and consumer
 products industry, known for its trusted brands such as \textbf{Clorox
@@ -551,14 +524,14 @@ Choice Partner of the Year} by the EPA, and a top performer in the
 \textbf{Human Rights Campaign Foundation's Corporate Equality Index}.
 Its sustainable brands, such as \textbf{Brita}, \textbf{Burt's Bees},
 and \textbf{Green Works}, have gained significant consumer trust for
-their eco-friendly and socially responsible practices {``Recognitions''}
-(n.d.).
+their eco-friendly and socially responsible practices
+{[}{``Recognitions''} (n.d.){]}.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 In August 2023, Clorox experienced a severe \textbf{cyberattack}
-Mascellino (2023) that disrupted its IT systems and operations. The
-attack, which was detected on August 14, forced the company to take
+{[}Mascellino (2023){]} that disrupted its IT systems and operations.
+The attack, which was detected on August 14, forced the company to take
 affected systems offline, leading to significant production delays and
 supply chain disruptions. Clorox activated its business continuity
 plans, reverting to manual processes for order fulfillment and customer
@@ -574,173 +547,143 @@ updates to stakeholders and implementing phased recovery plans to
 restore operations safely. Brand and reputation were not severely
 damaged in the process.
 
+\paragraph{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion-1}
+
+We can use modern LLM chatbots to collect publicly available sources and
+perform analysis of the company personality. The analysis shows strong
+branding, good leadership and consistent performance.
+
 \subsection{Fundamental Analysis}\label{fundamental-analysis}
 
 \section{}\label{section-3}
 
-\subsubsection{Fundamental Analysis of The Clorox Company
-(CLX)}\label{fundamental-analysis-of-the-clorox-company-clx}
+\begin{quote}
+\textbf{Note}
 
-Incorporating \textbf{Graham Number} and key financial ratios derived
-from the latest available data (as of February 2025):
+In this section we will take a look at quantitative fundamental analysis
+tools provided by the ``tidyquant'' R language package {[}Dancho and
+Vaughan (2025){]} and use them to get key financial ratios of
+fundamental analysis for the Clorox company. This section is based on
+the following wonderful tutorial: {``Performance {Analysis} with
+Tidyquant''} (n.d.)
+\end{quote}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\paragraph{\texorpdfstring{\textbf{Basic Fundamental Analysis of the
+Clorox
+Company}}{Basic Fundamental Analysis of the Clorox Company}}\label{basic-fundamental-analysis-of-the-clorox-company}
 
-\paragraph{\texorpdfstring{\textbf{I. Graham Number
-Calculation}}{I. Graham Number Calculation}}\label{i.-graham-number-calculation}
+First let's retrieve 5-year period returns from the prices adjusted for
+stock splits, both for Clorox and S\&P500 as the baseline. Next, we
+combine both datasets (Clorox and S\&P500 returns) using ``left-join''
+on the ``date'' field. Using this dataset, we can retrieve all kind of
+fundamental metrics, such as \textbf{Alpha} (0.0008), \textbf{Beta}
+(0.414).
 
-The Graham Number estimates a stock's intrinsic value using earnings per
-share (EPS) and book value per share (BVPS):\\
-\textbf{Formula}:
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{library(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
 
-\(\text{Graham Number} = \sqrt{22.5 \times \text{EPS} \times \text{BVPS}}\)
+\begin{verbatim}
+# A tibble: 1 × 3
+# Groups:   symbol [1]
+  symbol  Alpha  Beta
+  <chr>   <dbl> <dbl>
+1 CLX    0.0008 0.414
+\end{verbatim}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{EPS (TTM)}: \$3.67\\
-\item
-  \textbf{BVPS}: \$0.98 (Total Equity: \$121M / Shares Outstanding:
-  123.19M)\\
-\item
-  \textbf{Calculation}:\\
-  \(\sqrt{22.5 \times 3.67 \times 0.98} = \sqrt{80.92} \approx \boxed{8.99}\)
-\item
-  \textbf{Interpretation}: CLX's current stock price
-  (\textasciitilde\$149.61) far exceeds the Graham Number, indicating
-  potential overvaluation based on traditional metrics .
-\end{itemize}
+We can also get the \textbf{Annualized Sharpe Ratio and Returns},
+\textbf{Types of Mean Return (Geometric, Arithmetic, etc.)},
+\textbf{Kurtosis}, as well as \textbf{Maximum and Median Return} by
+following the similar steps (no need for the baseline this time).
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{library(tidyverse)}
+\NormalTok{library(tidyquant)}
 
-\paragraph{\texorpdfstring{\textbf{II. Key Financial
-Ratios}}{II. Key Financial Ratios}}\label{ii.-key-financial-ratios}
+\NormalTok{Ra }\OperatorTok{\textless{}{-}} \StringTok{"CLX"} \OperatorTok{|\textgreater{}}
+\NormalTok{    tq\_get(get  }\OperatorTok{=} \StringTok{"stock.prices"}\NormalTok{,}
+           \ImportTok{from} \OperatorTok{=} \StringTok{"2020{-}01{-}01"}\NormalTok{,}
+\NormalTok{           to   }\OperatorTok{=} \StringTok{"2025{-}02{-}01"}\NormalTok{) }\OperatorTok{|\textgreater{}}
+\NormalTok{    group\_by(symbol) }\OperatorTok{|\textgreater{}}
+\NormalTok{    tq\_transmute(select     }\OperatorTok{=}\NormalTok{ adjusted, }
+\NormalTok{                 mutate\_fun }\OperatorTok{=}\NormalTok{ periodReturn, }
+\NormalTok{                 period     }\OperatorTok{=} \StringTok{"monthly"}\NormalTok{, }
+\NormalTok{                 col\_rename }\OperatorTok{=} \StringTok{"Ra"}\NormalTok{)}
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0959}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1233}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1370}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3151}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3288}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Category}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Ratio}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{CLX Value}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Formula}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Interpretation}
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\textbf{Profitability} & Gross Profit Margin & 44.51\% & (Revenue -
-COGS) / Revenue & Stable gross margins despite cost inflation, supported
-by cost-saving initiatives . \\
-& Operating Profit Margin & 14.32\% & Operating Income / Revenue &
-Margin expansion driven by divestitures and operational recovery
-post-cyberattack . \\
-& Net Profit Margin & 6.38\% & Net Income / Revenue & Lower than peers
-(e.g., P\&G: \textasciitilde18\%), reflecting cyberattack recovery costs
-. \\
-& Return on Assets (ROA) & 11.17\% & Net Income / Avg. Total Assets &
-Efficient asset utilization, though impacted by divestitures . \\
-& Return on Equity (ROE) & 276.11\% & Net Income / Avg. Shareholders'
-Equity & Artificially high due to low equity base (\$121M) . \\
-\textbf{Liquidity} & Current Ratio & 0.94 & Current Assets / Current
-Liabilities & Below industry norms (1.5--3.0), indicating liquidity
-strain . \\
-& Quick Ratio & 0.52 & (Cash + Receivables) / Current Liabilities &
-Limited near-term liquidity, with heavy reliance on receivables . \\
-\textbf{Solvency} & Debt-to-Equity Ratio & 25.55 & Total Liabilities /
-Shareholders' Equity & Extremely high leverage (vs.~industry median
-\textasciitilde1.0), raising solvency concerns . \\
-& Debt-to-Assets Ratio & 98\% & Total Liabilities / Total Assets &
-Nearly all assets financed by debt, increasing bankruptcy risk . \\
-& Interest Coverage Ratio & \textasciitilde11.7 & Operating Income /
-Interest Expense & Strong coverage due to operational recovery, but debt
-levels remain risky. \\
-\textbf{Efficiency} & Asset Turnover Ratio & 1.25 & Revenue / Avg. Total
-Assets & Efficient asset use, though lower than pre-cyberattack levels
-. \\
-& Inventory Turnover Ratio & 6.38 & COGS / Avg. Inventory & Healthy
-turnover, but down from 7.57 in 2020 . \\
-& Receivables Turnover Ratio & \textasciitilde11.05 & Revenue / Avg.
-Accounts Receivable & Faster collections than industry median
-(\textasciitilde30 days) . \\
-\textbf{Valuation} & P/E Ratio & 40.50 & Price per Share / EPS & High
-vs.~peers (PG: 26.66, CL: 24.39), reflecting recovery optimism . \\
-& P/B Ratio & 61.19 & Price per Share / Book Value per Share & Extremely
-high, driven by low equity base and market premium . \\
-& P/S Ratio & 2.59 & Price per Share / Revenue per Share & Aligns with
-sector norms (Consumer Staples avg: \textasciitilde2.5--3.0) . \\
-& Dividend Yield & 3.26\% & Annual Dividend / Price per Share &
-Attractive yield, supported by 48-year dividend growth streak . \\
-\end{longtable}
+\NormalTok{Ra }\OperatorTok{|\textgreater{}}
+\NormalTok{  tq\_performance(Ra }\OperatorTok{=}\NormalTok{ Ra, Rb }\OperatorTok{=}\NormalTok{ NULL, performance\_fun }\OperatorTok{=}\NormalTok{ table.AnnualizedReturns) }\OperatorTok{|\textgreater{}}
+  \BuiltInTok{print}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{verbatim}
+# A tibble: 1 × 4
+# Groups:   symbol [1]
+  symbol AnnualizedReturn `AnnualizedSharpe(Rf=0%)` AnnualizedStdDev
+  <chr>             <dbl>                     <dbl>            <dbl>
+1 CLX              0.0381                     0.153            0.249# A tibble: 1 × 17
+# Groups:   symbol [1]
+  symbol ArithmeticMean GeometricMean Kurtosis `LCLMean(0.95)` Maximum Median
+  <chr>           <dbl>         <dbl>    <dbl>           <dbl>   <dbl>  <dbl>
+1 CLX            0.0056        0.0031     1.20         -0.0128   0.218 0.0054
+# ℹ 10 more variables: Minimum <dbl>, NAs <dbl>, Observations <dbl>,
+#   Quartile1 <dbl>, Quartile3 <dbl>, SEMean <dbl>, Skewness <dbl>,
+#   Stdev <dbl>, `UCLMean(0.95)` <dbl>, Variance <dbl>
+\end{verbatim}
 
-\paragraph{\texorpdfstring{\textbf{III. Key
-Insights}}{III. Key Insights}}\label{iii.-key-insights}
+\paragraph{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion-2}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Profitability}: Margins are recovering post-cyberattack, but
-  net margins lag competitors. Gross margin improved to 43.8\% in Q2
-  FY25, with cost savings offsetting inflation .\\
-\item
-  \textbf{Liquidity Risks}: Low current (0.94) and quick (0.52) ratios
-  highlight liquidity challenges, though improved cash flow (\$401M YTD)
-  provides relief .\\
-\item
-  \textbf{Debt Concerns}: Debt-to-equity (25.55) and debt-to-assets
-  (98\%) ratios signal high leverage, though interest coverage (11.7x)
-  remains manageable .\\
-\item
-  \textbf{Valuation}: Elevated P/E (40.5) and P/B (61.19) suggest market
-  optimism about Clorox's recovery, but Graham Number (\$8.99) implies
-  overvaluation .\\
-\item
-  \textbf{Dividend Strength}: A 3.26\% yield with consistent growth
-  underscores Clorox's defensive appeal, despite a high payout ratio
-  (133\%) .
-\end{enumerate}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{IV.
-Conclusion}}{IV. Conclusion}}\label{iv.-conclusion}
-
-Clorox's fundamentals reflect a company in recovery, balancing strong
-brand equity and dividend reliability with significant debt and
-valuation risks. While operational improvements (e.g., margin expansion,
-ERP transition) are promising, the stock's premium pricing and leverage
-warrant caution. Investors should monitor debt reduction and margin
-sustainability in 2025 .
+We can use the ``tidyquant'' R language package to perform fundamental
+analysis of the company and obtain all of the key financial ratios for
+such analysis. The analysis shows a company in recovery with strong
+fundamentals.
 
 \subsection{Technical Analysis}\label{technical-analysis}
 
 \section{}\label{section-4}
 
 \begin{quote}
-\textbf{Important}
+\textbf{Note}
 
 Technical analysis in this section follows the wonderful tutorial
 provided here: {[}{``Financial Modeling with {R}''} (n.d.){]}
 \end{quote}
 
+\paragraph{\texorpdfstring{\textbf{Basic Technical Analysis of the
+Clorox
+Company}}{Basic Technical Analysis of the Clorox Company}}\label{basic-technical-analysis-of-the-clorox-company}
+
 We'll start with providing a simple plot of stock price movement.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{library(tidyquant)}
+\end{Highlighting}
+\end{Shaded}
 
 \pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-2-output-2.png}}
 
 To identify basic trend in this movement, we then chart the
 \textbf{Simple Moving Average}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{library(tidyquant)}
+\NormalTok{library(ggplot2)}
+\NormalTok{library(dplyr)}
+\NormalTok{CLX }\OperatorTok{\textless{}{-}}\NormalTok{ tq\_get(}\StringTok{"CLX"}\NormalTok{, get }\OperatorTok{=} \StringTok{"stock.prices"}\NormalTok{, }\ImportTok{from} \OperatorTok{=} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
+\NormalTok{               to }\OperatorTok{=} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
+\NormalTok{CLX }\OperatorTok{|\textgreater{}}
+\NormalTok{  ggplot(aes(x }\OperatorTok{=}\NormalTok{ date, y }\OperatorTok{=}\NormalTok{ close)) }\OperatorTok{+}
+\NormalTok{    geom\_line()  }\OperatorTok{+}
+\NormalTok{    geom\_ma(ma\_fun }\OperatorTok{=}\NormalTok{ SMA, n }\OperatorTok{=} \DecValTok{25}\NormalTok{, linetype }\OperatorTok{=} \DecValTok{1}\NormalTok{, size }\OperatorTok{=} \FloatTok{1.25}\NormalTok{) }\OperatorTok{+}
+\NormalTok{    labs(y }\OperatorTok{=} \StringTok{"Closing Price"}\NormalTok{, x }\OperatorTok{=} \StringTok{""}\NormalTok{) }\OperatorTok{+} 
+\NormalTok{    theme\_tq()}
+\end{Highlighting}
+\end{Shaded}
 
 \pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-3-output-1.png}}
 
@@ -758,291 +701,249 @@ future.
 
 Let's demonstrate.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{library(tidyquant)}
+\NormalTok{library(ggplot2)}
+\NormalTok{library(dplyr)}
+\NormalTok{CLX }\OperatorTok{\textless{}{-}}\NormalTok{ tq\_get(}\StringTok{"CLX"}\NormalTok{, get }\OperatorTok{=} \StringTok{"stock.prices"}\NormalTok{, }\ImportTok{from} \OperatorTok{=} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
+\NormalTok{               to }\OperatorTok{=} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
+\NormalTok{CLX }\OperatorTok{|\textgreater{}}
+\NormalTok{  ggplot(aes(x }\OperatorTok{=}\NormalTok{ date, y }\OperatorTok{=}\NormalTok{ close, }\BuiltInTok{open} \OperatorTok{=} \BuiltInTok{open}\NormalTok{,}
+\NormalTok{              high }\OperatorTok{=}\NormalTok{ high, low }\OperatorTok{=}\NormalTok{ low, close }\OperatorTok{=}\NormalTok{ close)) }\OperatorTok{+}
+\NormalTok{    geom\_line() }\OperatorTok{+}
+\NormalTok{    geom\_bbands(ma\_fun }\OperatorTok{=}\NormalTok{ SMA, sd }\OperatorTok{=} \DecValTok{2}\NormalTok{, n }\OperatorTok{=} \DecValTok{25}\NormalTok{,}
+\NormalTok{                linetype }\OperatorTok{=} \DecValTok{2}\NormalTok{, size }\OperatorTok{=} \FloatTok{0.5}\NormalTok{, alpha }\OperatorTok{=} \FloatTok{0.2}\NormalTok{,}
+\NormalTok{                fill        }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{1}\NormalTok{]],}
+\NormalTok{                color\_bands }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{1}\NormalTok{]],}
+\NormalTok{                color\_ma    }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{2}\NormalTok{]]) }\OperatorTok{+}
+\NormalTok{    labs(y }\OperatorTok{=} \StringTok{"Closing Price"}\NormalTok{, x }\OperatorTok{=} \StringTok{""}\NormalTok{) }\OperatorTok{+}
+\NormalTok{    theme\_tq()}
+\end{Highlighting}
+\end{Shaded}
+
 \pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-4-output-2.png}}
 
-As we can see, the volatility shouldn't be that great in the near
-future. Since technical analysis is best-suited for short-term trading,
-near future is all we can advise or client on based on such analysis.
+And finally let's look at such charts for major competitors to get the
+feel of the market.
 
-\paragraph{\texorpdfstring{\textbf{1. R Code for Technical
-Charts}}{1. R Code for Technical Charts}}\label{r-code-for-technical-charts}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{library(tidyquant)}
+\NormalTok{library(ggplot2)}
+\NormalTok{library(dplyr)}
+\NormalTok{prices }\OperatorTok{\textless{}{-}}\NormalTok{ tq\_get(c(}\StringTok{"CLX"}\NormalTok{, }\StringTok{"CL"}\NormalTok{, }\StringTok{"PG"}\NormalTok{, }\StringTok{"CHD"}\NormalTok{), get }\OperatorTok{=} \StringTok{"stock.prices"}\NormalTok{, }\ImportTok{from} \OperatorTok{=} \StringTok{"2024{-}01{-}01"}\NormalTok{, }
+\NormalTok{  to }\OperatorTok{=} \StringTok{"2025{-}02{-}01"}\NormalTok{)}
+\NormalTok{prices }\OperatorTok{|\textgreater{}}
+\NormalTok{  ggplot(aes(x }\OperatorTok{=}\NormalTok{ date, y }\OperatorTok{=}\NormalTok{ close, }\BuiltInTok{open} \OperatorTok{=} \BuiltInTok{open}\NormalTok{,}
+\NormalTok{              high }\OperatorTok{=}\NormalTok{ high, low }\OperatorTok{=}\NormalTok{ low, close }\OperatorTok{=}\NormalTok{ close)) }\OperatorTok{+}
+\NormalTok{    geom\_line() }\OperatorTok{+}
+\NormalTok{    geom\_bbands(ma\_fun }\OperatorTok{=}\NormalTok{ SMA, sd }\OperatorTok{=} \DecValTok{2}\NormalTok{, n }\OperatorTok{=} \DecValTok{25}\NormalTok{,}
+\NormalTok{                linetype }\OperatorTok{=} \DecValTok{2}\NormalTok{, size }\OperatorTok{=} \FloatTok{0.5}\NormalTok{, alpha }\OperatorTok{=} \FloatTok{0.2}\NormalTok{,}
+\NormalTok{                fill        }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{1}\NormalTok{]],}
+\NormalTok{                color\_bands }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{1}\NormalTok{]],}
+\NormalTok{                color\_ma    }\OperatorTok{=}\NormalTok{ palette\_light()[[}\DecValTok{2}\NormalTok{]]) }\OperatorTok{+}
+\NormalTok{    facet\_wrap(}\OperatorTok{\textasciitilde{}}\NormalTok{ symbol, ncol }\OperatorTok{=} \DecValTok{2}\NormalTok{, scales }\OperatorTok{=} \StringTok{"free\_y"}\NormalTok{) }\OperatorTok{+}
+\NormalTok{    theme\_tq()}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{verbatim}
-[1] "CLX"
-\end{verbatim}
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-2.png}}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-3.png}}
+As we can see, the volatility of the stock prices shouldn't be that
+great in the near future. Since technical analysis is best-suited for
+short-term trading, near future is all we can advise or client on based
+on such analysis.
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-4.png}}
+\subsubsection{Conclusion}\label{conclusion-3}
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-5.png}}
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-6.png}}
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-7.png}}
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-8.png}}
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-9.png}}
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-10.png}}
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-11.png}}
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-12.png}}
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-technical-cell-5-output-13.png}}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{2. Key Technical Indicators \&
-Interpretation}}{2. Key Technical Indicators \& Interpretation}}\label{key-technical-indicators-interpretation}
-
-\textbf{a. Price Trends \& Moving Averages}\\
-- \textbf{Golden/Death Cross}: The 50-day SMA (blue) crossing
-above/below the 200-day SMA (red) signals bullish/bearish trends.\\
-- \textbf{Current Status} (as of 2025-02-13): CLX's SMA(50) = \$144.21,
-SMA(200) = \$138.50 → \textbf{bullish crossover} (recovery from 2024
-cyberattack dip).
-
-\textbf{b. Momentum \& Oscillators}\\
-- \textbf{RSI (14-day)}: Currently at 62 (neutral). Overbought
-(\textgreater70) in Q4 2024 during recovery rally.\\
-- \textbf{MACD}: Histogram turning positive in 2025, signaling bullish
-momentum.
-
-\textbf{c.~Volume \& OBV}\\
-- \textbf{On-Balance Volume (OBV)}: Rising with price recovery,
-confirming bullish volume-pressure.
-
-\textbf{d.~Support/Resistance}\\
-- \textbf{Support}: \$130 (2023 low)\\
-- \textbf{Resistance}: \$155 (pre-cyberattack 2023 high).
-
-\textbf{e. Bollinger Bands}\\
-- Price near upper band (\$152) → short-term overbought.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{3. Technical
-Insights}}{3. Technical Insights}}\label{technical-insights}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Trend Strength}: ADX = 28 (moderate uptrend).\\
-\item
-  \textbf{Breakout Potential}: Price approaching \$155 resistance; a
-  breakout could target \$170.\\
-\item
-  \textbf{Divergence Risk}: RSI divergence in late 2024 signaled
-  temporary pullback.\\
-\item
-  \textbf{Volume Confirmation}: Rising OBV supports bullish bias.
-\end{enumerate}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{4.
-Summary}}{4. Summary}}\label{summary}
-
-Clorox's technicals suggest a \textbf{bullish recovery phase}
-post-cyberattack, with momentum (MACD) and volume (OBV) aligning with
-price action. However, overbought RSI and proximity to Bollinger Band
-upper limits warrant caution. Use the R code to update these metrics in
-real time. Adjust SMA periods (e.g., 20/50-day) for shorter-term
-analysis.
+We can use ``tidyquant'' R language package along with other packages
+for producing charts to perform basic technical analysis of stock price.
+The analysis predicts stable performance in the short term.
 
 \subsection{Company Performance
 2019-2024}\label{company-performance-2019-2024}
 
 \section{}\label{section-5}
 
-\subsubsection{The Clorox Company (CLX) Performance and Operations
-Analysis
-(2019--2024)}\label{the-clorox-company-clx-performance-and-operations-analysis-20192024}
+\begin{quote}
+\textbf{Note}
 
-\paragraph{\texorpdfstring{\textbf{1. Financial Performance
-Overview}}{1. Financial Performance Overview}}\label{financial-performance-overview}
+In this section we provide some historic data and rudimentary analysis
+of the company during the 2019-2024 period.
+\end{quote}
 
-\textbf{Revenue Trends}:\\
-- \textbf{2019--2024 Revenue}: Clorox's revenue grew from \$6.21B in
-2019 to \$7.09B in FY2024 (June year-end), with volatility driven by
-macroeconomic challenges and a 2023 cyberattack. Key highlights:\\
-- \textbf{2021 Peak}: Revenue reached \$7.34B (+9.2\% YoY) due to
-pandemic-driven demand for cleaning products .\\
-- \textbf{Post-Cyberattack Decline}: FY2024 revenue fell 4\% YoY to
-\$7.09B, primarily due to supply chain disruptions and volume losses .\\
-- \textbf{Q4 2024 Recovery}: Quarterly revenue rebounded to \$1.76B in
-Q3 2024 (+27.1\% YoY), signaling recovery efforts .
+\subsubsection{Historical Analysis of the
+Company}\label{historical-analysis-of-the-company}
 
-\textbf{Profitability Metrics}:\\
-- \textbf{Gross Margin}: Improved from 35.8\% in FY2022 to 43.2\% in
-FY2024, driven by cost-saving initiatives and pricing strategies .\\
-- \textbf{Net Margin}: Declined from 13.97\% in FY2020 to 6.38\% in
-FY2024, reflecting cyberattack recovery costs and divestiture impacts
-.\\
-- \textbf{Operating Income}: Dropped from \$1.25B in FY2020 to \$921M in
-FY2024, impacted by higher SG\&A expenses and restructuring .
+As we've identified in the previous sections, major events for the
+company in this peroid included the adoption of IGNITE strategy and
+recent cyberattack. Another major event was, of course, the global
+pandemic.
 
-\textbf{Key Ratios}:\\
-\textbar{} Metric \textbar{} FY2020 \textbar{} FY2024 \textbar{} Change
-\textbar{}\\
-\textbar----------------------\textbar--------------\textbar--------------\textbar--------------\textbar{}\\
-\textbar{} \textbf{ROE} \textbar{} 128.02\% \textbar{} 276.11\%
-\textbar{} +148.09\% \textbar{}\\
-\textbar{} \textbf{Debt-to-Equity} \textbar{} 3.45 \textbar{} 25.55
-\textbar{} +640\% \textbar{}\\
-\textbar{} \textbf{Current Ratio} \textbar{} 1.42 \textbar{} 0.94
-\textbar{} -34\% \textbar{}\\
-\textbar{} \textbf{Dividend Yield} \textbar{} 2.25\% \textbar{} 3.26\%
-\textbar{} +1.01\% \textbar{}\\
-\emph{Data sourced from financial statements and ratio analysis .}
+In terms of the corporation's life cycle, Clorox is definitely in the
+\textbf{Maturity} phase: it is relatively stable, resilient to shocks
+and demonstrates confidence during the recovery from such shocks.
+
+Getting historical data is very easy with R language - you just provide
+the time period you are interested in, and get it same as always.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{library(tidyquant)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-2019-2024-cell-2-output-2.png}}
+
+Fundamental analysis based on revenue data for the last five-year period
+can be found in the ``Fundamental Analysis'' section.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\paragraph{\texorpdfstring{\textbf{2. Strategic Initiatives and
-Operational
-Challenges}}{2. Strategic Initiatives and Operational Challenges}}\label{strategic-initiatives-and-operational-challenges}
+Sites like \url{https://stockanalysis.com} provide all kinds of historic
+data for the last five-year period in nice tables. All of it can be
+scraped - we'll scrape and reproduce some of it here.
 
-\textbf{Cyberattack Recovery}:\\
-- The August 2023 cyberattack caused a 20\% Q1 FY2024 sales decline, but
-Clorox restored \textasciitilde90\% market share by Q3 FY2024 through
-supply chain rebuilding and aggressive marketing .
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.2208}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1299}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Fiscal Year
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Current
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2024
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2023
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2022
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2021
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FY 2020
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Period Ending & Feb '25 Feb 14, 2025 & Jun '24 Jun 30, 2024 & Jun '23
+Jun 30, 2023 & Jun '22 Jun 30, 2022 & Jun '21 Jun 30, 2021 & Jun '20 Jun
+30, 2020 \\
+Market Capitalization & 18,222 & 16,948 & 19,661 & 17,352 & 22,376 &
+27,626 \\
+Market Cap Growth & 13.64\% & -13.80\% & 13.31\% & -22.45\% & -19.00\% &
+41.66\% \\
+Enterprise Value & 21,024 & 19,913 & 22,613 & 20,467 & 25,241 &
+30,412 \\
+Last Close Price & 147.92 & 133.25 & 150.09 & 128.86 & 159.95 &
+190.95 \\
+PE Ratio & 40.32 & 60.53 & 131.95 & 37.56 & 31.52 & 29.42 \\
+Forward PE & 20.81 & 21.90 & 29.44 & 28.13 & 25.00 & 30.85 \\
+PS Ratio & 2.56 & 2.39 & 2.66 & 2.44 & 3.05 & 4.11 \\
+PB Ratio & 166.14 & 34.45 & 50.67 & 23.80 & 37.80 & 30.43 \\
+\end{longtable}
 
-\textbf{Portfolio Optimization}:\\
-- \textbf{Divestitures}: Sold non-core businesses (Argentina in 2023,
-Better Health VMS in 2024) to focus on high-margin segments like
-cleaning and household products .\\
-- \textbf{Innovation}: Launched products like Clorox Toilet Bomb Cleaner
-and Glad ForceFlex Scented Trash Bags to drive brand relevance .
+CLX's Historical Financial Ratios, source: {``The {Clorox Market} Share
+Relative to Its Competitors, as of {Q4} 2024 - {CSIMarket}''} (n.d.)
 
-\textbf{Cost Management}:\\
-- Achieved \textbf{7 consecutive quarters of gross margin expansion} by
-FY2024, supported by \$100M annual savings from a streamlined operating
-model .\\
-- Reduced SG\&A expenses to 15--16\% of sales in FY2025 (vs.~17--18\%
-pre-2023) .
+\subsubsection{Conclusion}\label{conclusion-4}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{3. Liquidity and Solvency
-Risks}}{3. Liquidity and Solvency Risks}}\label{liquidity-and-solvency-risks}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Debt Surge}: Debt-to-equity ratio soared to 25.55 in FY2024
-  (vs.~industry median \textasciitilde1.0), driven by cyberattack
-  recovery costs and share buybacks .\\
-\item
-  \textbf{Liquidity Strain}: Current ratio fell to 0.94 (vs.~1.42 in
-  FY2020), with only \$278M cash on hand in FY2024 .\\
-\item
-  \textbf{Dividend Sustainability}: Payout ratio reached 133\% in
-  FY2024, raising concerns despite 48 consecutive years of dividend
-  growth .
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{4. Market Position and Competitive
-Landscape}}{4. Market Position and Competitive Landscape}}\label{market-position-and-competitive-landscape}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Market Share}: Clorox holds \textasciitilde2\% share in
-  cleaning products, trailing P\&G and Colgate-Palmolive .\\
-\item
-  \textbf{Valuation}:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{P/E Ratio}: 40.5 (FY2024), significantly higher than peers
-    (PG: 26.7, CL: 24.4) .\\
-  \item
-    \textbf{Price/Book}: 61.19, inflated due to low equity base (\$121M)
-    .
-  \end{itemize}
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{5. ESG and Long-Term
-Strategy}}{5. ESG and Long-Term Strategy}}\label{esg-and-long-term-strategy}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{IGNITE Strategy}: Focused on digital transformation,
-  consumer-centric innovation, and ESG goals (e.g., 100\% recyclable
-  packaging by 2025) .\\
-\item
-  \textbf{Awards}: Recognized as a ``Best Company to Work For'' and
-  leader in climate action .
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\paragraph{\texorpdfstring{\textbf{6. Outlook for
-FY2025}}{6. Outlook for FY2025}}\label{outlook-for-fy2025}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Revenue}: Projected flat to -2\% growth, with organic sales up
-  3--5\% post-divestitures .\\
-\item
-  \textbf{Margin Expansion}: Gross margin expected to rise 100 bps,
-  supported by cost-saving initiatives .\\
-\item
-  \textbf{EPS Guidance}: Adjusted EPS of \$6.55--\$6.80 (+6--10\% YoY) .
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsubsection{\texorpdfstring{\textbf{Key
-Takeaways}}{Key Takeaways}}\label{key-takeaways}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Resilience Amid Disruption}: Clorox recovered from the
-  cyberattack but faces lingering debt and liquidity risks .\\
-\item
-  \textbf{Strategic Refocus}: Divestitures and innovation aim to
-  stabilize margins and drive growth in core categories .\\
-\item
-  \textbf{High Valuation Concerns}: Elevated P/E and P/B ratios suggest
-  market optimism but warrant caution given leverage .
-\end{enumerate}
-
-For detailed financials, refer to Clorox's
-\href{https://investors.thecloroxcompany.com/financial-reporting/annual-reports/default.aspx}{FY2024
-Annual Report} .
+We can use publicly available data, as well as the R language to get
+historical financial data and ratios. The analysis shows strong
+performance during the last five-year period.
 
 \subsection{Forecasting}\label{forecasting}
 
 \section{}\label{section-6}
 
-\begin{itemize}
-\tightlist
-\item
-  What risks does it list on 10-k? Summarize.
-\end{itemize}
+\begin{quote}
+\textbf{Note}
+
+In this section we use ARIMA model to provide a long-term forecast of
+the company stock price.
+\end{quote}
+
+\subsubsection{\texorpdfstring{\textbf{Long-Term Financial Forecast for
+the Company Using ARIMA
+Model}}{Long-Term Financial Forecast for the Company Using ARIMA Model}}\label{long-term-financial-forecast-for-the-company-using-arima-model}
+
+Long-term financial forecasting, like all social forecasting, is an
+incredibly fraught undertaking due to many different reasons (see, for
+example, {[}Cerqueira (2022){]} and {[}{``Forecasting and Predictive
+Analytics: {A} Critical Look at the Basic Building Blocks of a
+Predictive Model''} (n.d.){]}). Luckily, many tools are available for us
+to experiment with.
+
+We've already done some simple short-term forecasting in our ``Technical
+Analysis'' section using \textbf{SMA} and \textbf{Bollinger Bands}.
+We've also accessed volatility by calculating \textbf{Beta} value and
+estimated risk/return using \textbf{Annualized Sharpe Ratio}, which
+might help us in medium-term forecasting. Now we will try using advanced
+\textbf{ARIMA} (Auto-Regressive Integrated Moving Averages) to predict
+stock prices for the next 6 months and for the next year.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{library(tidyquant)}
+\end{Highlighting}
+\end{Shaded}
 
 \pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-forecasting-cell-2-output-2.png}}
 
-\subsection{Summary}\label{summary-1}
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-forecasting-cell-2-output-3.png}}
+
+We can see the band for the future time periods representing possible
+price ranges and 2 confidence levels.
+
+\subsubsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion-5}
+
+We can use advanced forecasting models (such as ARIMA) available in the
+R language to predict the stock price. The analysis shows a wide range
+of possible future prices, albeit without major ups or downs.
+
+\subsection{Summary}\label{summary}
 
 \section{}\label{section-7}
 
+\subsubsection{\texorpdfstring{\textbf{Analysis Summary and Letter
+Grade}}{Analysis Summary and Letter Grade}}\label{analysis-summary-and-letter-grade}
+
+Our analysis shows mature company with stable management, good branding,
+strong fundamentals and good estimated prospects. We give the letter
+grade \textbf{B} for the company and recommend including its stock in
+the investment portfolio. Of course, no one single stock should be
+recommended individually for investment, but portfolio management is out
+of scope for this document.
+
+\subsubsection{\texorpdfstring{\textbf{Advice for the
+Fiduciary}}{Advice for the Fiduciary}}\label{advice-for-the-fiduciary}
+
+This document provides the fiduciary with basic tools for the
+quantitative analysis of individual corporations. These tools are indeed
+\textbf{basic} and should only be viewed as a starting point for serious
+analysis. There are many great ways to learn more about finance and
+investment. We would recommend to look at the following sources (which
+we ourselves used to prepare this document) to learn more:
+{[}{``Quantitative Finance with {R}''} (n.d.){]}, {[}Wahlen, Baginski,
+and Bradshaw (2022){]}, {[}\emph{Forecasting: {Principles} and
+{Practice} (2nd Ed)} (n.d.){]}, {[}{``R for {Data Science} (2e)''}
+(n.d.){]}, {[}{``Tidy {Quantitative Financial Analysis}''} (n.d.){]},
+{[}{``Investopedia''} (n.d.){]}.
+
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-cerqueira8ReasonsWhy2022}
+Cerqueira, Vitor. 2022. {``8 {Reasons Why Forecasting Is Hard}.''}
+\emph{Towards Data Science}.
+https://towardsdatascience.com/8-reasons-why-forecasting-is-hard-481755a05325/.
+
 \bibitem[\citeproctext]{ref-danchoTidyquantTidyQuantitative2025}
 Dancho, Matt, and Davis Vaughan. 2025. {``Tidyquant: {Tidy Quantitative
 Financial Analysis}.''}
@@ -1051,22 +952,49 @@ Financial Analysis}.''}
 {``Financial Modeling with {R}.''} n.d.
 https://mlozanoqf.github.io/tutorial\_pmf/. Accessed February 14, 2025.
 
+\bibitem[\citeproctext]{ref-ForecastingPredictiveAnalytics}
+{``Forecasting and Predictive Analytics: {A} Critical Look at the Basic
+Building Blocks of a Predictive Model.''} n.d. \emph{Brookings}.
+https://www.brookings.edu/articles/forecasting-and-predictive-analytics-a-critical-look-at-the-basic-building-blocks-of-a-predictive-model/.
+Accessed February 15, 2025.
+
+\bibitem[\citeproctext]{ref-ForecastingPrinciplesPractice}
+\emph{Forecasting: {Principles} and {Practice} (2nd Ed)}. n.d. Accessed
+February 15, 2025.
+
 \bibitem[\citeproctext]{ref-IGNITEStrategy}
 {``{IGNITE Strategy}.''} n.d. \emph{The Clorox Company}. Accessed
 February 14, 2025.
+
+\bibitem[\citeproctext]{ref-Investopedia}
+{``Investopedia.''} n.d. \emph{Investopedia}.
+https://www.investopedia.com/. Accessed February 15, 2025.
 
 \bibitem[\citeproctext]{ref-mascellinoCloroxOperationsDisrupted2023}
 Mascellino, Alessandro. 2023. {``Clorox {Operations Disrupted By
 Cyber-Attack}.''} \emph{Infosecurity Magazine}.
 https://www.infosecurity-magazine.com/news/clorox-disrupted-cyber-attack/.
 
+\bibitem[\citeproctext]{ref-PerformanceAnalysisTidyquant}
+{``Performance {Analysis} with Tidyquant.''} n.d.
+https://business-science.github.io/tidyquant/articles/TQ05-performance-analysis-with-tidyquant.html.
+Accessed February 14, 2025.
+
 \bibitem[\citeproctext]{ref-PurposeValues}
 {``Purpose \& {Values}.''} n.d. \emph{The Clorox Company}. Accessed
 February 14, 2025.
 
+\bibitem[\citeproctext]{ref-QuantitativeFinancea}
+{``Quantitative Finance with {R}.''} n.d. https://mlozanoqf.github.io/.
+Accessed February 15, 2025.
+
 \bibitem[\citeproctext]{ref-Quarto}
 {``Quarto.''} n.d. \emph{Quarto}. https://quarto.org/. Accessed February
 14, 2025.
+
+\bibitem[\citeproctext]{ref-DataScience2e}
+{``R for {Data Science} (2e).''} n.d. https://r4ds.hadley.nz/. Accessed
+February 11, 2025.
 
 \bibitem[\citeproctext]{ref-ProjectStatisticalComputing}
 {``R: {The R Project} for {Statistical Computing}.''} n.d.
@@ -1075,11 +1003,6 @@ https://www.r-project.org/. Accessed February 14, 2025.
 \bibitem[\citeproctext]{ref-Recognitions}
 {``Recognitions.''} n.d. \emph{The Clorox Company}. Accessed February
 14, 2025.
-
-\bibitem[\citeproctext]{ref-regensteinVisualizationSectorTrends2020}
-Regenstein, Jonathan. 2020. {``Visualization {Sector Trends} with {R
-Code}.''} \emph{Alpha Architect}.
-https://alphaarchitect.com/2020/01/visualization-sector-trends-with-r-code/.
 
 \bibitem[\citeproctext]{ref-Responsibility}
 {``Responsibility.''} n.d. \emph{The Clorox Company}. Accessed February
@@ -1107,6 +1030,16 @@ https://pitchgrade.com/companies/the-clorox-company. Accessed February
 2024 - {CSIMarket}.''} n.d.
 https://csimarket.com/stocks/competitionSEG2.php?code=CLX. Accessed
 February 14, 2025.
+
+\bibitem[\citeproctext]{ref-TidyQuantitativeFinancial}
+{``Tidy {Quantitative Financial Analysis}.''} n.d.
+https://business-science.github.io/tidyquant/. Accessed February 13,
+2025.
+
+\bibitem[\citeproctext]{ref-wahlenFinancialReportingFinancial2022}
+Wahlen, James M., Stephen P. Baginski, and Mark Bradshaw. 2022.
+\emph{Financial Reporting, Financial Statement Analysis, and Valuation:
+A Strategic Perspective}. 10. ed. Boston, MA: Cengage.
 
 \end{CSLReferences}
 

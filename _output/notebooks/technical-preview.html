@@ -178,11 +178,17 @@
 
      <div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link active" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">    <!--
+<main class="content quarto-banner-title-block column-page-right" id="quarto-document-content">      <!--
 See "technical overview example" in notes. 
 Use The Relative Strength Index (RSI).
 Overbought/oversold analysis. 
@@ -191,19 +197,21 @@ Return for ETF vs return for stock over time.
 Stock correlation calculator?
 Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-analysis.
 -->
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Technical analysis in this section follows the wonderful tutorial provided here: <span class="citation" data-cites="FinancialModelingb">[@FinancialModelingb]</span></p>
 </div>
 </div>
+<section id="basic-technical-analysis-of-the-clorox-company" class="level4">
+<h4 class="anchored" data-anchor-id="basic-technical-analysis-of-the-clorox-company"><strong>Basic Technical Analysis of the Clorox Company</strong></h4>
 <p>We’ll start with providing a simple plot of stock price movement.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -401,6 +409,11 @@ The following aesthetics were dropped during statistical transformation: open.
 </div>
 </div></div>
 <p>As we can see, the volatility of the stock prices shouldn’t be that great in the near future. Since technical analysis is best-suited for short-term trading, near future is all we can advise or client on based on such analysis.</p>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>We can use “tidyquant” R language package along with other packages for producing charts to perform basic technical analysis of stock price. The analysis predicts stable performance in the short term.</p>
+</section>
      </main>
 <!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -4,16 +4,20 @@ Describe the cybersecurity incident, values, brands.
 Cite a few articles + analysts average.
 -->
 
-#### **1. Company Purpose and Responsibility**
+::: {.callout-note} 
+In this section we collect and cite a variety of publicly available sources to perform an analysis of the company personality. We use use DeepSeek LLM with Web Search functionality to collect and analyze these sources.
+:::
 
-##### **1. Company Purpose**
+#### **Company Purpose and Responsibility**
 
-Clorox’s stated purpose is to "champion people to be well and thrive every single day" @PurposeValues. As a health and wellness company, Clorox aims to make a meaningful and positive impact on the world by improving the health and safety of employees, consumers, and communities. All of this is reflected in their family-friendly and inclusive branding.
+##### **Company Purpose**
+
+Clorox’s stated purpose is to "champion people to be well and thrive every single day" [@PurposeValues]. As a health and wellness company, Clorox aims to make a meaningful and positive impact on the world by improving the health and safety of employees, consumers, and communities. All of this is reflected in their family-friendly and inclusive branding.
 
 
-##### **2. Responsibility Policies**  
+##### **Responsibility Policies**  
 
-Clorox integrates environmental, social, and governance (ESG) goals into its core business strategy @Responsibility. Key areas of focus include:  
+Clorox integrates environmental, social, and governance (ESG) goals into its core business strategy [@Responsibility]. Key areas of focus include:  
 
 - **Healthy Lives**: Promoting employee well-being, product stewardship, and transparency in ingredients.  
 - **Clean World**: Reducing greenhouse gas emissions, plastic waste, and transitioning to 100% renewable energy in U.S. and Canada operations.  
@@ -21,9 +25,9 @@ Clorox integrates environmental, social, and governance (ESG) goals into its cor
 
 Clorox has set ambitious targets, such as achieving net-zero emissions by 2050.   
 
-##### **3. IGNITE Strategy**  
+##### **IGNITE Strategy**  
 
-The IGNITE strategy is Clorox’s long-term plan to drive what the company calls a "purpose-driven growth" @IGNITEStrategy by aligning financial goals with ESG priorities. Key pillars include:  
+The IGNITE strategy is Clorox’s long-term plan to drive what the company calls a "purpose-driven growth" [@IGNITEStrategy] by aligning financial goals with ESG priorities. Key pillars include:  
 
 - **Fuel Growth**: Leveraging technology and sustainability to generate cost savings and reinvest in brands.  
 - **Innovate Experiences**: Building purpose-driven brands and enhancing consumer experiences through personalized and sustainable products.  
@@ -32,7 +36,7 @@ The IGNITE strategy is Clorox’s long-term plan to drive what the company calls
 
 The strategy also includes specific financial targets, such as 2-4% net sales growth and 11-13% free cash flow generation.
 
-#### **2. Key Executives, Their Commitment and Performance**
+#### **Key Executives, Their Commitment and Performance**
 
 | Name                     | Title                                                      | Pay    | Year Born |
 |--------------------------|------------------------------------------------------------|--------|-----------|
@@ -47,22 +51,26 @@ The strategy also includes specific financial targets, such as 2-4% net sales gr
 | Mr. Eric Sean Schwartz   | Senior VP & Chief Marketing Officer                        | --     | 1972      |
 | Mr. Erbie L. Foster Jr.  | Chief Diversity Officer                                    | --     | --        |
 
-: Key Executives, source: @CloroxCompanyCLX {.hover}
+: Key Executives, source: [@CloroxCompanyCLX] {.hover}
 
-According to @CloroxCompanyBusiness, CEO and Chairman Linda J. Rendle, as well as the other executives and board members have significant ownership stakes at the company, indicating high confidence in their business.
+According to [@CloroxCompanyBusiness], CEO and Chairman Linda J. Rendle, as well as the other executives and board members have significant ownership stakes at the company, indicating high confidence in their business.
 
-Financial analysis website Simply WallSt gives the upper management team at Clorox high marks on all 4 criteria: Compensation vs Market, Compensation vs Earnings, Experienced Management and Experienced Board @CloroxCompanyCLXa.
+Financial analysis website Simply WallSt gives the upper management team at Clorox high marks on all 4 criteria: Compensation vs Market, Compensation vs Earnings, Experienced Management and Experienced Board [@CloroxCompanyCLXa].
 
-#### **3. Company Brand and Reputation**
+#### **Company Brand and Reputation**
 
 Clorox is a globally recognized leader in the cleaning and consumer products industry, known for its trusted brands such as **Clorox Bleach**, **Pine-Sol**, **Hidden Valley**, **Brita**, and **Burt’s Bees**.
 
-The company has received numerous accolades, including being named one of **America’s Greenest Companies** by Newsweek, a **Safer Choice Partner of the Year** by the EPA, and a top performer in the **Human Rights Campaign Foundation’s Corporate Equality Index**. Its sustainable brands, such as **Brita**, **Burt’s Bees**, and **Green Works**, have gained significant consumer trust for their eco-friendly and socially responsible practices @Recognitions.
+The company has received numerous accolades, including being named one of **America’s Greenest Companies** by Newsweek, a **Safer Choice Partner of the Year** by the EPA, and a top performer in the **Human Rights Campaign Foundation’s Corporate Equality Index**. Its sustainable brands, such as **Brita**, **Burt’s Bees**, and **Green Works**, have gained significant consumer trust for their eco-friendly and socially responsible practices [@Recognitions].
 
 ---
 
-In August 2023, Clorox experienced a severe **cyberattack** @mascellinoCloroxOperationsDisrupted2023 that disrupted its IT systems and operations. The attack, which was detected on August 14, forced the company to take affected systems offline, leading to significant production delays and supply chain disruptions. Clorox activated its business continuity plans, reverting to manual processes for order fulfillment and customer communications.  
+In August 2023, Clorox experienced a severe **cyberattack** [@mascellinoCloroxOperationsDisrupted2023] that disrupted its IT systems and operations. The attack, which was detected on August 14, forced the company to take affected systems offline, leading to significant production delays and supply chain disruptions. Clorox activated its business continuity plans, reverting to manual processes for order fulfillment and customer communications.  
 
 The cyberattack had a material financial impact, with Clorox reporting a 23-28% decline in quarterly sales and a drop in its stock price by over 25% following the incident.
 
 Clorox’s response to the cyberattack highlighted its crisis management capabilities. The company maintained transparency by providing regular updates to stakeholders and implementing phased recovery plans to restore operations safely. Brand and reputation were not severely damaged in the process. 
+
+#### **Conclusion**
+
+We can use modern LLM chatbots to collect publicly available sources and perform analysis of the company personality. The analysis shows strong branding, good leadership and consistent performance.

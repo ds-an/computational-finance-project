@@ -1,73 +1,54 @@
-### The Clorox Company (CLX) Performance and Operations Analysis (2019–2024)  
+::: {.callout-note} 
+In this section we provide some historic data and rudimentary analysis of the company during the 2019-2024 period.
+:::
 
-#### **1. Financial Performance Overview**  
-**Revenue Trends**:  
-- **2019–2024 Revenue**: Clorox’s revenue grew from $6.21B in 2019 to $7.09B in FY2024 (June year-end), with volatility driven by macroeconomic challenges and a 2023 cyberattack. Key highlights:  
-  - **2021 Peak**: Revenue reached $7.34B (+9.2% YoY) due to pandemic-driven demand for cleaning products .  
-  - **Post-Cyberattack Decline**: FY2024 revenue fell 4% YoY to $7.09B, primarily due to supply chain disruptions and volume losses .  
-  - **Q4 2024 Recovery**: Quarterly revenue rebounded to $1.76B in Q3 2024 (+27.1% YoY), signaling recovery efforts .  
+### Historical Analysis of the Company 
 
-**Profitability Metrics**:  
-- **Gross Margin**: Improved from 35.8% in FY2022 to 43.2% in FY2024, driven by cost-saving initiatives and pricing strategies .  
-- **Net Margin**: Declined from 13.97% in FY2020 to 6.38% in FY2024, reflecting cyberattack recovery costs and divestiture impacts .  
-- **Operating Income**: Dropped from $1.25B in FY2020 to $921M in FY2024, impacted by higher SG&A expenses and restructuring .  
+As we've identified in the previous sections, major events for the company in this peroid included the adoption of IGNITE strategy and recent cyberattack. Another major event was, of course, the global pandemic.
 
-**Key Ratios**:  
-| Metric               | FY2020       | FY2024       | Change       |  
-|----------------------|--------------|--------------|--------------|  
-| **ROE**              | 128.02%      | 276.11%      | +148.09%     |  
-| **Debt-to-Equity**   | 3.45         | 25.55        | +640%        |  
-| **Current Ratio**    | 1.42         | 0.94         | -34%         |  
-| **Dividend Yield**   | 2.25%        | 3.26%        | +1.01%       |  
-*Data sourced from financial statements and ratio analysis .*  
+In terms of the corporation's life cycle, Clorox is definitely in the **Maturity** phase: it is relatively stable, resilient to shocks and demonstrates confidence during the recovery from such shocks. 
 
----
+Getting historical data is very easy with R language - you just provide the time period you are interested in, and get it same as always.
 
-#### **2. Strategic Initiatives and Operational Challenges**  
-**Cyberattack Recovery**:  
-- The August 2023 cyberattack caused a 20% Q1 FY2024 sales decline, but Clorox restored ~90% market share by Q3 FY2024 through supply chain rebuilding and aggressive marketing .  
+```{r} 
+#| echo: true
+library(tidyquant)
+library(ggplot2)
+library(dplyr)
 
-**Portfolio Optimization**:  
-- **Divestitures**: Sold non-core businesses (Argentina in 2023, Better Health VMS in 2024) to focus on high-margin segments like cleaning and household products .  
-- **Innovation**: Launched products like Clorox Toilet Bomb Cleaner and Glad ForceFlex Scented Trash Bags to drive brand relevance .  
+tickers <- c("CLX", "CL", "PG", "CHD", "KMB")
 
-**Cost Management**:  
-- Achieved **7 consecutive quarters of gross margin expansion** by FY2024, supported by $100M annual savings from a streamlined operating model .  
-- Reduced SG&A expenses to 15–16% of sales in FY2025 (vs. 17–18% pre-2023) .  
+prices <- tq_get(tickers,
+               from = "2019-01-01",
+               to = "2024-12-31",
+               get = "stock.prices")
+
+prices |>
+  ggplot(aes(x = date, y = adjusted, color = symbol)) +
+  geom_line() +
+  labs(subtitle = "Simple stock price comparison for the last 5 years against major competitors")
+```
+
+Fundamental analysis based on revenue data for the last five-year period can be found in the "Fundamental Analysis" section.
 
 ---
 
-#### **3. Liquidity and Solvency Risks**  
-- **Debt Surge**: Debt-to-equity ratio soared to 25.55 in FY2024 (vs. industry median ~1.0), driven by cyberattack recovery costs and share buybacks .  
-- **Liquidity Strain**: Current ratio fell to 0.94 (vs. 1.42 in FY2020), with only $278M cash on hand in FY2024 .  
-- **Dividend Sustainability**: Payout ratio reached 133% in FY2024, raising concerns despite 48 consecutive years of dividend growth .  
+Sites like [https://stockanalysis.com](https://stockanalysis.com) provide all kinds of historic data for the last five-year period in nice tables. All of it can be scraped - we'll scrape and reproduce some of it here.
 
----
+| Fiscal Year                             | Current              | FY 2024              | FY 2023              | FY 2022              | FY 2021              | FY 2020              |
+|-----------------------------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
+| Period Ending                           | Feb '25 Feb 14, 2025 | Jun '24 Jun 30, 2024 | Jun '23 Jun 30, 2023 | Jun '22 Jun 30, 2022 | Jun '21 Jun 30, 2021 | Jun '20 Jun 30, 2020 |
+| Market Capitalization                   | 18,222               | 16,948               | 19,661               | 17,352               | 22,376               | 27,626               |
+| Market Cap Growth                       | 13.64%               | -13.80%              | 13.31%               | -22.45%              | -19.00%              | 41.66%               |
+| Enterprise Value                        | 21,024               | 19,913               | 22,613               | 20,467               | 25,241               | 30,412               |
+| Last Close Price                        | 147.92               | 133.25               | 150.09               | 128.86               | 159.95               | 190.95               |
+| PE Ratio                                | 40.32                | 60.53                | 131.95               | 37.56                | 31.52                | 29.42                |
+| Forward PE                              | 20.81                | 21.90                | 29.44                | 28.13                | 25.00                | 30.85                |
+| PS Ratio                                | 2.56                 | 2.39                 | 2.66                 | 2.44                 | 3.05                 | 4.11                 |
+| PB Ratio                                | 166.14               | 34.45                | 50.67                | 23.80                | 37.80                | 30.43                |
 
-#### **4. Market Position and Competitive Landscape**  
-- **Market Share**: Clorox holds ~2% share in cleaning products, trailing P&G and Colgate-Palmolive .  
-- **Valuation**:  
-  - **P/E Ratio**: 40.5 (FY2024), significantly higher than peers (PG: 26.7, CL: 24.4) .  
-  - **Price/Book**: 61.19, inflated due to low equity base ($121M) .  
+: CLX's Historical Financial Ratios, source: @CloroxCompanyCLXc {.striped .hover}
 
----
+### Conclusion
 
-#### **5. ESG and Long-Term Strategy**  
-- **IGNITE Strategy**: Focused on digital transformation, consumer-centric innovation, and ESG goals (e.g., 100% recyclable packaging by 2025) .  
-- **Awards**: Recognized as a "Best Company to Work For" and leader in climate action .  
-
----
-
-#### **6. Outlook for FY2025**  
-- **Revenue**: Projected flat to -2% growth, with organic sales up 3–5% post-divestitures .  
-- **Margin Expansion**: Gross margin expected to rise 100 bps, supported by cost-saving initiatives .  
-- **EPS Guidance**: Adjusted EPS of $6.55–$6.80 (+6–10% YoY) .  
-
----
-
-### **Key Takeaways**  
-1. **Resilience Amid Disruption**: Clorox recovered from the cyberattack but faces lingering debt and liquidity risks .  
-2. **Strategic Refocus**: Divestitures and innovation aim to stabilize margins and drive growth in core categories .  
-3. **High Valuation Concerns**: Elevated P/E and P/B ratios suggest market optimism but warrant caution given leverage .  
-
-For detailed financials, refer to Clorox’s [FY2024 Annual Report](https://investors.thecloroxcompany.com/financial-reporting/annual-reports/default.aspx) .
+We can use publicly available data, as well as the R language to get historical financial data and ratios. The analysis shows strong performance during the last five-year period.

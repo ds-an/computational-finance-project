@@ -8,13 +8,16 @@ Stock correlation calculator?
 Maybe just copy from here: https://mlozanoqf.github.io/tutorial_pmf/#technical-analysis.
 -->
 
-::: {.callout-important}
+::: {.callout-note}
 Technical analysis in this section follows the wonderful tutorial provided here: [@FinancialModelingb]
 :::
+
+#### **Basic Technical Analysis of the Clorox Company**
 
 We'll start with providing a simple plot of stock price movement.
 
 ```{r} 
+#| echo: true
 library(tidyquant)
 library(ggplot2)
 library(dplyr)
@@ -30,6 +33,7 @@ CLX |>
 To identify basic trend in this movement, we then chart the **Simple Moving Average**.
 
 ```{r} 
+#| echo: true
 library(tidyquant)
 library(ggplot2)
 library(dplyr)
@@ -51,6 +55,7 @@ Let's demonstrate.
 
 
 ```{r} 
+#| echo: true
 library(tidyquant)
 library(ggplot2)
 library(dplyr)
@@ -72,6 +77,7 @@ CLX |>
 And finally let's look at such charts for major competitors to get the feel of the market.
 
 ```{r} 
+#| echo: true
 library(tidyquant)
 library(ggplot2)
 library(dplyr)
@@ -91,3 +97,7 @@ prices |>
 ```
 
 As we can see, the volatility of the stock prices shouldn't be that great in the near future. Since technical analysis is best-suited for short-term trading, near future is all we can advise or client on based on such analysis.
+
+### Conclusion
+
+We can use "tidyquant" R language package along with other packages for producing charts to perform basic technical analysis of stock price. The analysis predicts stable performance in the short term.

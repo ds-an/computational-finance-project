@@ -19,40 +19,6 @@
         margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
         vertical-align: middle;
       }
-      /* CSS for syntax highlighting */
-      pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { line-height: 1.25; }
-      pre > code.sourceCode > span:empty { height: 1.2em; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode > span { color: inherit; text-decoration: inherit; }
-      div.sourceCode { margin: 1em 0; }
-      pre.sourceCode { margin: 0; }
-      @media screen {
-      div.sourceCode { overflow: auto; }
-      }
-      @media print {
-      pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-      }
-      pre.numberSource code
-        { counter-reset: source-line 0; }
-      pre.numberSource code > span
-        { position: relative; left: -4em; counter-increment: source-line; }
-      pre.numberSource code > span > a:first-child::before
-        { content: counter(source-line);
-          position: relative; left: -1em; text-align: right; vertical-align: baseline;
-          border: none; display: inline-block;
-          -webkit-touch-callout: none; -webkit-user-select: none;
-          -khtml-user-select: none; -moz-user-select: none;
-          -ms-user-select: none; user-select: none;
-          padding: 0 4px; width: 4em;
-        }
-      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-      div.sourceCode
-        {   }
-      @media screen {
-      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-      }
     </style>
 
     <style>
@@ -156,9 +122,6 @@
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-bac1c56864119d97d87e9872e9e076ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
      <script async="" src="https://hypothes.is/embed.js"></script>
 <script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -193,89 +156,9 @@ On the simplified nature of analysis in this document.
 </div>
 <div class="callout-body-container callout-body">
 <p>Subject of financial analysis is very information-dense and to perform such an analysis (be it an analysis of industrial sectors, fundamental, technical, etc.) in earnest is a non-trivial job that we don’t see ourselves capable of performing.</p>
-<p>Therefore, this document aims to provide a simplified, non-rigorous analysis aiming to showcase our understanding of course material and minimal proficiency in scientific communication using tools such as DeepSeek LLM with Web Search functionality, R language <span class="citation" data-cites="ProjectStatisticalComputing">[@ProjectStatisticalComputing]</span>, its “tidyquant” package <span class="citation" data-cites="danchoTidyquantTidyQuantitative2025">[@danchoTidyquantTidyQuantitative2025]</span> and Quarto scientific publishing system <span class="citation" data-cites="Quarto">[@Quarto]</span>.</p>
+<p>Therefore, this document aims to provide a simplified, non-rigorous analysis aiming to showcase our understanding of course material and minimal proficiency in scientific communication using tools such as web scraping and searching for financial data, DeepSeek LLM with Web Search functionality, R language <span class="citation" data-cites="ProjectStatisticalComputing">[@ProjectStatisticalComputing]</span>, its “tidyquant” package <span class="citation" data-cites="danchoTidyquantTidyQuantitative2025">[@danchoTidyquantTidyQuantitative2025]</span> and Quarto scientific publishing system <span class="citation" data-cites="Quarto">[@Quarto]</span>.</p>
 </div>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="">
-<figure class="figure">
-<p class=""><a href="intro_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="intro_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
-</div></div>
-<p>We need better stuff though.</p>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: xts</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: zoo</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'zoo'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    as.Date, as.Date.numeric</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: TTR</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Registered S3 method overwritten by 'quantmod':
-  method            from
-  as.zoo.data.frame zoo </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">'CPALTT01USQ657N'</span>,<span class="at">src =</span> <span class="st">'FRED'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "CPALTT01USQ657N"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cpi.changes <span class="ot">&lt;-</span> CPALTT01USQ657N</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cpi.changes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           CPALTT01USQ657N
-1955-04-01       0.0000000
-1955-07-01       0.4993758
-1955-10-01       0.1242236
-1956-01-01      -0.2481390
-1956-04-01       0.8706468
-1956-07-01       1.2330456</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cpi.changes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     Index            CPALTT01USQ657N  
- Min.   :1955-04-01   Min.   :-2.8285  
- 1st Qu.:1972-06-08   1st Qu.: 0.3950  
- Median :1989-08-16   Median : 0.8018  
- Mean   :1989-08-16   Mean   : 0.8959  
- 3rd Qu.:2006-10-24   3rd Qu.: 1.1939  
- Max.   :2024-01-01   Max.   : 3.9508  </code></pre>
-</div>
-
-<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div class=""><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cpi.changes,<span class="at">main=</span><span class="st">'CPI'</span>,<span class="at">ylab=</span><span class="st">'%'</span>,<span class="at">xlab=</span><span class="st">'Time'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-planets" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-planets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Astronomical object
-</figcaption>
-<div aria-describedby="tbl-planets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
-<div class="cell-output-display">
-<div class="">
-<figure class="figure">
-<p class=""><a href="intro_files/figure-html/tbl-planets-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Astronomical object"><img src="intro_files/figure-html/tbl-planets-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
-</div>
-</figure>
-</div></div></div>
-</div></div>
-<p>Use this kind of macroeconomic analysis maybe?</p>
      </main>
 <!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -693,37 +576,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script> 
+</script>  </div> <!-- /content --> 
   
 </body></html>

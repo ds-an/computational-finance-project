@@ -161,7 +161,7 @@
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
-</script>   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script> 
+</script>  
       </head>
 
   <body class="quarto-notebook">
@@ -189,29 +189,24 @@ EBITDA
 P/B ratio
 EV = Mcap + Debt
 -->
-<hr>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>In this section we will take a look at quantitative fundamental analysis tools provided by the “tidyquant” R language package <span class="citation" data-cites="danchoTidyquantTidyQuantitative2025">[@danchoTidyquantTidyQuantitative2025]</span> and use them to get key financial ratios of fundamental analysis for the Clorox company. This section is based on the following wonderful tutorial: <span class="citation" data-cites="PerformanceAnalysisTidyquant">@PerformanceAnalysisTidyquant</span></p>
 </div>
 </div>
+<section id="basic-fundamental-analysis-of-the-clorox-company" class="level4">
+<h4 class="anchored" data-anchor-id="basic-fundamental-analysis-of-the-clorox-company"><strong>Basic Fundamental Analysis of the Clorox Company</strong></h4>
 <p>First let’s retrieve 5-year period returns from the prices adjusted for stock splits, both for Clorox and S&amp;P500 as the baseline. Next, we combine both datasets (Clorox and S&amp;P500 returns) using “left-join” on the “date” field. Using this dataset, we can retrieve all kind of fundamental metrics, such as <strong>Alpha</strong> (0.0008), <strong>Beta</strong> (0.414).</p>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="tbl-planet-measures" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-planet-measures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Astronomical object
-</figcaption>
-<div aria-describedby="tbl-planet-measures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -225,8 +220,7 @@ Astronomical object
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Registered S3 method overwritten by 'quantmod':
   method            from
@@ -245,41 +239,39 @@ Astronomical object
 ✖ quantmod::summary()            masks base::summary()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Ra <span class="ot">&lt;-</span> <span class="st">"CLX"</span> <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_get</span>(<span class="at">get  =</span> <span class="st">"stock.prices"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">from =</span> <span class="st">"2020-01-01"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">to   =</span> <span class="st">"2025-02-01"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(symbol) <span class="sc">|&gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_transmute</span>(<span class="at">select     =</span> adjusted, </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">mutate_fun =</span> periodReturn, </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">period     =</span> <span class="st">"monthly"</span>, </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col_rename =</span> <span class="st">"Ra"</span>)</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Ra <span class="ot">&lt;-</span> <span class="st">"CLX"</span> <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_get</span>(<span class="at">get  =</span> <span class="st">"stock.prices"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">from =</span> <span class="st">"2020-01-01"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">to   =</span> <span class="st">"2025-02-01"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(symbol) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_transmute</span>(<span class="at">select     =</span> adjusted, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">mutate_fun =</span> periodReturn, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">period     =</span> <span class="st">"monthly"</span>, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col_rename =</span> <span class="st">"Ra"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>Rb <span class="ot">&lt;-</span> <span class="st">"^GSPC"</span> <span class="sc">|&gt;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_get</span>(<span class="at">get  =</span> <span class="st">"stock.prices"</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">from =</span> <span class="st">"2020-01-01"</span>,</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">to   =</span> <span class="st">"2025-02-01"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_transmute</span>(<span class="at">select     =</span> adjusted, </span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                 <span class="at">mutate_fun =</span> periodReturn, </span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                 <span class="at">period     =</span> <span class="st">"monthly"</span>, </span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col_rename =</span> <span class="st">"Rb"</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>RaRb <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Ra, Rb, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date"</span> <span class="ot">=</span> <span class="st">"date"</span>))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Rb <span class="ot">&lt;-</span> <span class="st">"^GSPC"</span> <span class="sc">|&gt;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_get</span>(<span class="at">get  =</span> <span class="st">"stock.prices"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">from =</span> <span class="st">"2020-01-01"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">to   =</span> <span class="st">"2025-02-01"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_transmute</span>(<span class="at">select     =</span> adjusted, </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">mutate_fun =</span> periodReturn, </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                 <span class="at">period     =</span> <span class="st">"monthly"</span>, </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col_rename =</span> <span class="st">"Rb"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>RaRb <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Ra, Rb, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date"</span> <span class="ot">=</span> <span class="st">"date"</span>))</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>RaRb_capm <span class="ot">&lt;-</span> RaRb <span class="sc">%&gt;%</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_performance</span>(<span class="at">Ra =</span> Ra, </span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Rb =</span> Rb, </span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>                   <span class="at">performance_fun =</span> table.CAPM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>RaRb_capm <span class="ot">&lt;-</span> RaRb <span class="sc">%&gt;%</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tq_performance</span>(<span class="at">Ra =</span> Ra, </span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Rb =</span> Rb, </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                   <span class="at">performance_fun =</span> table.CAPM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Registered S3 method overwritten by 'robustbase':
   method          from     
   hatvalues.lmrob RobStatTM</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>RaRb_capm <span class="sc">%&gt;%</span> <span class="fu">select</span>(symbol, Alpha, Beta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>RaRb_capm <span class="sc">%&gt;%</span> <span class="fu">select</span>(symbol, Alpha, Beta) <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
 # Groups:   symbol [1]
@@ -287,8 +279,6 @@ Astronomical object
   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
 1 CLX    0.0008 0.414</code></pre>
 </div>
-</div>
-</figure>
 </div></div>
 <p>We can also get the <strong>Annualized Sharpe Ratio and Returns</strong>, <strong>Types of Mean Return (Geometric, Arithmetic, etc.)</strong>, <strong>Kurtosis</strong>, as well as <strong>Maximum and Median Return</strong> by following the similar steps (no need for the baseline this time).</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
@@ -306,7 +296,8 @@ Astronomical object
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col_rename =</span> <span class="st">"Ra"</span>)</span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>Ra <span class="sc">|&gt;</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_performance</span>(<span class="at">Ra =</span> Ra, <span class="at">Rb =</span> <span class="cn">NULL</span>, <span class="at">performance_fun =</span> table.AnnualizedReturns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_performance</span>(<span class="at">Ra =</span> Ra, <span class="at">Rb =</span> <span class="cn">NULL</span>, <span class="at">performance_fun =</span> table.AnnualizedReturns) <span class="sc">|&gt;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
 # Groups:   symbol [1]
@@ -315,7 +306,8 @@ Astronomical object
 1 CLX              0.0381                     0.153            0.249</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Ra <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_performance</span>(<span class="at">Ra =</span> Ra, <span class="at">Rb =</span> <span class="cn">NULL</span>, <span class="at">performance_fun =</span> table.Stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tq_performance</span>(<span class="at">Ra =</span> Ra, <span class="at">Rb =</span> <span class="cn">NULL</span>, <span class="at">performance_fun =</span> table.Stats) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 17
 # Groups:   symbol [1]
@@ -327,184 +319,10 @@ Astronomical object
 #   Stdev &lt;dbl&gt;, `UCLMean(0.95)` &lt;dbl&gt;, Variance &lt;dbl&gt;</code></pre>
 </div>
 </div></div>
-<!-- Put the values in the markdown tables, mention concepts of qualitative analysis -->
-<section id="i.-graham-number-calculation" class="level4">
-<h4 class="anchored" data-anchor-id="i.-graham-number-calculation"><strong>I. Graham Number Calculation</strong></h4>
-<p>The Graham Number estimates a stock’s intrinsic value using earnings per share (EPS) and book value per share (BVPS):<br>
-<strong>Formula</strong>:</p>
-<p><span class="math display">\[\text{Graham Number} = \sqrt{22.5 \times \text{EPS} \times \text{BVPS}}\]</span></p>
-<ul>
-<li><strong>EPS (TTM)</strong>: $3.67<br>
-</li>
-<li><strong>BVPS</strong>: $0.98 (Total Equity: $121M / Shares Outstanding: 123.19M)<br>
-</li>
-<li><strong>Calculation</strong>:<br>
-<span class="math display">\[\sqrt{22.5 \times 3.67 \times 0.98} = \sqrt{80.92} \approx \boxed{8.99}\]</span></li>
-<li><strong>Interpretation</strong>: CLX’s current stock price (~$149.61) far exceeds the Graham Number, indicating potential overvaluation based on traditional metrics .</li>
-</ul>
-<hr>
 </section>
-<section id="ii.-key-financial-ratios" class="level4">
-<h4 class="anchored" data-anchor-id="ii.-key-financial-ratios"><strong>II. Key Financial Ratios</strong></h4>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 32%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Category</strong></th>
-<th><strong>Ratio</strong></th>
-<th><strong>CLX Value</strong></th>
-<th><strong>Formula</strong></th>
-<th><strong>Interpretation</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Profitability</strong></td>
-<td>Gross Profit Margin</td>
-<td>44.51%</td>
-<td>(Revenue - COGS) / Revenue</td>
-<td>Stable gross margins despite cost inflation, supported by cost-saving initiatives .</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Operating Profit Margin</td>
-<td>14.32%</td>
-<td>Operating Income / Revenue</td>
-<td>Margin expansion driven by divestitures and operational recovery post-cyberattack .</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Net Profit Margin</td>
-<td>6.38%</td>
-<td>Net Income / Revenue</td>
-<td>Lower than peers (e.g., P&amp;G: ~18%), reflecting cyberattack recovery costs .</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Return on Assets (ROA)</td>
-<td>11.17%</td>
-<td>Net Income / Avg. Total Assets</td>
-<td>Efficient asset utilization, though impacted by divestitures .</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Return on Equity (ROE)</td>
-<td>276.11%</td>
-<td>Net Income / Avg. Shareholders’ Equity</td>
-<td>Artificially high due to low equity base ($121M) .</td>
-</tr>
-<tr class="even">
-<td><strong>Liquidity</strong></td>
-<td>Current Ratio</td>
-<td>0.94</td>
-<td>Current Assets / Current Liabilities</td>
-<td>Below industry norms (1.5–3.0), indicating liquidity strain .</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Quick Ratio</td>
-<td>0.52</td>
-<td>(Cash + Receivables) / Current Liabilities</td>
-<td>Limited near-term liquidity, with heavy reliance on receivables .</td>
-</tr>
-<tr class="even">
-<td><strong>Solvency</strong></td>
-<td>Debt-to-Equity Ratio</td>
-<td>25.55</td>
-<td>Total Liabilities / Shareholders’ Equity</td>
-<td>Extremely high leverage (vs.&nbsp;industry median ~1.0), raising solvency concerns .</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Debt-to-Assets Ratio</td>
-<td>98%</td>
-<td>Total Liabilities / Total Assets</td>
-<td>Nearly all assets financed by debt, increasing bankruptcy risk .</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Interest Coverage Ratio</td>
-<td>~11.7</td>
-<td>Operating Income / Interest Expense</td>
-<td>Strong coverage due to operational recovery, but debt levels remain risky.</td>
-</tr>
-<tr class="odd">
-<td><strong>Efficiency</strong></td>
-<td>Asset Turnover Ratio</td>
-<td>1.25</td>
-<td>Revenue / Avg. Total Assets</td>
-<td>Efficient asset use, though lower than pre-cyberattack levels .</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Inventory Turnover Ratio</td>
-<td>6.38</td>
-<td>COGS / Avg. Inventory</td>
-<td>Healthy turnover, but down from 7.57 in 2020 .</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Receivables Turnover Ratio</td>
-<td>~11.05</td>
-<td>Revenue / Avg. Accounts Receivable</td>
-<td>Faster collections than industry median (~30 days) .</td>
-</tr>
-<tr class="even">
-<td><strong>Valuation</strong></td>
-<td>P/E Ratio</td>
-<td>40.50</td>
-<td>Price per Share / EPS</td>
-<td>High vs.&nbsp;peers (PG: 26.66, CL: 24.39), reflecting recovery optimism .</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>P/B Ratio</td>
-<td>61.19</td>
-<td>Price per Share / Book Value per Share</td>
-<td>Extremely high, driven by low equity base and market premium .</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>P/S Ratio</td>
-<td>2.59</td>
-<td>Price per Share / Revenue per Share</td>
-<td>Aligns with sector norms (Consumer Staples avg: ~2.5–3.0) .</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Dividend Yield</td>
-<td>3.26%</td>
-<td>Annual Dividend / Price per Share</td>
-<td>Attractive yield, supported by 48-year dividend growth streak .</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="iii.-key-insights" class="level4">
-<h4 class="anchored" data-anchor-id="iii.-key-insights"><strong>III. Key Insights</strong></h4>
-<ol type="1">
-<li><strong>Profitability</strong>: Margins are recovering post-cyberattack, but net margins lag competitors. Gross margin improved to 43.8% in Q2 FY25, with cost savings offsetting inflation .<br>
-</li>
-<li><strong>Liquidity Risks</strong>: Low current (0.94) and quick (0.52) ratios highlight liquidity challenges, though improved cash flow ($401M YTD) provides relief .<br>
-</li>
-<li><strong>Debt Concerns</strong>: Debt-to-equity (25.55) and debt-to-assets (98%) ratios signal high leverage, though interest coverage (11.7x) remains manageable .<br>
-</li>
-<li><strong>Valuation</strong>: Elevated P/E (40.5) and P/B (61.19) suggest market optimism about Clorox’s recovery, but Graham Number ($8.99) implies overvaluation .<br>
-</li>
-<li><strong>Dividend Strength</strong>: A 3.26% yield with consistent growth underscores Clorox’s defensive appeal, despite a high payout ratio (133%) .</li>
-</ol>
-<hr>
-</section>
-<section id="iv.-conclusion" class="level4">
-<h4 class="anchored" data-anchor-id="iv.-conclusion"><strong>IV. Conclusion</strong></h4>
-<p>Clorox’s fundamentals reflect a company in recovery, balancing strong brand equity and dividend reliability with significant debt and valuation risks. While operational improvements (e.g., margin expansion, ERP transition) are promising, the stock’s premium pricing and leverage warrant caution. Investors should monitor debt reduction and margin sustainability in 2025 .</p>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion"><strong>Conclusion</strong></h4>
+<p>We can use the “tidyquant” R language package to perform fundamental analysis of the company and obtain all of the key financial ratios for such analysis. The analysis shows a company in recovery with strong fundamentals.</p>
 </section>
      </main>
 <!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
